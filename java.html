@@ -1,0 +1,57 @@
+
+<style>
+    body {
+        background-color: #0b07f5;
+    }
+</style>
+ <a href="blcktut.html" style="position:fixed;top:10px;right:10px;padding:10px;border-radius:25px;background-color:#f1c40f;text-decoration:none;">Tutorial</a>
+
+<h1>              ................................................................ Javascript hacks/toys................................................... </h1>
+
+
+<h1>              ........................................................................ Ponies................................................................... </h1>
+<p>javascript:(function (srcs,cfg) { var cbcount = 1; var callback = function () { -- cbcount; if (cbcount === 0) { BrowserPonies.setBaseUrl(cfg.baseurl); if (!BrowserPoniesBaseConfig.loaded) { BrowserPonies.loadConfig(BrowserPoniesBaseConfig); BrowserPoniesBaseConfig.loaded = true; } BrowserPonies.loadConfig(cfg); if (!BrowserPonies.running()) BrowserPonies.start(); } }; if (typeof(BrowserPoniesConfig) === "undefined") { window.BrowserPoniesConfig = {}; } if (typeof(BrowserPoniesBaseConfig) === "undefined") { ++ cbcount; BrowserPoniesConfig.onbasecfg = callback; } if (typeof(BrowserPonies) === "undefined") { ++ cbcount; BrowserPoniesConfig.oninit = callback; } var node = (document.body || document.documentElement || document.getElementsByTagName('head')[0]); for (var id in srcs) { if (document.getElementById(id)) continue; if (node) { var s = document.createElement('script'); s.type = 'text/javascript'; s.id = id; s.src = srcs[id]; node.appendChild(s); } else { document.write('\u003cscript type="text/javscript" src="'+ srcs[id]+'" id="'+id+'"\u003e\u003c/script\u003e'); } } callback();})({"browser-ponies-script":"https://panzi.github.io/Browser-Ponies/browserponies.js","browser-ponies-config":"https://panzi.github.io/Browser-Ponies/basecfg.js"},{"baseurl":"https://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":25,"speed":3,"audioEnabled":false,"showFps":false,"showLoadProgress":true,"speakProbability":0.1,"spawn":{"applejack":1,"fluttershy":1,"pinkie pie":1,"rainbow dash":1,"rarity":1,"twilight sparkle":1}});void(0)</p>
+<h1>              ........................................................................ Spining cursor................................................................... </h1>
+<p>javascript:iV33MaET=0;Cu4Xg8Y=new Array('n-resize','nw-resize','w-resize','sw-resize','s-resize','se-resize','e-resize','ne-resize');setInterval('iV33MaET++;document.body.style.cursor=Cu4Xg8Y[iV33MaET%8]',150)</p>
+<h1>              ........................................................................Edit anything................................................................... </h1>
+<p>javascript:document.body.contentEditable = 'true'; document.designMode='on'; void 0</p>
+
+<h1>              ........................................................................Flip images................................................................... </h1>
+<p>javascript:(function(){['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function(prefix){Array.prototype.slice.call(document.querySelectorAll('img')).map(function(el){el.style[prefix + 'transform'] = 'rotate(180deg)';});});}())</p>
+<h1>              ........................................................................Invisible search................................................................... </h1>
+<p>javascript:let urlQueue=[],backButton=document.createElement("button");backButton.style.width="25px",backButton.innerHTML="<";let urlBox=document.createElement("input");urlBox.type="text",urlBox.style.width="480px";let goButton1=document.createElement("button");goButton1.innerHTML="Load Page by iFrame";let goButton2=document.createElement("button");goButton2.innerHTML="Load Page by Proxy";let ytButton=document.createElement("button");ytButton.innerHTML="Load YouTube";let iframe=document.createElement("iframe");iframe.src="https://www.bing.com",iframe.width=window.innerWidth,iframe.height=window.innerHeight,goButton1.addEventListener("click",(()=>{0!=urlBox.value.length&&urlBox.value.startsWith("http")&&(iframe.src=urlBox.value.toLowerCase(),urlQueue.push(urlBox.value.toLowerCase()))})),goButton2.addEventListener("click",(()=>{iframe.src="https://www.proxysite.com",urlQueue.push("https://www.proxysite.com")})),ytButton.addEventListener("click",(()=>{iframe.src="https://piped.kavin.rocks/",urlQueue.push("https://piped.kavin.rocks/")})),backButton.addEventListener("click",(()=>{urlQueue.length>1&&(urlQueue.pop(),iframe.src=urlQueue.at(-1))})),document.body.appendChild(backButton),document.body.appendChild(urlBox),document.body.appendChild(goButton1),document.body.appendChild(goButton2),document.body.appendChild(ytButton),document.body.appendChild(iframe);</p>
+<h1>              ........................................................................Get all blooks................................................................... </h1>
+<p>javascript:const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode%20?%20r%20:%20react(r.querySelector(%22:scope%3Ediv%22))%20})())[1].children[0]._owner;%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20blooks%20=%20webpackJsonp.push([[],%20{%20[%271234%27]:%20(_,%20a,%20b)%20=%3E%20{%20a.webpack%20=%20b%20}%20},%20[[%271234%27]]]).webpack(%22MDrD%22).a;%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20(location.pathname%20==%20%22/blooks%22)%20stateNode.setState({%20blookData:%20Object.keys(blooks).reduce((a,%20b)%20=%3E%20(a[b]%20=%20(stateNode.state.blookData[b]%20||%201),%20a),%20{}),%20allSets:%20Object.values(blooks).reduce((a,%20b)%20=%3E%20(a.includes(b.set)%20?%20a%20:%20a.concat(b.set)),%20[])%20});%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%20if%20(Array.isArray(stateNode.state.unlocks))%20stateNode.setState({%20unlocks:%20Object.keys(blooks)%20});%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20else%20stateNode.setState({%20unlocks:%20blooks%20});</p>
+
+<a href="blckterm.html" class="btn">Blooket hacks(full realese )</a>
+<style>
+    .btn {
+        border-radius: 25px;
+        padding: 10px 20px;
+        background-color:red;
+        color:white;
+        text-decoration:none;
+        
+    }
+</style>
+
+<script>
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "k") {
+      window.open("https://classroom.google.com/?pli=1");
+    }
+  });
+</script>
+
+
+<style>
+    p {
+        color: white;
+    }
+</style>
+<style>
+    h1 {
+        color: white;
+    }
+</style>
+<title>Bookmarklets</title>
