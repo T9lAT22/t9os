@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="icon" href="https://t9lat9.netfy.blog/favicon2.ico" type="image/x-icon">
+    
+<style>
+  .round-btn {
+    border-radius: 12px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+  }
+    .button:hover {
+  background-color: #3c68fa;
+  }
+</style>
+
+
+<script>
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "k") {
+      window.open("https://classroom.google.com/?pli=1");
+    }
+  });
+</script>
+
+
+ 
+
+<style>
+    .term {
+        position: fixed;
+     bottom: 0;
+     position: fixed;
+     left: 0;
+
+        
+    }
+</style>
+<style>
+    .git {
+        position: fixed;
+     bottom: 0;
+     position: fixed;
+     left: 90px;
+
+        
+    }
+</style>
+
+<style>
+    .v2 {
+        position: fixed;
+     bottom: 0;
+     position: fixed;
+     left: 150px;
+
+        
+    }
+</style>
+ 
+
+<div class="button-container">
+  <a href="choose.html">
+    <img src="https://t9lat9.netfy.blog/apps.png" alt="Button Image">
+  </a>
+</div>
+
+ <style>
+  img {
+    display: block;
+    margin: auto;
+    width: 35%; /* change this value to adjust the size of the image */
+  }
+</style>
+
+
+
+
+<img src="os.png" alt="Image">
+
+<style>
+    .button-container {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.button-container img {
+  width: 79px; /* Adjust this value as per your image size */
+}
+
+</style>
+
+
+<a href="tha97service.html" style="position:fixed;bottom:10px;right:10px;padding:10px;border-radius:25px;background-color:#f1c40f;text-decoration:none;">Admins page</a>
+<a href="terms.html" class="term">Terms of use</a>
+<a href="https://github.com/T9LAT/Sample-of-buttons/tree/main" class="git">Github</a>
+<a href="https://t9lat9.netfy.blog/t9os.html" class="v2">V2</a>
+
+
+
+  <style>
+        .clock {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color:blue;
+            border-radius: 12px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+              transform: translateY(-25%);
+
+        }
+    </style>
+    
+      <div class="clock" id="clock"></div>
+      
+      <script>
+        function updateClock() {
+            var clock = document.getElementById("clock");
+            var currentTime = new Date();
+            
+            // Set the time zone to New York
+            currentTime.toLocaleString("en-US", {timeZone: "America/New_York"});
+            
+            // Format the time as HH:MM:SS
+            var hours = currentTime.getHours().toString().padStart(2, '0');
+            var minutes = currentTime.getMinutes().toString().padStart(2, '0');
+            var seconds = currentTime.getSeconds().toString().padStart(2, '0');
+            
+            // Update the clock's content
+            clock.textContent = hours + ":" + minutes + ":" + seconds;
+        }
+        
+        // Call updateClock every second
+        setInterval(updateClock, 1000);
+    </script>
+      <style>
+    body {
+      background-image: url('https://t9lat9.netfy.blog/star2.gif');
+    }
+  </style> 
+    <style>body {background-color: black;}</style>
+    
+    <style>
+         .battery {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color:blue;
+            border-radius: 12px;
+            top: 10px;
+            right: 0;
+            right: 150px;
+            transform: translateY(-60%);
+            position: fixed;
+        }
+    </style>
+    
+ 
+ <p class="battery"  id="batteryPercentage"></p>
+
+  <script>
+    // Check if Battery API is supported by the browser
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function(battery) {
+        updateBatteryStatus(battery);
+
+        // Update battery status whenever it changes
+        battery.addEventListener('levelchange', function() {
+          updateBatteryStatus(battery);
+        });
+      });
+    } else {
+      document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+    }
+
+    function updateBatteryStatus(battery) {
+      var percentage = Math.floor(battery.level * 100);
+      document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+    }
+  </script>
+
+
+
+ <style>
+    .button {
+      background-color: blue; 
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius:25px;
+    }
+  </style>
+  
+  
+<script>function updateClock() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    // Convert hours to 12-hour format
+    if (hours > 12) {
+        hours -= 12;
+    }
+
+    // Ensure that 12:00 is displayed correctly
+    if (hours === 0) {
+        hours = 12;
+    }
+
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.getElementById('time').textContent = timeString;
+}
+
+// Update the clock immediately and then every second
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+ 
+
+
+
+
+<div class="center">
+  <p>
+      
+              </p>
+</div>
+  <title>T9 OS</title>
