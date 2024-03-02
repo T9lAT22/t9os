@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terminal</title>
+  <style>
+    .textbox {
+      width: 1250px;
+      height: 550px;
+      background-color: #2b2b2b;
+      color:#02f50f;
+      border-radius:15px;
+    }
+  </style>
+    <style>
+    body {
+      background-color:black;
+    }
+  </style> 
+<script>
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "k") {
+      window.open("https://classroom.google.com/?pli=1");
+    }
+  });
+</script>
+
+</head>
+<body>
+  <textarea class="textbox" id="commandBox"></textarea>
+
+  <script>
+    // Add an event listener to the textbox
+    document.getElementById("commandBox").addEventListener("keydown", function(event) {
+      // Check if the Enter key is pressed
+      if (event.key === "Enter") {
+        // Get the command entered by the user
+        var command = event.target.value.trim().toLowerCase();
+
+        // Check the command and redirect accordingly
+        switch (command) {
+          case "google":
+            window.location.href = "https://www.google.com";
+            break;
+          case "devbytes":
+            window.location.href = "https://www.devbytes.ai";
+            break;
+            case "help":
+            window.location.href = "help.html";
+            break;
+             case "!browser":
+            window.location.href = "uh7gbram.html";
+            break;
+             case "!gms":
+            window.location.href = "gamesos.html";
+            break;
+             case "!apps":
+            window.location.href = "appos.html";
+            break;
+             case "!marks":
+            window.location.href = "java.html";
+            break;
+          default:
+            alert("Invalid command!");
+        }
+
+        // Clear the textbox after executing the command
+        event.target.value = "";
+      }
+    });
+  </script>
+</body>
+</html>
