@@ -1,59 +1,156 @@
 
-<style>
-
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Adjust this value to fit your needs */
-}
 
 
 
-  .round-btn {
-    border-radius: 12px;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-  }
-.round-btn:hover {
-  background-color: #3c68fa; /* Background color when mouse hovers over */
-   padding: 15px; /* Increase padding to make it bigger */
-      font-size: 18px; /* Increase font size to make it bigger */
-}
-  
-</style>
 
 
-<script>
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "k") {
-      window.open("https://classroom.google.com/?pli=1");
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="https://t9lat9.netfy.blog/logo.png">
+
+        <title>apps/games</title>
+
+  <style>
+    /* Center the container */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Adjust this value to fit your needs */
     }
-  });
-</script>
 
+    /* Style for the image */
+    .image {
+      width: 115px; /* Adjust this value to fit your image size */
+      height: 100px; /* Adjust this value to fit your image size */
+      padding:10px 20px;
+    }
+    .image:hover {
+        background-color:#570c75;
+        border-radius:100px;
+         animation: glowing 2s infinite;
+  box-shadow: 5px 10px 20px  #7d09e3;
+              cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
+                animation: shake-animation 0.5s linear infinite;
+}
 
-<div class="container">
+@keyframes shake-animation {
+  /* Define the shaking animation */
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
 
-
-<a href="gamesos.html" class="round-btn">Games</a>
-<a href="uh7gbram.html" class="round-btn">T9 browser</a>
-<a href="apposes.html" class="round-btn">Apps</a>
-<a href="java.html" class="round-btn">Bookmarklets</a>
-<a href="terminal.html" class="round-btn">Terminal</a>
-<a href="settings.html" class="round-btn">Settings</a>
-
-
-
- <style>
-    body {
-      background-image: url("https://t9lat9.netfy.blog/blur.png");
-      background-repeat: no-repeat;
-      background-size: cover;
     }
   </style>
+</head>
+<body>
+  <div class="container">
+      <a href="gamesos.html">
+    <img class="image" src="https://i.postimg.cc/pTnYyyDY/1-removebg-preview.png" alt="Image">
+    </a>
+       <a href="uh7gbram.html">
+    <img class="image" src="https://i.postimg.cc/yxDd7Scs/5-removebg-preview.png" alt="Image">
+    </a>
+     <a href="apposs.html">
+    <img class="image" src="https://i.postimg.cc/x15SF1NR/3-removebg-preview.png" alt="Image">
+    </a>
+    <a href="java.html">
+    <img class="image" src="https://i.postimg.cc/25xNM8qG/2-removebg-preview.png" alt="Image">
+    </a>
+    <a href="settings.html">
+    <img class="image" src="https://i.postimg.cc/1zFr3f00/4-removebg-preview.png" alt="Image">
+    </a>
+  </div>
+  <style>
+      body {
+          background-image:url("https://t9lat9.netfy.blog/Blurry2.jpg");
+                      cursor: url('https://t9lat9.netfy.blog/mouse22.png'), auto;
+                      font-family:sans;
+
+      }
+  </style>
   
-  <title> apps/games </title>
+   <style>
+        .clock {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color: transparent;
+            border-radius: 12px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+              transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
+
+        }
+    </style>
+    
+      <script>
+    function updateTime() {
+      var date = new Date();
+      var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
+      var formattedTime = date.toLocaleTimeString('en-US', options);
+      document.getElementById("time").innerHTML = formattedTime;
+    }
+
+    setInterval(updateTime, 1000); // Update time every second
+  </script>
+
+  <div class="clock" id="time"></div>
+    
+      
+    <style>
+         .battery {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color: transparent;
+            border-radius: 12px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+              transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
+        }
+    </style>
+    
+ 
+ <p class="battery"  id="batteryPercentage"></p>
+
+  <script>
+    // Check if Battery API is supported by the browser
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function(battery) {
+        updateBatteryStatus(battery);
+
+        // Update battery status whenever it changes
+        battery.addEventListener('levelchange', function() {
+          updateBatteryStatus(battery);
+        });
+      });
+    } else {
+      document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+    }
+
+    function updateBatteryStatus(battery) {
+      var percentage = Math.floor(battery.level * 100);
+      document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+    }
+  </script>
+
+
+</body>
+</html>
+
+
