@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     
-    <link rel="icon" href="https://t9lat9.netfy.blog/favicon2.ico" type="image/x-icon">
-    
-<style>
+<link rel="icon" type="image/x-icon" href="https://t9lat9.netfy.blog/logo.png">
+   <style>
   .round-btn {
     border-radius: 12px;
     background-color: blue;
@@ -27,7 +27,15 @@
 </script>
 
 
- 
+ <style>
+     body {
+                         cursor: url('https://t9lat9.netfy.blog/mouse22.png'), pointer;
+     }
+     button:hover {
+                         cursor: url('https://t9lat9.netfy.blog/cursor35.png'), pointer;
+
+     }
+ </style>
 
 <style>
     .term {
@@ -64,7 +72,7 @@
 
 <div class="button-container">
   <a href="choose.html">
-    <img src="https://t9lat9.netfy.blog/apps.png" alt="Button Image">
+    <img   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Apps_icon-72a7cf.svg/1024px-Apps_icon-72a7cf.svg.png" alt="Button Image">
   </a>
 </div>
 
@@ -73,13 +81,30 @@
     display: block;
     margin: auto;
     width: 35%; /* change this value to adjust the size of the image */
+  
+    
+   
+  }
+  img:hover {
+      cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
   }
 </style>
 
 
 
+<style>
+   .icons {
+    display: block;
+    margin: auto;
+    width: 35%; /* change this value to adjust the size of the image */
+  
+  }
+   .icons:hover {
+      cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
+  }
+</style>
 
-<img src="https://t9lat9.netfy.blog/os.png" alt="Image">
+<img class="icons" src="https://t9lat9.netfy.blog/logo22.png" alt="Image">
 
 <style>
     .button-container {
@@ -98,7 +123,9 @@
 
 <a href="terms.html" class="term">Terms of use</a>
 <a href="https://github.com/T9LAT/Sample-of-buttons/tree/main" class="git">Github</a>
-<a href="https://t9lat9.netfy.blog/t9os.html" class="v2">V2 alt</a>
+<a href="t9os.html" class="v2">V3</a>
+
+
 
 
 
@@ -108,41 +135,35 @@
             padding: 10px 20px;
             display: inline-block;
             color:white;
-            background-color:blue;
+            background-color: transparent;
             border-radius: 12px;
             position: absolute;
-            top: 10px;
+            bottom: 10px;
             right: 10px;
               transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
 
         }
     </style>
     
-      <div class="clock" id="clock"></div>
-      
-      <script>
-        function updateClock() {
-            var clock = document.getElementById("clock");
-            var currentTime = new Date();
-            
-            // Set the time zone to New York
-            currentTime.toLocaleString("en-US", {timeZone: "America/New_York"});
-            
-            // Format the time as HH:MM:SS
-            var hours = currentTime.getHours().toString().padStart(2, '0');
-            var minutes = currentTime.getMinutes().toString().padStart(2, '0');
-            var seconds = currentTime.getSeconds().toString().padStart(2, '0');
-            
-            // Update the clock's content
-            clock.textContent = hours + ":" + minutes + ":" + seconds;
-        }
-        
-        // Call updateClock every second
-        setInterval(updateClock, 1000);
-    </script>
+   <script>
+    function updateTime() {
+      var date = new Date();
+      var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
+      var formattedTime = date.toLocaleTimeString('en-US', options);
+      document.getElementById("time").innerHTML = formattedTime;
+    }
+
+    setInterval(updateTime, 1000); // Update time every second
+  </script>
+
+  <div class="clock" id="time"></div>
       <style>
     body {
-      background-image: url('https://t9lat9.netfy.blog/star2.gif');
+      background-image: url('https://img.itch.zone/aW1hZ2UvMTY1NDczNS85NzM1Nzg1LmdpZg==/original/LK07lW.gif');
+      font-family:sans;
     }
   </style> 
     <style>body {background-color: black;}</style>
@@ -153,13 +174,15 @@
             padding: 10px 20px;
             display: inline-block;
             color:white;
-            background-color:blue;
+            background-color: transparent;
             border-radius: 12px;
-            top: 10px;
-            right: 0;
-            right: 150px;
-            transform: translateY(-60%);
-            position: fixed;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+              transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
         }
     </style>
     
