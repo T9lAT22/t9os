@@ -1,71 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Game Search</title>
   <style>
-    .search-container {
-  margin: 20px;
-}
+    .container {
+      text-align: center;
+    }
 
-#results-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+    .image {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      margin: 0 auto;
+    }
 
-.game-card {
-  width: 200px;
-  margin: 10px;
-}
-
-.game-card img {
-  width: 100%;
-}
-
+    .button {
+      display: block;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search games...">
-    <button onclick="searchGames()">Search</button>
+  <div class="container">
+    <div class="image"></div>
+    <img class="image" src="https://d2bzx2vuetkzse.cloudfront.net/fit-in/0x450/unshoppable_producs/659d3015-7c2c-401b-bdac-5516bbd09644.jpeg">
+    <a href="https://example.com" class="button">Go to website</a>
   </div>
-
-  <div id="results-container"></div>
-  <script>
-    function searchGames() {
-    // Get the user input from the search bar
-    var searchTerm = document.getElementById('search-input').value;
-
-    // Clear previous results
-    var resultsContainer = document.getElementById('results-container');
-    resultsContainer.innerHTML = '';
-
-    // Make an API request to fetch the game data based on the search term
-    var apiUrl = 'https://api.example.com/games?search=' + searchTerm;
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            // Iterate over the fetched game data and create a card for each game
-            data.forEach(game => {
-                var card = document.createElement('div');
-                card.classList.add('game-card');
-
-                var image = document.createElement('img');
-                image.src = game.imageUrl;
-
-                // Add a click event listener to navigate to the game's link when clicked
-                image.addEventListener('click', function() {
-                    window.location.href = game.link;
-                });
-
-                card.appendChild(image);
-                resultsContainer.appendChild(card);
-            });
-        })
-        .catch(error => console.log(error));
-}
-
-  </script>
-
 </body>
 </html>
 
