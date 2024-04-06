@@ -10,7 +10,7 @@
   <script>
     // Sample game data (replace this with your own data)
 const games = [
-  { name: "ShortLife", image: "https://downloadwap.com/thumbs2/android-games/thumbs/ico/new/4/s/short-life-android.jpg", link: "shortlife.html" },
+  { name: "ShortLife", class="image"  image: "https://downloadwap.com/thumbs2/android-games/thumbs/ico/new/4/s/short-life-android.jpg", link: "shortlife.html" },
   { name: "Game B", image: "game_b.jpg", link: "https://example.com/game_b" },
   { name: "Game C", image: "game_c.jpg", link: "https://example.com/game_c" }
 ];
@@ -51,6 +51,11 @@ function handleSearch() {
 document.getElementById("searchInput").addEventListener("input", handleSearch);
 
   </script>
+  <style>
+    .image {
+      border-radius:15px;
+      width:150px;
+  </style>
 
 </body>
 </html>
