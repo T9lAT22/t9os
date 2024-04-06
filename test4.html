@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Search</title>
+</head>
+<body>
+  <input type="text" id="searchInput" placeholder="Search games...">
+  <button onclick="searchGames()">Search</button>
+
+  <div id="searchResults"></div>
+  <script>
+    function searchGames() {
+  var searchTerm = document.getElementById("searchInput").value;
+  
+  // You can replace this dummy data with your own game data or fetch it from an API
+  var games = [
+    "Super Mario",
+    "The Legend of Zelda",
+    "Minecraft",
+    "Fortnite",
+    "Pokemon"
+  ];
+  
+  var matchingGames = games.filter(function(game) {
+    return game.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+  
+  displayResults(matchingGames);
+}
+
+function displayResults(results) {
+  var resultsContainer = document.getElementById("searchResults");
+  
+  if (results.length === 0) {
+    resultsContainer.innerHTML = "No games found.";
+  } else {
+    resultsContainer.innerHTML = "";
+    
+    results.forEach(function(game) {
+      var gameElement = document.createElement("p");
+      gameElement.textContent = game;
+      resultsContainer.appendChild(gameElement);
+    });
+  }
+}
+
+  </script>
+
+</body>
+</html>
