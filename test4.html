@@ -4,47 +4,54 @@
   <title>Game Search</title>
 </head>
 <body>
-  <input type="text" id="searchInput" placeholder="Search games...">
-  <button onclick="searchGames()">Search</button>
-
+  <input type="text" id="searchInput" placeholder="Search for games">
   <div id="searchResults"></div>
+
   <script>
-    function searchGames() {
-  var searchTerm = document.getElementById("searchInput").value;
+    // Sample game data (replace this with your own data)
+const games = [
+  { name: "ShortLife", image: "https://downloadwap.com/thumbs2/android-games/thumbs/ico/new/4/s/short-life-android.jpg", link: "shortlife.html" },
+  { name: "Game B", image: "game_b.jpg", link: "https://example.com/game_b" },
+  { name: "Game C", image: "game_c.jpg", link: "https://example.com/game_c" }
+];
+
+// Function to render search results
+function renderResults(results) {
+  const searchResults = document.getElementById("searchResults");
   
-  // You can replace this dummy data with your own game data or fetch it from an API
-  var games = [
-    "Super Mario",
-    "The Legend of Zelda",
-    "Minecraft",
-    "Fortnite",
-    "Pokemon"
-  ];
+  // Clear previous results
+  searchResults.innerHTML = "";
   
-  var matchingGames = games.filter(function(game) {
-    return game.toLowerCase().includes(searchTerm.toLowerCase());
+  // Render each result as an image with a link
+  results.forEach(result => {
+    const gameImage = document.createElement("img");
+    gameImage.src = result.image;
+    
+    const gameLink = document.createElement("a");
+    gameLink.href = result.link;
+    gameLink.appendChild(gameImage);
+    
+    searchResults.appendChild(gameLink);
   });
-  
-  displayResults(matchingGames);
 }
 
-function displayResults(results) {
-  var resultsContainer = document.getElementById("searchResults");
+// Function to handle search input changes
+function handleSearch() {
+  const searchInput = document.getElementById("searchInput");
+  const searchTerm = searchInput.value.toLowerCase();
   
-  if (results.length === 0) {
-    resultsContainer.innerHTML = "No games found.";
-  } else {
-    resultsContainer.innerHTML = "";
-    
-    results.forEach(function(game) {
-      var gameElement = document.createElement("p");
-      gameElement.textContent = game;
-      resultsContainer.appendChild(gameElement);
-    });
-  }
+  // Filter games based on search term
+  const results = games.filter(game => game.name.toLowerCase().includes(searchTerm));
+  
+  // Render the filtered results
+  renderResults(results);
 }
+
+// Attach event listener to the search input
+document.getElementById("searchInput").addEventListener("input", handleSearch);
 
   </script>
 
 </body>
 </html>
+
