@@ -2,60 +2,69 @@
 <html>
 <head>
   <title>Game Search</title>
+  <style>
+    .search-container {
+  margin: 20px;
+}
+
+#results-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game-card {
+  width: 200px;
+  margin: 10px;
+}
+
+.game-card img {
+  width: 100%;
+}
+
+  </style>
 </head>
 <body>
-  <input type="text" id="searchInput" placeholder="Search for games">
-  <div id="searchResults"></div>
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search games...">
+    <button onclick="searchGames()">Search</button>
+  </div>
 
+  <div id="results-container"></div>
   <script>
-    // Sample game data (replace this with your own data)
-const games = [
-  { name: "ShortLife", class="image"  image: "https://downloadwap.com/thumbs2/android-games/thumbs/ico/new/4/s/short-life-android.jpg", link: "shortlife.html" },
-  { name: "Game B", image: "game_b.jpg", link: "https://example.com/game_b" },
-  { name: "Game C", image: "game_c.jpg", link: "https://example.com/game_c" }
-];
+    function searchGames() {
+    // Get the user input from the search bar
+    var searchTerm = document.getElementById('search-input').value;
 
-// Function to render search results
-function renderResults(results) {
-  const searchResults = document.getElementById("searchResults");
-  
-  // Clear previous results
-  searchResults.innerHTML = "";
-  
-  // Render each result as an image with a link
-  results.forEach(result => {
-    const gameImage = document.createElement("img");
-    gameImage.src = result.image;
-    
-    const gameLink = document.createElement("a");
-    gameLink.href = result.link;
-    gameLink.appendChild(gameImage);
-    
-    searchResults.appendChild(gameLink);
-  });
+    // Clear previous results
+    var resultsContainer = document.getElementById('results-container');
+    resultsContainer.innerHTML = '';
+
+    // Make an API request to fetch the game data based on the search term
+    var apiUrl = 'https://api.example.com/games?search=' + searchTerm;
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Iterate over the fetched game data and create a card for each game
+            data.forEach(game => {
+                var card = document.createElement('div');
+                card.classList.add('game-card');
+
+                var image = document.createElement('img');
+                image.src = game.imageUrl;
+
+                // Add a click event listener to navigate to the game's link when clicked
+                image.addEventListener('click', function() {
+                    window.location.href = game.link;
+                });
+
+                card.appendChild(image);
+                resultsContainer.appendChild(card);
+            });
+        })
+        .catch(error => console.log(error));
 }
-
-// Function to handle search input changes
-function handleSearch() {
-  const searchInput = document.getElementById("searchInput");
-  const searchTerm = searchInput.value.toLowerCase();
-  
-  // Filter games based on search term
-  const results = games.filter(game => game.name.toLowerCase().includes(searchTerm));
-  
-  // Render the filtered results
-  renderResults(results);
-}
-
-// Attach event listener to the search input
-document.getElementById("searchInput").addEventListener("input", handleSearch);
 
   </script>
-  <style>
-    .image {
-      border-radius:15px;
-      width:150px;
-  </style>
 
 </body>
 </html>
