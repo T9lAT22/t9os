@@ -1,40 +1,34 @@
-
- <style>
-  img {
-    display: block;
-    margin: auto;
-    width: 35%; /* change this value to adjust the size of the image */
-  }
-  img:hover {
-
-  }
-</style>
-
-
-
-
-<img src="logo55.png" alt="Image">
-
-<style>
-    body {
-        background-color:#141414;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Search</title>
+  <script>
+    function searchImageByAlt() {
+      var altText = document.getElementById('altText').value;
+      var images = document.getElementsByTagName('img');
+      
+      for (var i = 0; i < images.length; i++) {
+        if (images[i].alt === altText) {
+          // Display the image
+          document.getElementById('result').innerHTML = images[i].outerHTML;
+          return;
+        }
+      }
+      
+      // If no matching image found
+      document.getElementById('result').innerHTML = 'No matching image found.';
     }
-</style>
-  <div class="button-container">
-  <a href="load.html">
-    <img  class="power" src="power3.png" alt="Button Image">
-  </a>
-</div>
+  </script>
+</head>
+<body>
+  <label for="altText">Search by alt text:</label>
+  <input type="text" id="altText">
+  <button onclick="searchImageByAlt()">Search</button>
 
- <style>
-  .power {
-    display: block;
-    margin: auto;
-    width: 100px; /* change this value to adjust the size of the image */
-  }
-  .power:hover {
-                      cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
+  <div id="result"></div>
 
-  }
-</style>
-<title>T9 OS neo</title>
+  <!-- Example images -->
+  <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/afa91d7d3164bb377231db5271ae9bec.png" alt="Subway surfers">
+  <img src="image2.jpg" alt="Flower">
+</body>
+</html>
