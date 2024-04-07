@@ -1,29 +1,29 @@
-<script>
- // Get all the images inside the container
-const images = document.querySelectorAll('#imageContainer img');
 
-// Function to search for an image by its alt attribute
-function searchImageByAlt(altText) {
-  // Loop through all the images
-  for (let i = 0; i < images.length; i++) {
-    const image = images[i];
-    // Check if the alt attribute matches the provided text
-    if (image.alt === altText) {
-      // Move the matching image to the top of the container
-      imageContainer.prepend(image);
-      break; // Exit loop since we found a match
+
+<input type="text" id="searchInput" placeholder="Search image by alt">
+<button onclick="searchImage()">Search</button>
+<script>
+ function searchImage() {
+  // Get the user's search query from the input field
+  var searchTerm = document.getElementById("searchInput").value;
+
+  // Get all images on the page
+  var images = document.getElementsByTagName("img");
+
+  // Loop through each image and check if its alt attribute matches the search term
+  for (var i = 0; i < images.length; i++) {
+    if (images[i].alt.toLowerCase().includes(searchTerm.toLowerCase())) {
+      // Move the matching image to the top by inserting it before the first image
+      images[i].parentNode.insertBefore(images[i], images[0]);
     }
   }
 }
 
-// Call the function with your desired alt text to search for and move it to the top
-searchImageByAlt('banana');
-
 </script>
+
 </head>
 <body>
 
-  <div id="result"></div>
 
 
 
