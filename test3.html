@@ -3,6 +3,94 @@
 </head>
 <body>
 
+  
+    <input type="text" class="search-bar" placeholder="Search..." style="margin-top: 50px;">
+</center>
+<ul class="search-results" style="display: none;">
+
+  <script>
+    function search_animal() {
+let input = document.getElementById('searchbar').value
+input = input.toLowerCase();
+let x = document.getElementsByClassName('animals');
+
+for (i = 0; i < x.length; i++) {
+	if (!x[i].innerHTML.toLowerCase().includes(input)) {
+	x[i].style.display = "none";
+	}
+	else {
+	x[i].style.display = "list-item";
+	}
+}
+}
+  </script>
+  <style>
+    * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+}
+
+input[type="search"] {
+	background-color: darkgrey;
+}
+
+
+#searchbar {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	width: 60%;
+	box-sizing: border-box;
+	background-color: #363737;
+	border: 2px solid #ffffff;
+	color: #333; /* Dark grey color */
+}
+#searchbar {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+#list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.animals {
+	font-size: 1.2em;
+	padding: 10px;
+	border-bottom: 1px solid #36454F;
+	animation: fadeIn 0.5s ease-in-out;
+	color: #333; /* Dark grey color */
+}
+
+.animals:last-child {
+	border-bottom: none;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+</style>
 
 
 
