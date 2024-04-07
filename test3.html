@@ -1,20 +1,25 @@
- <script>
-    function searchImageByAlt() {
-      var altText = document.getElementById('altText').value;
-      var images = document.getElementsByTagName('img');
-      
-      for (var i = 0; i < images.length; i++) {
-        if (images[i].alt === altText) {
-          // Display the image
-          document.getElementById('result').innerHTML = images[i].outerHTML;
-          return;
-        }
-      }
-      
-      // If no matching image found
-      document.getElementById('result').innerHTML = 'No matching image found.';
+<script>
+ // Get all the images inside the container
+const images = document.querySelectorAll('#imageContainer img');
+
+// Function to search for an image by its alt attribute
+function searchImageByAlt(altText) {
+  // Loop through all the images
+  for (let i = 0; i < images.length; i++) {
+    const image = images[i];
+    // Check if the alt attribute matches the provided text
+    if (image.alt === altText) {
+      // Move the matching image to the top of the container
+      imageContainer.prepend(image);
+      break; // Exit loop since we found a match
     }
-  </script>
+  }
+}
+
+// Call the function with your desired alt text to search for and move it to the top
+searchImageByAlt('banana');
+
+</script>
 </head>
 <body>
   <label for="altText">Search by alt text:</label>
@@ -103,6 +108,9 @@
           width:50px;
       }
   </style>
+
+ <div id="imageContainer">
+
   
 <a href="https://docs.google.com/forms/d/e/1FAIpQLScaAq2bhgZipNNKUL74Q8FnKlPnPycsXZVVsLunrIfcoiR1tg/viewform?usp=sf_link">
 <img src="https://reider71164.github.io/images/gamerequest.png">
@@ -309,3 +317,4 @@
       <a href="vex.html">
          <img alt="vex4" src="https://img.gamepix.com/games/vex-4/icon/vex-4.png">
      </a>
+ </div>
