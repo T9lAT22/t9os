@@ -1,87 +1,39 @@
-<button id="openButton">Open UI</button>
-
-<div id="uiContainer">
-  <div id="uiContent">
-    <iframe src="shortride.html"></iframe>
-    <button id="closeButton">Close</button>
-    <style>
-      #uiContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #000;
-}
-
-#uiContent {
-  padding: 10px;
-}
-
-#closeButton {
-  float: right;
-}
-    </style>
-    <script>
-      // Open Button Event Listener
-document.getElementById("openButton").addEventListener("click", function() {
-    document.getElementById("uiContainer").style.display = "block";
-});
-
-// Close Button Event Listener
-document.getElementById("closeButton").addEventListener("click", function() {
-    document.getElementById("uiContainer").style.display = "none";
-});
-
-// Make UI Movable
-var isDragging = false;
-var initialX;
-var initialY;
-
-document.getElementById("uiContent").addEventListener("mousedown", function(e) {
-    isDragging = true;
-    initialX = e.clientX - document.getElementById("uiContainer").offsetLeft;
-    initialY = e.clientY - document.getElementById("uiContainer").offsetTop;
-});
-
-document.addEventListener("mousemove", function(e) {
-    if (isDragging) {
-        var newX = e.clientX - initialX;
-        var newY = e.clientY - initialY;
-
-        document.getElementById("uiContainer").style.left = newX + "px";
-        document.getElementById("uiContainer").style.top = newY + "px";
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draggable and Closable UI</title>
+  <style>
+    .ui-container {
+      position: absolute;
+      background: lightgray;
+      padding: 10px;
+      border: 1px solid black;
     }
-});
-
-document.addEventListener("mouseup", function() {
-    isDragging = false;
-});
-
-// Make UI Resizable
-document.getElementById("uiContent").addEventListener("mousedown", function(e) {
-    if (e.target.id === "resizeHandle") {
-        isResizing = true;
-        initialWidth = document.getElementById("uiContainer").offsetWidth;
-        initialHeight = document.getElementById("uiContainer").offsetHeight;
-        startX = e.clientX;
-        startY = e.clientY;
-    }
-});
-
-document.addEventListener("mousemove", function(e) {
-    if (isResizing) {
-        var newWidth = initialWidth + (e.clientX - startX);
-        var newHeight = initialHeight + (e.clientY - startY);
-
-        document.getElementById("uiContainer").style.width = newWidth + "px";
-        document.getElementById("uiContainer").style.height = newHeight + "px";
-    }
-});
-
-document.addEventListener("mouseup", function() {
-    isResizing= false;
-});
-
-    </script>
+  </style>
+</head>
+<body>
+  <button onclick="toggleUI()">Open UI</button>
+  <div id="ui" class="ui-container" style="display: none;">
+    <button onclick="closeUI()">Close</button>
+    <p>Drag me around!</p>
   </div>
-</div>
+  <script>
+    let isUIOpen = false;
+    let offsetX, offsetY;
+
+    function toggleUI() {
+      const ui = document.getElementById('ui');
+      isUIOpen = !isUIOpen;
+      ui.style.display = isUIOpen ? 'block' : 'none';
+    }
+
+    function closeUI() {
+      const ui = document.getElementById('ui');
+      ui.style.display = 'none';
+      isUIOpen = false;
+    }
+
+    document.getElementById('ui').addEventListener('mousedown', function(e) {
+      const ui = document.getElementById('ui');
+      offsetX = e.clientX - ui.getBoundingClientRect().left;
+                                                   </script>
