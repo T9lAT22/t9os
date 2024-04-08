@@ -1,71 +1,53 @@
-<h1>ui</h1>
 <div id="ui-frame">
-  <div id="header">
-    <button id="close-button">X</button>
-  </div>
-  <div id="content">
-    <!-- Your website content goes here -->
+  <button id="close-button">Close</button>
+  <h1>hello</h1>
   <style>
-      #ui-frame {
+    #ui-frame {
   position: absolute;
-  top: 50px;
+  top: 50px; /* Adjust the positioning as per your requirements */
   left: 50px;
-  width: 400px;
-  height: 300px;
-  border: solid black 1px;
-}
-
-#header {
-  background-color: #f1f1f1;
+  border: 1px solid black;
 }
 
 #close-button {
-  float: right;
-}
-
-#content {
-   height: calc(100% - /* header height */);
+  position: absolute;
+  top: -10px;
+  right: -10px;
 }
 
   </style>
+  <script>
+    // Make the UI movable
+var uiFrame = document.getElementById('ui-frame');
+var closeBtn = document.getElementById('close-button');
 
-      <script>
-          var uiFrame = document.getElementById("ui-frame");
-var header = document.getElementById("header");
-var closeButton = document.getElementById("close-button");
+var isDragging = false;
+var offset = { x: 0, y: 0 };
 
-// Make the UI frame movable
-header.addEventListener("mousedown", function(event) {
-   event.preventDefault();
-   var initialX = event.clientX;
-   var initialY = event.clientY;
+uiFrame.addEventListener('mousedown', function(e) {
+    isDragging = true;
 
-   document.addEventListener("mousemove", moveUI);
-   document.addEventListener("mouseup", stopMovingUI);
-
-   function moveUI(event) {
-     var dx = event.clientX - initialX;
-     var dy = event.clientY - initialY;
-
-     uiFrame.style.left = (uiFrame.offsetLeft + dx) + "px";
-     uiFrame.style.top = (uiFrame.offsetTop + dy) + "px";
-
-     initialX = event.clientX;
-     initialY = event.clientY;
-   }
-
-   function stopMovingUI() {
-     document.removeEventListener("mousemove", moveUI);
-     document.removeEventListener("mouseup", stopMovingUI);
-   }
+    // Calculate the offset between mouse pointer and UI frame
+    offset.x = e.clientX - uiFrame.offsetLeft;
+    offset.y = e.clientY - uiFrame.offsetTop;
 });
 
-// Close the UI frame
-closeButton.addEventListener("click", function() {
-  uiFrame.style.display = "none";
+document.addEventListener('mousemove', function(e) {
+    if (isDragging) {
+        // Move the UI frame based on mouse movement
+        uiFrame.style.left = (e.clientX - offset.x) + 'px';
+        uiFrame.style.top = (e.clientY - offset.y) + 'px';
+    }
 });
 
-      </script>
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
 
-  </div>
+// Close the UI when close button is clicked
+closeBtn.addEventListener('click', function() {
+    uiFrame.style.display = 'none';
+});
+
+  </script>
 </div>
