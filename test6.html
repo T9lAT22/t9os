@@ -1,120 +1,96 @@
 <button id="toggleButton">Toggle UI</button>
-
 <div id="uiContainer">
-  <div id="uiContent">
-    <!-- Your UI content goes here -->
-    <button id="closeButton">Close</button>
-  </div>
-  <div id="resizeHandle"></div>
-
+  <iframe src="shortride.html"></iframe>
   <style>
     #uiContainer {
   position: absolute;
-  top: 50px;
-  left: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 300px;
   height: 200px;
-  border: solid 1px #000;
-}
-
-#uiContent {
-  padding: 10px;
-}
-
-#closeButton {
-   float: right;
-}
-
-#resizeHandle {
-   position: absolute;
-   bottom: -5px;
-   right: -5px;
-   width: 10px;
-   height: 10px;
-   background-color: #000;
-   cursor: nwse-resize; /* Change cursor on hover */
+  border: solid 1px #ccc;
+  background-color: #f9f9f9;
+  border-radius:5px;
 }
 
   </style>
   <script>
-    // Get references to the UI elements
+    // Get references to the necessary elements
 const toggleButton = document.getElementById('toggleButton');
 const uiContainer = document.getElementById('uiContainer');
-const closeButton = document.getElementById('closeButton');
-const resizeHandle = document.getElementById('resizeHandle');
 
-// Toggle UI visibility when the button is clicked
+// Toggle visibility of the UI on button click
 toggleButton.addEventListener('click', () => {
-  uiContainer.classList.toggle('hidden');
+    uiContainer.classList.toggle('hidden');
 });
 
-// Close the UI when the close button is clicked
+// Make the UI draggable
+let isDragging = false;
+let dragOffsetX = 0;
+let dragOffsetY = 0;
+
+uiContainer.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    dragOffsetX = event.clientX - uiContainer.offsetLeft;
+    dragOffsetY = event.clientY - uiContainer.offsetTop;
+});
+
+document.addEventListener('mousemove', (event) => {
+    if (isDragging) {
+        uiContainer.style.left = `${event.clientX - dragOffsetX}px`;
+        uiContainer.style.top = `${event.clientY - dragOffsetY}px`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+});
+
+// Make the UI resizable
+const resizeHandle = document.createElement('div');
+resizeHandle.classList.add('resize-handle');
+uiContainer.appendChild(resizeHandle);
+
+resizeHandle.addEventListener('mousedown', (event) => {
+    isResizing = true;
+    resizeOffsetX = event.clientX - uiContainer.offsetWidth;
+    resizeOffsetY = event.clientY - uiContainer.offsetHeight;
+});
+
+document.addEventListener('mousemove', (event) => {
+    if (isResizing) {
+        uiContainer.style.width = `${event.clientX - resizeOffsetX}px`;
+        uiContainer.style.height = `${event.clientY - resizeOffsetY}px`;
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    isResizing = false;
+});
+
+// Close the UI
+const closeButton = document.createElement('button');
+closeButton.innerText = 'Close';
+uiContainer.appendChild(closeButton);
+
 closeButton.addEventListener('click', () => {
-  uiContainer.classList.add('hidden');
+    uiContainer.classList.add('hidden');
 });
-
-// Make the UI movable using drag and drop
-uiContainer.addEventListener('mousedown', startDragging);
-
-function startDragging(event) {
-  event.preventDefault();
-  
-  const startX = event.clientX;
-  const startY = event.clientY;
-  
-  document.addEventListener('mousemove', drag);
-  document.addEventListener('mouseup', stopDragging);
-  
-  function drag(event) {
-    const deltaX = event.clientX - startX;
-    const deltaY = event.clientY - startY;
-    
-    uiContainer.style.left = `${uiContainer.offsetLeft + deltaX}px`;
-    uiContainer.style.top = `${uiContainer.offsetTop + deltaY}px`;
-    
-    startX = event.clientX;
-    startY = event.clientY;
-  }
-  
-  function stopDragging() {
-    document.removeEventListener('mousemove', drag);
-    document.removeEventListener('mouseup', stopDragging);
-  }
-}
-
-// Make the UI resizable using mouse events
-resizeHandle.addEventListener('mousedown', startResizing);
-
-function startResizing(event) {
-  event.preventDefault();
-  
-  const startX = event.clientX;
-  const startY = event.clientY;
-  
-  document.addEventListener('mousemove', resize);
-  document.addEventListener('mouseup', stopResizing);
-  
-  function resize(event) {
-    const widthDelta = event.clientX - startX;
-    const heightDelta= event.clientY - startY;
-    
-    uiContainer.style.width= `${uiContainer.offsetWidth + widthDelta}px`;
-    uiContainer.style.height= `${uiContainer.offsetHeight + heightDelta}px`;
-    
-    startX = event.clientX;
-    startY = event.clientY;
-  }
-  
-  function stopResizing() {
-    document.removeEventListener('mousemove', resize);
-    document.removeEventListener('mouseup', stopResizing);
-  }
-}
 
   </script>
   <style>
-    .hidden {
-  display: none;
+   .resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  cursor: nwse-resize; /* diagonal resize cursor */
+}
+
+.hidden {
+  display: none !important; /* hide the UI container */
 }
 
   </style>
