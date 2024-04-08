@@ -2,12 +2,16 @@
 <html>
 <head>
     <script>
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        document.onkeydown = function(e) {
-            if (e.ctrlKey && (e.keyCode === 85)) {
-                return false;
-            }
-        };
+        document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 73)) {
+        return false;
+    }
+};
+
     </script>
     <script>
         if (email === '10055664@philasd.org') {
@@ -16,7 +20,7 @@
     </script>
 </head>
 <body>
-<h1>helloo</h1>
+<h1>test</h1>
 </body>
 </html>
 
