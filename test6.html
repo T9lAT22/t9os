@@ -1,66 +1,42 @@
-<!-- looks like someone wants the source code lol --!>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
+    <h1>right click</h1>
+    <title>Right-Click Options</title>
     <script>
-        document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
-
-document.onkeydown = function(e) {
-    if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 73)) {
-        return false;
-    }
-};
-
-    </script>
-    <script>
-        if (email === '10055664@philasd.org') {
-    window.location.href = 'games.html';
-}
+        function goToWebsite(option) {
+            if (option === 'option1') {
+                window.location.href = 'https://www.example.com';
+            } else if (option === 'option2') {
+                window.location.href = 'https://www.anotherexample.com';
+            }
+        }
     </script>
 </head>
-<body>
-<h1>test</h1>
+<body oncontextmenu="return false;">
+    <div id="optionsMenu" style="display: none;">
+        <ul>
+            <li><a href="#" onclick="goToWebsite('option1')">Option 1</a></li>
+            <li><a href="#" onclick="goToWebsite('option2')">Option 2</a></li>
+        </ul>
+    </div>
+
+    <p>Right-click anywhere on this page to see the options.</p>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            var optionsMenu = document.getElementById('optionsMenu');
+            optionsMenu.style.display = 'block';
+            optionsMenu.style.left = e.pageX + 'px';
+            optionsMenu.style.top = e.pageY + 'px';
+        });
+
+        document.addEventListener('click', function(e) {
+            var optionsMenu = document.getElementById('optionsMenu');
+            optionsMenu.style.display = 'none';
+        });
+    </script>
+
 </body>
 </html>
-
