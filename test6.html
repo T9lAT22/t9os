@@ -1,6 +1,17 @@
-  <script type="text/javascript">
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 85)) {
+                return false;
+            }
+        };
     </script>
-    <h1>hi</h1>
+</head>
+<body>
+<h1>hello</h1>
+</body>
+</html>
+
