@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Secret Code Guessing Game</title>
+  <title>Mods room</title>
 </head>
 <body>
-  <h1>Welcome to the Secret Code Guessing Game!</h1>
-
+<style>
+  .code {
+    border-radius:20px;
+    font-size:18px;
+    color:black;
+    background-color:white;
+  }
+</style>
   <form id="guessForm">
     <label for="codeInput">Enter the secret code:</label>
-    <input type="text" id="codeInput" name="codeInput">
-    <button type="submit">Submit</button>
+    <input class="code" type="text" id="codeInput" name="codeInput">
+    <a class="code" type="submit">Submit</a>
   </form>
 
   <script>
