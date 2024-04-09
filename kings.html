@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secret Code Guessing Game</title>
+</head>
+<body>
+  <h1>Welcome to the Secret Code Guessing Game!</h1>
 
+  <form id="guessForm">
+    <label for="codeInput">Enter the secret code:</label>
+    <input type="text" id="codeInput" name="codeInput">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("guessForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var guessedCode = document.getElementById("codeInput").value;
+      var secretCode = "1234"; // Replace with your own secret code
+
+      if (guessedCode === secretCode) {
+        window.location.href = "https://www.example.com"; // Replace with your desired website URL
+      } else {
+        alert("Wrong code! Try again.");
+      }
+    });
+  </script>
+</body>
+</html>
