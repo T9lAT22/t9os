@@ -12,11 +12,13 @@
     background-color:white;
   }
 </style>
+  <div class="container">
   <form id="guessForm">
     <label for="codeInput">Enter the secret code:</label>
     <input class="code" type="text" id="codeInput" name="codeInput">
     <button class="code" type="submit">Submit</button>
   </form>
+  </div>
 
   <script>
     document.getElementById("guessForm").addEventListener("submit", function(event) {
@@ -32,5 +34,15 @@
       }
     });
   </script>
+  <style>
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+</style>
 </body>
 </html>
