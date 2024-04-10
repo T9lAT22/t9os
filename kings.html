@@ -54,5 +54,17 @@
       width:150px;
     }
   </style>
+<script>
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 73)) {
+        return false;
+    }
+};
+
+</script>
+
 </body>
 </html>
