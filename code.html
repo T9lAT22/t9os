@@ -16,7 +16,24 @@
         }
     </script>
 
-    <textarea id="codeInput" rows="10" cols="50"></textarea><br/>
-    <button onclick="executeCode()">Execute Code</button>
+    <textarea class="input" id="codeInput" rows="10" cols="50"></textarea><br/>
+    <a class="run" onclick="executeCode()">Run</a>
+    <style>
+        .run {
+            position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+            background-color:#40de14;
+            border-radius:6px;
+            font-family:sans;
+        }
+    </style>
+    <style>
+        .input {
+            border-radius:9px;
+            border-color:white;
+            
+</style>
 </body>
 </html>
