@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Code Execution</title>
+</head>
+<body>
+    <iframe id="myFrame"></iframe>
+
+    <script>
+        function executeCode() {
+            var code = document.getElementById("codeInput").value;
+            var frame = document.getElementById("myFrame").contentWindow.document;
+            frame.open();
+            frame.writeln(code);
+            frame.close();
+        }
+    </script>
+
+    <textarea id="codeInput" rows="10" cols="50"></textarea><br/>
+    <button onclick="executeCode()">Execute Code</button>
+</body>
+</html>
