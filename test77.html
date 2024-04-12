@@ -1,102 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    #ui {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 300px;
-      height: 200px;
-      background-color: lightgray;
-      border: 2px solid black;
-    }
-    
-    #draggable {
-      width: 100%;
-      height: 100%;
-    }
-    
-    #button {
-      margin-top: 20px;
-    }
-    
-    iframe {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-  
-<button id="button">Open UI</button>
+<button onclick="openUI()">Open UI</button>
 
-<div id="ui" style="display:none;">
-  <div id="draggable">
-    <iframe src="baldi.html" frameborder="0"></iframe>
+<div id="uiContainer" style="display: none;">
+  <div id="uiHeader">
+    <span id="uiTitle">UI Title</span>
+    <button onclick="closeUI()">Close</button>
+  </div>
+  <div id="uiContent">
+    <iframe src="baldi.html"></iframe>
   </div>
 </div>
 
-<script>
-// Get the button element
-var button = document.getElementById("button");
-
-// Get the UI element
-var ui = document.getElementById("ui");
-
-// Show/hide the UI when the button is clicked
-button.addEventListener("click", function() {
-   if (ui.style.display === "none") {
-     ui.style.display = "block";
-   } else {
-     ui.style.display = "none";
-   }
-});
-
-// Make the UI draggable
-dragElement(document.getElementById("draggable"));
-
-function dragElement(element) {
-   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-   if (document.getElementById(element.id + "header")) {
-     // If present, the header is where you move the DIV from:
-     document.getElementById(element.id + "header").onmousedown = dragMouseDown;
-   } else {
-     // Otherwise, move the DIV from anywhere inside the DIV:
-     element.onmousedown = dragMouseDown;
-   }
-
-   function dragMouseDown(e) {
-     e = e || window.event;
-     e.preventDefault();
-     // get the mouse cursor position at startup:
-     pos3 = e.clientX;
-     pos4 = e.clientY;
-     document.onmouseup = closeDragElement;
-     // call a function whenever the cursor moves:
-     document.onmousemove = elementDrag;
-   }
-
-   function elementDrag(e) {
-     e = e || window.event;
-     e.preventDefault();
-     // calculate the new cursor position:
-     pos1 = pos3 - e.clientX;
-     pos2 = pos4 - e.clientY;
-     pos3 = e.clientX;
-     pos4 = e.clientY;
-    // set the element's new position:
-    element.style.top = (element.offsetTop - pos2) + "px";
-    element.style.left = (element.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
+<style>
+  #uiContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
 }
+
+#uiHeader {
+  background-color: #f0f0f0;
+}
+
+#uiTitle {
+  font-weight: bold;
+}
+
+#uiContent {
+  height: 300px; /* Set the desired height */
+}
+
+iframe {
+   width:100%;
+   height:100%;
+}
+</style>
+
+
+<script>
+  function openUI() {
+   document.getElementById("uiContainer").style.display = "block";
+}
+
+function closeUI() {
+   document.getElementById("uiContainer").style.display = "none";
+}
+
 </script>
-</body>
-</html>
