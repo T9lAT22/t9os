@@ -1,50 +1,89 @@
-<button onclick="openUI()">Open UI</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styling for the UI */
+    .ui {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    
+    /* Styling for the iframe */
+    .ui iframe {
+      width: 100%;
+      height: 300px;
+    }
+    
+    /* Styling for the button */
+    .button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
 
-<div id="uiContainer" style="display: none;">
-  <div id="uiHeader">
-    <span id="uiTitle">UI Title</span>
-    <button onclick="closeUI()">Close</button>
-  </div>
-  <div id="uiContent">
-    <iframe src="baldi.html"></iframe>
-  </div>
+<button class="button" onclick="openUI()">Open baldi</button>
+
+<div class="ui" id="ui" style="display:none;">
+  <iframe src="baldi.html"></iframe>
 </div>
 
-<style>
-  #uiContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-}
-
-#uiHeader {
-  background-color: #f0f0f0;
-}
-
-#uiTitle {
-  font-weight: bold;
-}
-
-#uiContent {
-  height: 300px; /* Set the desired height */
-}
-
-iframe {
-   width:100%;
-   height:100%;
-}
-</style>
-
-
 <script>
-  function openUI() {
-   document.getElementById("uiContainer").style.display = "block";
+function openUI() {
+  var ui = document.getElementById("ui");
+  
+  // Show the UI
+  ui.style.display = "block";
+  
+  // Make the UI draggable
+  makeDraggable(ui);
 }
 
-function closeUI() {
-   document.getElementById("uiContainer").style.display = "none";
-}
+function makeDraggable(element) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
+   // Function to handle dragging
+   function dragMouseDown(e) {
+     e = e || window.event;
+     e.preventDefault();
+     pos3 = e.clientX;
+     pos4 = e.clientY;
+
+     document.onmouseup = closeDragElement;
+     document.onmousemove = elementDrag;
+   }
+
+   function elementDrag(e) {
+     e = e || window.event;
+     e.preventDefault();
+     pos1 = pos3 - e.clientX;
+     pos2 = pos4 - e.clientY;
+     pos3 = e.clientX;
+     pos4 = e.clientY;
+
+     element.style.top = (element.offsetTop - pos2) + "px";
+     element.style.left = (element.offsetLeft - pos1) + "px";
+   }
+
+   function closeDragElement() {
+     document.onmouseup = null;
+     document.onmousemove = null;
+   }
+
+   // Attach the drag event to the UI header
+   var header = element.querySelector(".ui-header");
+   header.onmousedown = dragMouseDown;
+}
 </script>
+
+</body>
+</html>
+
