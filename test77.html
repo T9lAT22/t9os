@@ -1,37 +1,67 @@
-<button id="toggleButton">Open UI</button>
-<div id="uiContainer">
-  <iframe id="uiFrame" src="soccer.html"></iframe>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Style for the UI container */
+    .ui-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 300px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    /* Style for the close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+    
+    /* Style for the iframe */
+    .ui-iframe {
+      width: 100%;
+      height: calc(100% - 30px); /* Subtracting the height of the close button */
+    }
+  </style>
+</head>
+<body>
+
+<button id="toggleButton">Open/Close UI</button>
+
+<div id="uiContainer" class="ui-container" style="display:none;">
+  <button class="close-button" onclick="toggleUI()">Close</button>
+  
+  <iframe class="ui-iframe" src="soccer.html"></iframe>
 </div>
 
-<style>
-  #uiContainer {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-#uiFrame {
-  width: 400px;
-  height: 300px;
-}
-
-</style>
-
 <script>
-  const toggleButton = document.getElementById('toggleButton');
-const uiContainer = document.getElementById('uiContainer');
-
-toggleButton.addEventListener('click', () => {
-  if (uiContainer.style.display === 'none') {
-    uiContainer.style.display = 'block';
-    toggleButton.textContent = 'Close UI';
+function toggleUI() {
+  var uiContainer = document.getElementById("uiContainer");
+  
+  if (uiContainer.style.display === "none") {
+    uiContainer.style.display = "block";
+    
+    // Set the source URL of the iframe here
+    var iframe = document.querySelector(".ui-iframe");
+    iframe.src = "https://example.com";
+    
   } else {
-    uiContainer.style.display = 'none';
-    toggleButton.textContent = 'Open UI';
+    uiContainer.style.display = "none";
+    
+    // Reset the source URL of the iframe when closing
+    var iframe = document.querySelector(".ui-iframe");
+    iframe.src = "";
   }
-});
+}
 
+document.getElementById("toggleButton").addEventListener("click", toggleUI);
 </script>
+
+</body>
+</html>
+
 
