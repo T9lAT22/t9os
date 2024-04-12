@@ -1,58 +1,37 @@
-<button id="toggleButton">Soccer legends</button>
-
-<div id="draggableUI" style="display: none;">
-  <iframe src="soccer.html"></iframe>
+<button id="toggleButton">Open UI</button>
+<div id="uiContainer">
+  <iframe id="uiFrame" src="soccer.html"></iframe>
 </div>
 
 <style>
-  #draggableUI {
-  position: absolute;
+  #uiContainer {
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: none;
 }
 
-#draggableUI.draggable {
-  cursor: move;
+#uiFrame {
+  width: 400px;
+  height: 300px;
 }
+
 </style>
 
 <script>
   const toggleButton = document.getElementById('toggleButton');
-const draggableUI = document.getElementById('draggableUI');
-
-let isDragging = false;
-let offsetX = 0;
-let offsetY = 0;
+const uiContainer = document.getElementById('uiContainer');
 
 toggleButton.addEventListener('click', () => {
-  draggableUI.style.display = 'block';
-});
-
-draggableUI.addEventListener('mousedown', (event) => {
-  isDragging = true;
-  
-  // Calculate initial offset from mouse pointer to top-left corner of UI
-  offsetX = event.clientX - draggableUI.offsetLeft;
-  offsetY = event.clientY - draggableUI.offsetTop;
-
-  // Add draggable class to enable dragging
-  draggableUI.classList.add('draggable');
-});
-
-document.addEventListener('mousemove', (event) => {
-  if (isDragging) {
-    // Update UI position based on mouse movement
-    draggableUI.style.left = `${event.clientX - offsetX}px`;
-    draggableUI.style.top = `${event.clientY - offsetY}px`;
+  if (uiContainer.style.display === 'none') {
+    uiContainer.style.display = 'block';
+    toggleButton.textContent = 'Close UI';
+  } else {
+    uiContainer.style.display = 'none';
+    toggleButton.textContent = 'Open UI';
   }
 });
 
-document.addEventListener('mouseup', () => {
-  isDragging = false;
-
-  // Remove draggable class after dragging ends
-  draggableUI.classList.remove('draggable');
-});
-
 </script>
+
