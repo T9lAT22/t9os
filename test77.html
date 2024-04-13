@@ -2,67 +2,106 @@
 <html>
 <head>
   <style>
-    /* Styling for the draggable UI */
-    #draggable {
-      width: 200px;
-      height: 200px;
-      background-color: lightblue;
+    #ui {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+    }
+    #dragButton {
+      cursor: move;
     }
   </style>
 </head>
 <body>
   <button onclick="openUI()">Open UI</button>
 
-  <div id="draggable">
-    <!-- Content of the draggable UI -->
-    <h2>Draggable UI</h2>
-    <p>You can drag me around!</p>
-
-    <!-- Drag button -->
-    <button id="dragButton" onmousedown="startDrag(event)">Drag</button>
+  <div id="ui" style="display:none">
+    <button id="dragButton">Drag</button>
+    <iframe src="https://www.example.com"></iframe>
   </div>
 
-  <script>
-    // Function to open the UI
-    function openUI() {
-      document.getElementById("draggable").style.display = "block";
-    }
+<script>
+function openUI() {
+  var ui = document.getElementById("ui");
+  
+  if (ui.style.display === "none") {
+    ui.style.display = "block";
+    
+    // Make the UI draggable
+    makeDraggable(ui);
+    
+    // Disable text selection while dragging
+    disableTextSelection();
+    
+    // Prevent dragging from being sensitive
+    preventSensitiveDragging();
+    
+  } else {
+    ui.style.display = "none";
+    
+    // Remove draggable functionality when UI is closed
+    removeDraggable(ui);
+    
+    // Enable text selection after closing the UI
+    enableTextSelection();
+    
+   }
+}
 
-    // Function to start dragging the UI
-    function startDrag(event) {
-      event.preventDefault();
-      
-      // Get initial mouse position
-      const initialX = event.clientX;
-      const initialY = event.clientY;
+function makeDraggable(element) {
+  var dragButton = element.querySelector("#dragButton");
+  
+  dragButton.addEventListener("mousedown", startDragging);
 
-      // Add event listeners for dragging and releasing
-      document.addEventListener("mousemove", drag);
-      document.addEventListener("mouseup", stopDrag);
+function startDragging(event) {
+   event.preventDefault(); 
+   
+   var startX = event.clientX;
+   var startY = event.clientY;
 
-      // Function to handle dragging
-      function drag(event) {
-        event.preventDefault();
+   document.addEventListener("mousemove", dragElement);
+   document.addEventListener("mouseup", stopDragging);
 
-        // Calculate distance moved by mouse
-        const dx = event.clientX - initialX;
-        const dy = event.clientY - initialY;
+function dragElement(event) {
+   var deltaX = event.clientX - startX;
+   var deltaY = event.clientY - startY;
 
-        // Update position of the draggable element
-        const draggable = document.getElementById("draggable");
-        draggable.style.top = (draggable.offsetTop + dy) + "px";
-        draggable.style.left = (draggable.offsetLeft + dx) + "px";
-      }
+   element.style.left = element.offsetLeft + deltaX + "px";
+   element.style.top = element.offsetTop + deltaY + "px";
 
-      // Function to stop dragging
-      function stopDrag() {
-        document.removeEventListener("mousemove", drag);
-        document.removeEventListener("mouseup", stopDrag);
-      }
-    }
-  </script>
+   startX = event.clientX;
+   startY = event.clientY;
+}
+
+function stopDragging() {
+  document.removeEventListener("mousemove", dragElement);
+  document.removeEventListener("mouseup", stopDragging);
+}
+}
+
+function removeDraggable(element) {
+  var dragButton = element.querySelector("#dragButton");
+  
+  dragButton.removeEventListener("mousedown", startDragging);
+}
+
+function disableTextSelection() {
+  document.body.style.userSelect = "none";
+}
+
+function enableTextSelection() {
+  document.body.style.userSelect = "auto";
+}
+
+function preventSensitiveDragging() {
+  document.addEventListener("mousemove", function(event) {
+    event.preventDefault();
+  }, { passive: false });
+}
+</script>
 </body>
 </html>
