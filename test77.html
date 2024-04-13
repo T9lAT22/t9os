@@ -1,58 +1,95 @@
-<button id="openButton">Open frame</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #ui-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+      border: 1px solid gray;
+      display: none; /* Hide the UI initially */
+    }
+    
+    #drag-handle {
+      cursor: move;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  
+<button onclick="toggleUI()">Toggle UI</button>
 
-<div id="uiContainer" class="hidden">
-  <div id="dragHandle">Drag me!</div>
-  <iframe src="https://example.com"></iframe>
+<div id="ui-container">
+  <div id="drag-handle">Drag me!</div>
+  <iframe src="https://www.example.com"></iframe>
 </div>
-<style>
-  .hidden {
-  display: none;
-}
-
-#uiContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#dragHandle {
-  cursor: move;
-}
-
-</style>
 
 <script>
-  const openButton = document.getElementById('openButton');
-const uiContainer = document.getElementById('uiContainer');
-const dragHandle = document.getElementById('dragHandle');
-
-openButton.addEventListener('click', () => {
-  uiContainer.classList.remove('hidden');
-});
-
-let isDragging = false;
-let offsetX, offsetY;
-
-dragHandle.addEventListener('mousedown', (event) => {
-  isDragging = true;
+// Function to toggle the visibility of the UI
+function toggleUI() {
+  var uiContainer = document.getElementById("ui-container");
   
-  offsetX = event.clientX - uiContainer.offsetLeft;
-  offsetY = event.clientY - uiContainer.offsetTop;
-});
-
-document.addEventListener('mousemove', (event) => {
-  if (isDragging) {
-    const x = event.clientX - offsetX;
-    const y = event.clientY - offsetY;
-
-    uiContainer.style.left = `${x}px`;
-    uiContainer.style.top = `${y}px`;
+  if (uiContainer.style.display === "none") {
+    uiContainer.style.display = "block";
+    
+    // Make the UI draggable
+    makeDraggable(uiContainer);
+    
+  } else {
+    uiContainer.style.display = "none";
+    
+    // Remove draggable functionality when hidden
+    removeDraggable(uiContainer);
   }
-});
+}
 
-document.addEventListener('mouseup', () => {
-   isDragging = false; 
-});
+// Function to make an element draggable
+function makeDraggable(element) {
+  
+  var dragHandle = element.querySelector("#drag-handle");
+  
+  dragHandle.addEventListener("mousedown", startDragging);
+  
+}
 
+// Function to remove draggable functionality from an element
+function removeDraggable(element) {
+
+   var dragHandle = element.querySelector("#drag-handle");
+   
+   dragHandle.removeEventListener("mousedown", startDragging);
+   
+}
+
+// Function to handle dragging
+function startDragging(e) {
+  var element = e.target.parentElement;
+  var offsetX = e.clientX - element.getBoundingClientRect().left;
+  var offsetY = e.clientY - element.getBoundingClientRect().top;
+  
+  document.addEventListener("mousemove", dragElement);
+  document.addEventListener("mouseup", stopDragging);
+  
+  function dragElement(e) {
+    element.style.left = (e.clientX - offsetX) + "px";
+    element.style.top = (e.clientY - offsetY) + "px";
+  }
+  
+  function stopDragging() {
+    document.removeEventListener("mousemove", dragElement);
+    document.removeEventListener("mouseup", stopDragging);
+  }
+}
 </script>
+
+</body>
+</html>
