@@ -60,6 +60,20 @@ dragButton.addEventListener('mousedown', (event) => {
       const deltaY = event.clientY - initialY;
       widget.style.left = `${widgetX + deltaX}px`;
       widget.style.top = `${widgetY + deltaY}px`;
+
+
+
+      // Get a reference to the widget element
+const widget = document.getElementById('widget');
+
+// Set the new width and height values for the widget
+const newWidth = 400; // in pixels
+const newHeight = 200; // in pixels
+
+// Update the CSS properties of the widget
+widget.style.width = `${newWidth}px`;
+widget.style.height = `${newHeight}px`;
+
     }
   }
 });
