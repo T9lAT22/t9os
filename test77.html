@@ -2,22 +2,26 @@
 <html>
 <head>
   <style>
-    #ui-container {
+    /* Styling for the draggable UI */
+    #ui {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 300px;
       height: 200px;
-      background-color: lightgray;
-      border: 1px solid gray;
-      display: none; /* Hide the UI initially */
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
     }
     
-    #drag-handle {
-      cursor: move;
+    /* Styling for the close button */
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
     }
     
+    /* Styling for the iframe */
     iframe {
       width: 100%;
       height: 100%;
@@ -25,69 +29,39 @@
   </style>
 </head>
 <body>
-  
-<button onclick="toggleUI()">Toggle UI</button>
 
-<div id="ui-container">
-  <div id="drag-handle">Drag me!</div>
-  <iframe src="https://www.example.com"></iframe>
-</div>
+<button onclick="openUI()">Open UI</button>
 
 <script>
-// Function to toggle the visibility of the UI
-function toggleUI() {
-  var uiContainer = document.getElementById("ui-container");
+function openUI() {
+  // Create the UI element
+  var ui = document.createElement("div");
   
-  if (uiContainer.style.display === "none") {
-    uiContainer.style.display = "block";
-    
-    // Make the UI draggable
-    makeDraggable(uiContainer);
-    
-  } else {
-    uiContainer.style.display = "none";
-    
-    // Remove draggable functionality when hidden
-    removeDraggable(uiContainer);
-  }
-}
-
-// Function to make an element draggable
-function makeDraggable(element) {
+  // Set attributes and styles for the UI
+  ui.id = "ui";
   
-  var dragHandle = element.querySelector("#drag-handle");
-  
-  dragHandle.addEventListener("mousedown", startDragging);
-  
-}
-
-// Function to remove draggable functionality from an element
-function removeDraggable(element) {
-
-   var dragHandle = element.querySelector("#drag-handle");
+   // Create a close button inside the UI
+   var closeButton = document.createElement("button");
+   closeButton.innerHTML = "Close";
+   closeButton.className = "close";
    
-   dragHandle.removeEventListener("mousedown", startDragging);
+   // Add event listener to close button
+   closeButton.addEventListener("click", function() {
+     document.body.removeChild(ui);
+   });
    
-}
-
-// Function to handle dragging
-function startDragging(e) {
-  var element = e.target.parentElement;
-  var offsetX = e.clientX - element.getBoundingClientRect().left;
-  var offsetY = e.clientY - element.getBoundingClientRect().top;
-  
-  document.addEventListener("mousemove", dragElement);
-  document.addEventListener("mouseup", stopDragging);
-  
-  function dragElement(e) {
-    element.style.left = (e.clientX - offsetX) + "px";
-    element.style.top = (e.clientY - offsetY) + "px";
-  }
-  
-  function stopDragging() {
-    document.removeEventListener("mousemove", dragElement);
-    document.removeEventListener("mouseup", stopDragging);
-  }
+   // Add draggability to the UI using JavaScript library like jQuery UI or interact.js
+   
+   // Append iframe and close button to the UI
+   ui.appendChild(closeButton);
+   
+   var iframe = document.createElement("iframe");
+   iframe.src = "https://example.com"; // Replace with your desired URL
+   
+   ui.appendChild(iframe);
+   
+   // Append the UI to the body
+   document.body.appendChild(ui);
 }
 </script>
 
