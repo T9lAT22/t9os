@@ -1,45 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    /* Style for the movable UI */
-    .ui {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #f1f1f1;
-      padding: 20px;
-    }
-  </style>
-</head>
-<body>
+<button id="openButton">Open frame</button>
 
-<button onclick="openUI()">Open UI</button>
-
-<div id="ui" class="ui" style="display:none;">
-  <iframe src="test2.html"></iframe>
-  <button onclick="moveUI()">Move UI</button>
+<div id="ui" class="hidden">
+  <iframe src="soccer.html"></iframe>
 </div>
 
+
+<style>
+  #ui {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background-color: #f1f1f1;
+}
+
+.hidden {
+  display: none;
+}
+
+</style>
+
 <script>
-function openUI() {
-  var ui = document.getElementById("ui");
-  ui.style.display = "block";
-}
+  const openButton = document.getElementById("openButton");
+const ui = document.getElementById("ui");
 
-function moveUI() {
-  var ui = document.getElementById("ui");
-  
-  // Prompt user for new position
-  var topPos = prompt("Enter top position (in pixels):");
-  var leftPos = prompt("Enter left position (in pixels):");
-  
-  // Update the style of the UI
-  ui.style.top = topPos + "px";
-  ui.style.left = leftPos + "px";
-}
+openButton.addEventListener("click", () => {
+  ui.classList.toggle("hidden");
+});
+
+// Make the UI draggable using the interact.js library
+interact(ui)
+    .draggable({
+        modifiers: [
+            interact.modifiers.restrictRect({
+                restriction: 'parent',
+                endOnly: true
+            })
+        ],
+        inertia: true,
+        autoScroll: true,
+    });
+
 </script>
-
-</body>
-</html>
