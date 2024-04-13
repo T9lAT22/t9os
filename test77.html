@@ -2,67 +2,91 @@
 <html>
 <head>
   <style>
-    /* Styling for the draggable UI */
-    #ui {
+    /* Styling for the draggable div */
+    #draggableDiv {
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 300px;
-      height: 200px;
-      background-color: #f1f1f1;
-      border: 1px solid #ccc;
-    }
-    
-    /* Styling for the close button */
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
     }
     
     /* Styling for the iframe */
-    iframe {
+    #draggableDiv iframe {
       width: 100%;
       height: 100%;
+    }
+    
+    /* Styling for the button */
+    #openButton {
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
+  
+<button id="openButton">Open Div</button>
 
-<button onclick="openUI()">Open UI</button>
+<div id="draggableDiv">
+  <iframe src="soccer.html"></iframe>
+</div>
 
 <script>
-function openUI() {
-  // Create the UI element
-  var ui = document.createElement("div");
-  
-  // Set attributes and styles for the UI
-  ui.id = "ui";
-  
-   // Create a close button inside the UI
-   var closeButton = document.createElement("button");
-   closeButton.innerHTML = "Close";
-   closeButton.className = "close";
-   
-   // Add event listener to close button
-   closeButton.addEventListener("click", function() {
-     document.body.removeChild(ui);
-   });
-   
-   // Add draggability to the UI using JavaScript library like jQuery UI or interact.js
-   
-   // Append iframe and close button to the UI
-   ui.appendChild(closeButton);
-   
-   var iframe = document.createElement("iframe");
-   iframe.src = "https://example.com"; // Replace with your desired URL
-   
-   ui.appendChild(iframe);
-   
-   // Append the UI to the body
-   document.body.appendChild(ui);
+// JavaScript code to make the div draggable
+
+var draggableDiv = document.getElementById('draggableDiv');
+var openButton = document.getElementById('openButton');
+
+// Function to make the div draggable
+function makeDraggable(element) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+   element.onmousedown = dragMouseDown;
+
+   function dragMouseDown(e) {
+     e = e || window.event;
+     e.preventDefault();
+     // get the mouse cursor position at startup:
+     pos3 = e.clientX;
+     pos4 = e.clientY;
+     document.onmouseup = closeDragElement;
+     // call a function whenever the cursor moves:
+     document.onmousemove = elementDrag;
+   }
+
+   function elementDrag(e) {
+     e = e || window.event;
+     e.preventDefault();
+     // calculate the new cursor position:
+     pos1 = pos3 - e.clientX;
+     pos2 = pos4 - e.clientY;
+     pos3 = e.clientX;
+     pos4 = e.clientY;
+     // set the element's new position:
+     element.style.top = (element.offsetTop - pos2) + "px";
+     element.style.left = (element.offsetLeft - pos1) + "px";
+   }
+
+   function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+   }
 }
+
+// Make the div draggable
+makeDraggable(draggableDiv);
+
+// Show/hide the draggable div when the button is clicked
+openButton.addEventListener('click', function() {
+  if (draggableDiv.style.display === 'none') {
+    draggableDiv.style.display = 'block';
+  } else {
+    draggableDiv.style.display = 'none';
+  }
+});
 </script>
 
 </body>
