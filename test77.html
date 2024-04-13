@@ -1,93 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    /* Styling for the draggable div */
-    #draggableDiv {
-      width: 300px;
-      height: 200px;
-      background-color: lightgray;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    
-    /* Styling for the iframe */
-    #draggableDiv iframe {
-      width: 100%;
-      height: 100%;
-    }
-    
-    /* Styling for the button */
-    #openButton {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  
-<button id="openButton">Open Div</button>
+<button id="openWidget">Open Widget</button>
 
-<div id="draggableDiv">
-  <iframe src="soccer.html"></iframe>
+<div id="widgetContainer">
+  <div id="widgetHeader">
+    <span id="closeWidget">&times;</span>
+  </div>
+  <div id="widgetContent">
+    <iframe src="test2.html"></iframe>
+  </div>
 </div>
 
-<script>
-// JavaScript code to make the div draggable
-
-var draggableDiv = document.getElementById('draggableDiv');
-var openButton = document.getElementById('openButton');
-
-// Function to make the div draggable
-function makeDraggable(element) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-   element.onmousedown = dragMouseDown;
-
-   function dragMouseDown(e) {
-     e = e || window.event;
-     e.preventDefault();
-     // get the mouse cursor position at startup:
-     pos3 = e.clientX;
-     pos4 = e.clientY;
-     document.onmouseup = closeDragElement;
-     // call a function whenever the cursor moves:
-     document.onmousemove = elementDrag;
-   }
-
-   function elementDrag(e) {
-     e = e || window.event;
-     e.preventDefault();
-     // calculate the new cursor position:
-     pos1 = pos3 - e.clientX;
-     pos2 = pos4 - e.clientY;
-     pos3 = e.clientX;
-     pos4 = e.clientY;
-     // set the element's new position:
-     element.style.top = (element.offsetTop - pos2) + "px";
-     element.style.left = (element.offsetLeft - pos1) + "px";
-   }
-
-   function closeDragElement() {
-    /* stop moving when mouse button is released:*/
-    document.onmouseup = null;
-    document.onmousemove = null;
-   }
+<style>
+  #widgetContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 300px;
+  background-color: #fff;
 }
 
-// Make the div draggable
-makeDraggable(draggableDiv);
+#widgetHeader {
+  background-color: #f1f1f1;
+}
 
-// Show/hide the draggable div when the button is clicked
-openButton.addEventListener('click', function() {
-  if (draggableDiv.style.display === 'none') {
-    draggableDiv.style.display = 'block';
-  } else {
-    draggableDiv.style.display = 'none';
-  }
+#closeWidget {
+   float: right;
+   cursor: pointer;
+   padding: 10px;
+}
+
+#widgetContent {
+   height: calc(100% - 40px);
+}
+
+iframe {
+   width:100%;
+   height:100%;
+}
+
+</style>
+
+
+
+
+
+
+<script>
+  document.getElementById("openWidget").addEventListener("click", function() {
+    document.getElementById("widgetContainer").style.display = "block";
 });
-</script>
 
-</body>
-</html>
+document.getElementById("closeWidget").addEventListener("click", function() {
+    document.getElementById("widgetContainer").style.display = "none";
+});
+
+</script>
