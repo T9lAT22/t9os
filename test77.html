@@ -1,46 +1,68 @@
-<button id="openButton">Open frame</button>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Styling for the draggable UI */
+    #draggable {
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <button onclick="openUI()">Open UI</button>
 
-<div id="ui" class="hidden">
-  <iframe src="soccer.html"></iframe>
-</div>
+  <div id="draggable">
+    <!-- Content of the draggable UI -->
+    <h2>Draggable UI</h2>
+    <p>You can drag me around!</p>
 
+    <!-- Drag button -->
+    <button id="dragButton" onmousedown="startDrag(event)">Drag</button>
+  </div>
 
-<style>
-  #ui {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background-color: #f1f1f1;
-}
+  <script>
+    // Function to open the UI
+    function openUI() {
+      document.getElementById("draggable").style.display = "block";
+    }
 
-.hidden {
-  display: none;
-}
+    // Function to start dragging the UI
+    function startDrag(event) {
+      event.preventDefault();
+      
+      // Get initial mouse position
+      const initialX = event.clientX;
+      const initialY = event.clientY;
 
-</style>
+      // Add event listeners for dragging and releasing
+      document.addEventListener("mousemove", drag);
+      document.addEventListener("mouseup", stopDrag);
 
-<script>
-  const openButton = document.getElementById("openButton");
-const ui = document.getElementById("ui");
+      // Function to handle dragging
+      function drag(event) {
+        event.preventDefault();
 
-openButton.addEventListener("click", () => {
-  ui.classList.toggle("hidden");
-});
+        // Calculate distance moved by mouse
+        const dx = event.clientX - initialX;
+        const dy = event.clientY - initialY;
 
-// Make the UI draggable using the interact.js library
-interact(ui)
-    .draggable({
-        modifiers: [
-            interact.modifiers.restrictRect({
-                restriction: 'parent',
-                endOnly: true
-            })
-        ],
-        inertia: true,
-        autoScroll: true,
-    });
+        // Update position of the draggable element
+        const draggable = document.getElementById("draggable");
+        draggable.style.top = (draggable.offsetTop + dy) + "px";
+        draggable.style.left = (draggable.offsetLeft + dx) + "px";
+      }
 
-</script>
+      // Function to stop dragging
+      function stopDrag() {
+        document.removeEventListener("mousemove", drag);
+        document.removeEventListener("mouseup", stopDrag);
+      }
+    }
+  </script>
+</body>
+</html>
