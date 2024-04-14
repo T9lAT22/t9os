@@ -1,71 +1,20 @@
-<button id="openButton">Open Widget</button>
-
-<div id="widget" class="hidden">
-  <button id="dragButton">Drag</button>
-  <iframe src="https://www.example.com"></iframe>
-</div>
-
-
-<style>
-  #widget {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
-</style>
-
-<script>
-  const openButton = document.getElementById('openButton');
-const dragButton = document.getElementById('dragButton');
-const widget = document.getElementById('widget');
-
-let isDragging = false;
-
-openButton.addEventListener('click', () => {
-  // Show or hide the widget based on its current state
-  if (widget.classList.contains('hidden')) {
-    widget.classList.remove('hidden');
-  } else {
-    widget.classList.add('hidden');
-  }
-});
-
-dragButton.addEventListener('mousedown', (event) => {
-  isDragging = true;
-  // Store the initial position of the mouse and the widget
-  const initialX = event.clientX;
-  const initialY = event.clientY;
-  const widgetX = widget.offsetLeft;
-  const widgetY = widget.offsetTop;
-
-  document.addEventListener('mousemove', handleDrag);
-
-  document.addEventListener('mouseup', () => {
-    isDragging = false;
-    document.removeEventListener('mousemove', handleDrag);
-  });
-
-  function handleDrag(event) {
-    if (isDragging) {
-      // Calculate the new position of the widget based on mouse movement
-      const deltaX = event.clientX - initialX;
-      const deltaY = event.clientY - initialY;
-      widget.style.left = `${widgetX + deltaX}px`;
-      widget.style.top = `${widgetY + deltaY}px`;
-
-
-
-  
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Execution</title>
+  <script>
+    function executeCode() {
+      var code = document.getElementById("codeInput").value;
+      var iframe = document.getElementById("outputFrame").contentWindow.document;
+      iframe.open();
+      iframe.writeln(code);
+      iframe.close();
     }
-  }
-});
-
-</script>
+  </script>
+</head>
+<body>
+  <textarea id="codeInput" rows="10" cols="50"></textarea><br/>
+  <button onclick="executeCode()">Execute Code</button><br/>
+  <iframe id="outputFrame" width="100%" height="300"></iframe>
+</body>
+</html>
