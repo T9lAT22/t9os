@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+</head>
+<body>
+  <h1>Sign Up</h1>
+
+  <form id="signup-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required><br>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <!-- Placeholder to display success message -->
+  <div id="success-message"></div>
+<script>
+  document.getElementById("signup-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
+
+  // Perform validation (you can add more validation logic here)
+  if (name === "" || email === "" || password === "") {
+    alert("Please fill in all fields");
+    return;
+  }
+
+  // Display success message
+  var successMessage = document.getElementById("success-message");
+  successMessage.innerHTML = "Sign up successful! Welcome, " + name + "!";
+});
+
+</script>
