@@ -1,76 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up & Login Page</title>
+  <title>Sign Up</title>
 </head>
 <body>
   <h1>Sign Up</h1>
+
   <form id="signup-form">
     <label for="username">Username:</label>
-    <input type="text" id="username" required><br>
+    <input type="text" id="username" required>
 
     <label for="password">Password:</label>
-    <input type="password" id="password" required><br>
+    <input type="password" id="password" required>
 
     <button type="submit">Sign Up</button>
   </form>
 
-  <hr>
+  <p id="message"></p>
 
-  <h1>Login</h1>
-  <form id="login-form">
-    <label for="login-username">Username:</label>
-    <input type="text" id="login-username" required><br>
 
-    <label for="login-password">Password:</label>
-    <input type="password" id="login-password" required><br>
-
-    <button type="submit">Login</button>
-  </form>
-
-  <!-- Script to handle form submission -->
   <script>
-    // Function to handle sign up form submission
-function signUp(event) {
-  event.preventDefault(); // Prevent form from submitting
+    document.getElementById("signup-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
 
   // Get input values
-  var username = document.getElementById('username').value;
-  var password = document.getElementById('password').value;
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
 
-  // Save sign-up information in local storage
-  localStorage.setItem('username', username);
-  localStorage.setItem('password', password);
+  // Save username and password to local storage
+  localStorage.setItem("username", username);
+  localStorage.setItem("password", password);
 
-  alert('Sign up successful!');
-}
-
-// Function to handle login form submission
-function login(event) {
-   event.preventDefault(); // Prevent form from submitting
-
-   // Get input values
-   var loginUsername = document.getElementById('login-username').value;
-   var loginPassword = document.getElementById('login-password').value;
-
-   // Retrieve sign-up information from local storage
-   var savedUsername = localStorage.getItem('username');
-   var savedPassword = localStorage.getItem('password');
-
-   // Check if the login credentials match the sign-up information
-   if (loginUsername === savedUsername && loginPassword === savedPassword) {
-     alert('Login successful!');
-     // Redirect to a new page or perform any other action here
-   } else {
-     alert('Invalid username or password. Please try again.');
-   }
-}
-
-// Attach event listeners to the forms
-document.getElementById('signup-form').addEventListener('submit', signUp);
-document.getElementById('login-form').addEventListener('submit', login);
+  // Display success message
+  document.getElementById("message").textContent = "Sign up successful!";
+});
 
   </script>
 </body>
 </html>
-
