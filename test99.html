@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+
+  <form id="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="message"></p>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
+
+  // Retrieve stored username and password from local storage
+  var storedUsername = localStorage.getItem("username");
+  var storedPassword = localStorage.getItem("password");
+
+  // Check if entered credentials match stored values
+  if (username === storedUsername && password === storedPassword) {
+    document.getElementById("message").textContent = "Login successful!";
+    // Redirect to another page or perform additional actions upon successful login
+  } else {
+    document.getElementById("message").textContent = "Invalid username or password.";
+  }
+});
+
+  </script>
+</body>
+</html>
