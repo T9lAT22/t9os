@@ -15,7 +15,7 @@
 <body>
   <textarea id="codeInput" rows="10" cols="50"></textarea><br/>
   <a class="button" onclick="executeCode()">Execute Code</a><br/>
-  <iframe  id="outputFrame" width="100%" height="300"></iframe>
+  <iframe class="frame"  id="outputFrame" width="100%" height="300"></iframe>
   <style>
     .button {
       background-color:green;
@@ -28,5 +28,13 @@
       color:white
     } 
   </style>
+<style>
+  .frame {
+    left:0;
+    position:fixed;
+    width:537px;
+    height:590;
+  }
+</style>
 </body>
 </html>
