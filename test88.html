@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+  <title>Sign Up & Login Page</title>
 </head>
 <body>
   <h1>Sign Up</h1>
-
   <form id="signup-form">
-    <label for="name">Name:</label>
-    <input type="text" id="name" required><br>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" required><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" required><br>
 
     <label for="password">Password:</label>
     <input type="password" id="password" required><br>
@@ -19,26 +15,62 @@
     <button type="submit">Sign Up</button>
   </form>
 
-  <!-- Placeholder to display success message -->
-  <div id="success-message"></div>
-<script>
-  document.getElementById("signup-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
+  <hr>
+
+  <h1>Login</h1>
+  <form id="login-form">
+    <label for="login-username">Username:</label>
+    <input type="text" id="login-username" required><br>
+
+    <label for="login-password">Password:</label>
+    <input type="password" id="login-password" required><br>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Script to handle form submission -->
+  <script>
+    // Function to handle sign up form submission
+function signUp(event) {
+  event.preventDefault(); // Prevent form from submitting
 
   // Get input values
-  var name = document.getElementById("name").value;
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
+  var username = document.getElementById('username').value;
+  var password = document.getElementById('password').value;
 
-  // Perform validation (you can add more validation logic here)
-  if (name === "" || email === "" || password === "") {
-    alert("Please fill in all fields");
-    return;
-  }
+  // Save sign-up information in local storage
+  localStorage.setItem('username', username);
+  localStorage.setItem('password', password);
 
-  // Display success message
-  var successMessage = document.getElementById("success-message");
-  successMessage.innerHTML = "Sign up successful! Welcome, " + name + "!";
-});
+  alert('Sign up successful!');
+}
 
-</script>
+// Function to handle login form submission
+function login(event) {
+   event.preventDefault(); // Prevent form from submitting
+
+   // Get input values
+   var loginUsername = document.getElementById('login-username').value;
+   var loginPassword = document.getElementById('login-password').value;
+
+   // Retrieve sign-up information from local storage
+   var savedUsername = localStorage.getItem('username');
+   var savedPassword = localStorage.getItem('password');
+
+   // Check if the login credentials match the sign-up information
+   if (loginUsername === savedUsername && loginPassword === savedPassword) {
+     alert('Login successful!');
+     // Redirect to a new page or perform any other action here
+   } else {
+     alert('Invalid username or password. Please try again.');
+   }
+}
+
+// Attach event listeners to the forms
+document.getElementById('signup-form').addEventListener('submit', signUp);
+document.getElementById('login-form').addEventListener('submit', login);
+
+  </script>
+</body>
+</html>
+
