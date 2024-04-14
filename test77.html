@@ -14,7 +14,15 @@
 </head>
 <body>
   <textarea id="codeInput" rows="10" cols="50"></textarea><br/>
-  <button onclick="executeCode()">Execute Code</button><br/>
-  <iframe id="outputFrame" width="100%" height="300"></iframe>
+  <a class="button" onclick="executeCode()">Execute Code</a><br/>
+  <iframe  id="outputFrame" width="100%" height="300"></iframe>
+  <style>
+    .button {
+      background-color:green;
+      border-radius:6px;
+      font-family:sans;
+      top:0;
+    } 
+  </style>
 </body>
 </html>
