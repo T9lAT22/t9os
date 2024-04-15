@@ -1,40 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+  <style>
+    body {
+      background-image: url('img.gif');
+    }
+  </style>
 </head>
 <body>
-  <h1>Sign Up</h1>
+  <button onclick="changeBackground()">Change Background</button>
 
-  <form id="signup-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username" required>
+<script>
+  function changeBackground() {
+  var newImage = prompt("Enter the URL of the new background image:");
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" required>
+  if (newImage) {
+    document.body.style.backgroundImage = "url('" + newImage + "')";
+    localStorage.setItem("backgroundImage", newImage);
+  }
+}
 
-    <button type="submit">Sign Up</button>
-  </form>
-
-  <p id="message"></p>
-
-
-  <script>
-    document.getElementById("signup-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get input values
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-
-  // Save username and password to local storage
-  localStorage.setItem("username", username);
-  localStorage.setItem("password", password);
-
-  // Display success message
-  document.getElementById("message").textContent = "Sign up successful!";
-});
-
-  </script>
+</script>
 </body>
 </html>
