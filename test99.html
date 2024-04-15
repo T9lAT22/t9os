@@ -1,43 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-</head>
-<body>
-  <h1>Login</h1>
+<h1>hello people</h1>
 
-  <form id="login-form">
-    <label for="username">Username:</label>
-    <input type="text" id="username" required>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Get the select element
+  var select = document.getElementById("background-select");
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" required>
-
-    <button type="submit">Login</button>
-  </form>
-
-  <p id="message"></p>
-  <script>
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent form submission
-
-  // Get input values
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
-
-  // Retrieve stored username and password from local storage
-  var storedUsername = localStorage.getItem("username");
-  var storedPassword = localStorage.getItem("password");
-
-  // Check if entered credentials match stored values
-  if (username === storedUsername && password === storedPassword) {
-    document.getElementById("message").textContent = "Login successful!";
-    // Redirect to another page or perform additional actions upon successful login
-  } else {
-    document.getElementById("message").textContent = "Invalid username or password.";
+  // Set initial background image based on stored preference or default
+  var selectedBackground = localStorage.getItem("selectedBackground");
+  
+  if (selectedBackground) {
+    document.body.style.backgroundImage = "url(" + selectedBackground + ")";
+    select.value = selectedBackground;
   }
+
+   // Listen for changes in the select element
+   select.addEventListener("change", function() {
+     var newBackground = this.value;
+     document.body.style.backgroundImage = "url(" + newBackground + ")";
+     localStorage.setItem("selectedBackground", newBackground);
+   });
 });
 
-  </script>
-</body>
-</html>
+</script>
