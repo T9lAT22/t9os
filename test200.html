@@ -1,15 +1,56 @@
 
-
+<!DOCTYPE html>
+<html>
+ <link rel="shortcut icon" href="favicon.ico">       
+<head>
+        
+        
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
 <script>
-  setTimeout(function() {
-  window.location.href = "t9os.html";
-}, 5000);
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'p') {
+        window.location.href = 'https://infinitecampus.com';
+    }
+});
 </script>
+</body>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('ocean2.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-<div class="loader"></div>
+        .logo {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
 
-<style>
-   .loader {
+        .loader {
             width: 60px;
             aspect-ratio: 2;
             position: relative;
@@ -29,11 +70,32 @@
             60% { background-position: 0% 50%, 50% 100%, 100% 0% }
             80% { background-position: 0% 50%, 50% 50%, 100% 100% }
         }
-</style>
+    </style>
+</head>
+<body>
 
+<div class="logo">
+</div>
 
-<style>
-  body {
-    background-color:blue;
-  }
-</style>
+<div class="loader"></div>
+
+<script>
+    setTimeout(function() {
+        window.location.href = 'home.html';
+    }, 4000); // Redirect after 4 seconds (4000 milliseconds)
+</script>
+
+</body>
+</html>
+</html>
+        <head>
+            <style>
+        body {
+            cursor: url('cursor.png'), auto;
+        }
+
+        body:active {
+            cursor: url('clicker.png'), auto;
+        }
+    </style>
+<html>
