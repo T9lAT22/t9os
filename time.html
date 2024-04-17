@@ -1,0 +1,76 @@
+
+   <style>
+        .clock {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color: transparent;
+            border-radius: 12px;
+          top:0;
+          right:50%;
+          position:fixed;
+              transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
+          
+
+        }
+    </style>
+    
+      <script>
+    function updateTime() {
+      var date = new Date();
+      var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
+      var formattedTime = date.toLocaleTimeString('en-US', options);
+      document.getElementById("time").innerHTML = formattedTime;
+    }
+
+    setInterval(updateTime, 1000); // Update time every second
+  </script>
+
+  <h1 class="clock" id="time"></h1>
+
+      
+    <style>
+         .battery {
+            border: 2px solid black;
+            padding: 10px 20px;
+            display: inline-block;
+            color:white;
+            background-color: transparent;
+            border-radius: 12px;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+              transform: translateY(-25%);
+                border-color: transparent;
+                padding:10px;
+                font-size:30px;
+        }
+    </style>
+    
+ 
+ <p class="battery"  id="batteryPercentage"></p>
+
+  <script>
+    // Check if Battery API is supported by the browser
+    if ('getBattery' in navigator) {
+      navigator.getBattery().then(function(battery) {
+        updateBatteryStatus(battery);
+
+        // Update battery status whenever it changes
+        battery.addEventListener('levelchange', function() {
+          updateBatteryStatus(battery);
+        });
+      });
+    } else {
+      document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+    }
+
+    function updateBatteryStatus(battery) {
+      var percentage = Math.floor(battery.level * 100);
+      document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+    }
+  </script>
