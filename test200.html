@@ -1,83 +1,44 @@
-
-<!DOCTYPE html>
-<html>
- <link rel="shortcut icon" href="favicon.ico">       
-<head>
-        
-        
-                <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<script>
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'p') {
-        window.location.href = 'https://infinitecampus.com';
-    }
-});
-</script>
-</body>
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('ocean2.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .logo {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .loader {
-            width: 60px;
-            aspect-ratio: 2;
-            position: relative;
-            z-index: 1;
-            --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #fff0);
-            background: 
-                var(--_g) 0%   50%,
-                var(--_g) 50%  50%,
-                var(--_g) 100% 50%;
-            background-size: calc(100%/3) 50%;
-            animation: l3 1s infinite linear;
-        }
-
-        @keyframes l3 {
-            20% { background-position: 0% 0%, 50% 50%, 100% 50% }
-            40% { background-position: 0% 100%, 50% 0%, 100% 50% }
-            60% { background-position: 0% 50%, 50% 100%, 100% 0% }
-            80% { background-position: 0% 50%, 50% 50%, 100% 100% }
-        }
-    </style>
-</head>
-<body>
-
-<div class="logo">
-</div>
-
 <div class="loader"></div>
+<style>
+ .loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.loader:before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  
+  border-radius: 50%;
+  
+   /* Customize the color and size of the loader */
+   border-top-color: #3498db; /* Change this to your desired color */
+   border-left-color:#3498db; /* Change this to your desired color */
+   border-bottom-color:#3498db; /* Change this to your desired color */
+   border-right-color:#3498db; /* Change this to your desired color */
+   
+   width: inherit;
+   height: inherit;
+
+   animation-name: spin;
+   animation-duration: .7s;
+   animation-iteration-count infinite;
+   animation-timing-function:cubic-bezier(.68,.01,.38,.99);
+}
+
+</style>
 
 <script>
     setTimeout(function() {
@@ -89,13 +50,5 @@ document.addEventListener('keydown', function(event) {
 </html>
 </html>
         <head>
-            <style>
-        body {
-            cursor: url('cursor.png'), auto;
-        }
-
-        body:active {
-            cursor: url('clicker.png'), auto;
-        }
-    </style>
+           
 <html>
