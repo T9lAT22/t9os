@@ -77,17 +77,14 @@
     }
 </style>
 <script>
-   <script>
-    // Get the current date
-    const currentDate = new Date();
+ <p id="demo"></p>
 
-    // Extract the day and month from the date object
-    const day = currentDate.getDate();
-    const month = currentDate.toLocaleString('default', { month: 'long' });
-
-    // Display the date and month on the webpage
-    document.getElementById("date").innerHTML = `Today is ${month} ${day}`;
-  </script>
+<script>
+const currentDate = new Date();
+const currentMonth = currentDate.getMonth() + 1;
+const currentDateNum = currentDate.getDate();
+document.getElementById("demo").innerHTML = "Today is " + currentMonth + "/" + currentDateNum;
+</script>
 
 <script>
    document.addEventListener('keydown', function(event) {
