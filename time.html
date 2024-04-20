@@ -45,9 +45,9 @@
                 font-size:30px;
         }
     </style>
-      <h1>Today's Date and Month</h1>
 
-      <style>
+    <h1 id="Date()"></h1>
+    <style>
         h1 {
           color:white;
           bottom:0;
@@ -60,6 +60,7 @@
  <p class="battery"  id="batteryPercentage"></p>
 
   <script>
+
     // Check if Battery API is supported by the browser
     if ('getBattery' in navigator) {
       navigator.getBattery().then(function(battery) {
