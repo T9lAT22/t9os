@@ -45,7 +45,16 @@
                 font-size:30px;
         }
     </style>
-    
+      <h1>Today is: <span id="current-day"></span></h1>
+      <style>
+        h1 {
+          color:white;
+          bottom:0;
+          left:0;
+          font-family:sans;
+        }
+      </style>
+
  
  <p class="battery"  id="batteryPercentage"></p>
 
@@ -70,6 +79,16 @@
     }
   </script>
 
+<script>
+  window.onload = function() {
+    var today = new Date();
+    var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var currentDay = daysOfWeek[today.getDay()];
+    
+    document.getElementById('current-day').innerHTML = currentDay;
+  };
+</script>
+
 <style>
     body {
         background-image:url("ocean2.jpg");
@@ -77,19 +96,4 @@
     }
 </style>
 <script>
- <p id="demo"></p>
-
-<script>
-const currentDate = new Date();
-const currentMonth = currentDate.getMonth() + 1;
-const currentDateNum = currentDate.getDate();
-document.getElementById("demo").innerHTML = "Today is " + currentMonth + "/" + currentDateNum;
-</script>
-
-<script>
-   document.addEventListener('keydown', function(event) {
-  window.location.href = 'test4.html';
-});
-
-</script>
-
+ 
