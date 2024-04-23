@@ -1,55 +1,56 @@
-<style>
-    /* Style the iframe container */
-    .iframe-container {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px;
-      height: 300px;
-      background-color: #f0f0f0;
-    }
-    
-    /* Style the close button */
-    .close-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-    }
-    
-    /* Style the movable iframe */
-    .movable-iframe {
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-
-<button onclick="showIframe()">Click me</button>
-
-<div id="iframeContainer" class="iframe-container" style="display:none;">
-  <div class="close-button">
-    <button onclick="hideIframe()">Close</button>
-  </div>
-  
-  <iframe id="movableIframe" class="movable-iframe" src="test5.html"></iframe>
+<button id="openButton">Open Div</button>
+<div id="movableDiv">
+  <!-- Content of the movable div -->
+  <button id="closeButton">Close Div</button>
 </div>
 
-<script>
-function showIframe() {
-  // Show the iframe container
-  document.getElementById("iframeContainer").style.display = "block";
-  
-  // Set the source URL for the iframe (replace 'https://example.com' with your desired URL)
-  document.getElementById("movableIframe").src = "test5.html";
+
+<style>
+    #openButton {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-function hideIframe() {
-   // Hide the iframe container
-   document.getElementById("iframeContainer").style.display = "none";
-   
-   // Reset the source URL for the iframe
-   document.getElementById("movableIframe").src = "";
+#movableDiv {
+  display: none; /* Hide the div by default */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 20px;
 }
-</script>
+
+#closeButton {
+ margin-top: 10px; /* Add some spacing between content and close button */
+ padding: 10px;
+ background-color: #f44336;
+ color:white ;
+ border:none ;
+ cursor:pointer ;
+
+</style>
+<script>
+    const openButton = document.getElementById("openButton");
+const closeButton = document.getElementById("closeButton");
+const movableDiv = document.getElementById("movableDiv");
+
+// Add event listeners to the open and close buttons
+openButton.addEventListener("click", function() {
+  movableDiv.style.display = "block"; // Show the movable div
+});
+
+closeButton.addEventListener("click", function() {
+  movableDiv.style.display = "none"; // Hide the movable div
+});
+    
+    
+    </script>
+
+
