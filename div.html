@@ -39,7 +39,6 @@
 <script>
     const openButton = document.getElementById("openButton");
 const closeButton = document.getElementById("closeButton");
-const movableDiv = document.getElementById("movableDiv");
 
 // Add event listeners to the open and close buttons
 openButton.addEventListener("click", function() {
@@ -48,7 +47,30 @@ openButton.addEventListener("click", function() {
 
 closeButton.addEventListener("click", function() {
   movableDiv.style.display = "none"; // Hide the movable div
+
+
+var moving = false;
+var position = null;
+xxx.addEventListener("mousedown", (e) => {
+  moving = true;
+  position = [e.clientX, e.clientY];
 });
+
+document.addEventListener("mousemove", (e) => {
+  if (moving === false) {
+    return;
+  }
+  const x = e.clientX;
+  const y = e.clientY;
+  const deltaX = x - position[0];
+  const deltaY = y - position[1];
+  const left = parseInt(xxx.style.left || 0);
+  const top = parseInt(xxx.style.top || 0);
+  xxx.style.left = left + deltaX + "px";
+  xxx.style.top = top + deltaY + "px";
+  position = [x, y];
+});
+
     
     
     </script>
