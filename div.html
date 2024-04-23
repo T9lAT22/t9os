@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Movable Window</title>
-  <script>
-    function openMovableWindow() {
-      // Open a new window with specified properties
-      var movableWindow = window.open("", "", "width=400,height=300,resizable=yes");
-      
-      // Add content to the new window
-      movableWindow.document.write("<h1>Movable Window</h1>");
-      movableWindow.document.write("<p>This is a movable window!</p>");
-    }
-  </script>
+    <title>Button to Open Movable Window</title>
+    <style>
+        #movableWindow {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-  <button onclick="openMovableWindow()">Open Movable Window</button>
+    <button onclick="openMovableWindow()">Open Movable Window</button>
+
+    <script>
+        function openMovableWindow() {
+            var movableWindow = window.open("", "", "width=400,height=300");
+            
+            movableWindow.document.write("<!DOCTYPE html><html><head><title>Movable Window</title></head><body>");
+            
+            // Add your iframe content here
+            movableWindow.document.write("<iframe src='https://www.example.com'></iframe>");
+            
+            movableWindow.document.write("</body></html>");
+        }
+    </script>
 </body>
 </html>
