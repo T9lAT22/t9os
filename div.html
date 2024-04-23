@@ -1,78 +1,53 @@
-<button id="openButton">Open Div</button>
-<div id="movableDiv">
-  <!-- Content of the movable div -->
-  <button id="closeButton">Close Div</button>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #xxx {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Click me</button>
 
+  <div id="xxx"></div>
 
-<style>
-    #openButton {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
+  <script>
+    var xxx = document.getElementById("xxx");
+    var moving = false;
+    var position = null;
 
-#movableDiv {
-  display: none; /* Hide the div by default */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 200px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  padding: 20px;
-}
+    xxx.addEventListener("mousedown", (e) => {
+      moving = true;
+      position = [e.clientX, e.clientY];
+    });
 
-#closeButton {
- margin-top: 10px; /* Add some spacing between content and close button */
- padding: 10px;
- background-color: #f44336;
- color:white ;
- border:none ;
- cursor:pointer ;
+    document.addEventListener("mousemove", (e) => {
+      if (moving === false) {
+        return;
+      }
 
-</style>
-<script>
-    const openButton = document.getElementById("openButton");
-const closeButton = document.getElementById("closeButton");
+      const x = e.clientX;
+      const y = e.clientY;
 
-// Add event listeners to the open and close buttons
-openButton.addEventListener("click", function() {
-  movableDiv.style.display = "block"; // Show the movable div
-});
+      const deltaX = x - position[0];
+      const deltaY = y - position[1];
 
-closeButton.addEventListener("click", function() {
-  movableDiv.style.display = "none"; // Hide the movable div
+      const left = parseInt(xxx.style.left || 0);
+      const top = parseInt(xxx.style.top || 0);
 
+      xxx.style.left = left + deltaX + "px";
+      xxx.style.top = top + deltaY + "px";
 
-var moving = false;
-var position = null;
-xxx.addEventListener("mousedown", (e) => {
-  moving = true;
-  position = [e.clientX, e.clientY];
-});
+      position = [x, y];
+    });
 
-document.addEventListener("mousemove", (e) => {
-  if (moving === false) {
-    return;
-  }
-  const x = e.clientX;
-  const y = e.clientY;
-  const deltaX = x - position[0];
-  const deltaY = y - position[1];
-  const left = parseInt(xxx.style.left || 0);
-  const top = parseInt(xxx.style.top || 0);
-  xxx.style.left = left + deltaX + "px";
-  xxx.style.top = top + deltaY + "px";
-  position = [x, y];
-});
-
-    
-    
-    </script>
-
-
+    document.addEventListener("mouseup", () => {
+     moving = false;
+   });
+ </script>
+</body>
+</html>
