@@ -10,11 +10,15 @@
             width: 600px;
             height: 400px;
             z-index: 9999;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
     <button onclick="document.getElementById('myframe').style.display = 'block'">Open Iframe</button>
-    <iframe id="myframe" src="https://www.example.com" draggable="true"></iframe>
+    <div id="myframe">
+        <button onclick="document.getElementById('myframe').style.display = 'none'">Close</button>
+        <iframe src="https://www.example.com" draggable="true"></iframe>
+    </div>
 </body>
 </html>
