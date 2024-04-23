@@ -1,32 +1,84 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Button to Open Movable Window</title>
-    <style>
-        #movableWindow {
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            width: 400px;
-            height: 300px;
-            border: 1px solid black;
-        }
-    </style>
+  <style>
+    /* Style for movable iframe */
+    .movable-iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 300px;
+      border: 1px solid #ccc;
+    }
+    
+    /* Style for close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+    
+    /* Style for overlay */
+    .overlay {
+      position: fixed; 
+      display:none; 
+      width:100%; 
+      height:100%; 
+      top:0; 
+      left:0; 
+      right:auto; 
+      bottom:auto; 
+     background-color:#000000; 
+     opacity:.5; 
+     z-index:-1
+   }
+   
+   /* Style to show overlay when iframe is open */
+   .iframe-open .overlay {
+     display:block;
+   }
+   
+   /* Style to hide scrollbar in iframe */
+   .iframe-content::-webkit-scrollbar {
+     width: 0 !important;
+   }
+   
+   /* Style for iframe content */
+   .iframe-content {
+     height: 100%;
+     overflow-y:auto !important
+   }
+   
+  </style>
 </head>
 <body>
-    <button onclick="openMovableWindow()">Open Movable Window</button>
 
-    <script>
-        function openMovableWindow() {
-            var movableWindow = window.open("", "", "width=400,height=300");
-            
-            movableWindow.document.write("<!DOCTYPE html><html><head><title>Movable Window</title></head><body>");
-            
-            // Add your iframe content here
-            movableWindow.document.write("<iframe src='https://www.example.com'></iframe>");
-            
-            movableWindow.document.write("</body></html>");
-        }
-    </script>
+<button onclick="openIframe()">Open Iframe</button>
+
+<div id="iframeContainer" class="movable-iframe">
+  <span class="close-button" onclick="closeIframe()">&times;</span>
+  
+  <div class="iframe-content">
+    <!-- Content of the iframe goes here -->
+    <h2>Hello, I'm an iframe!</h2>
+    <p>This is some content inside the iframe.</p>
+  </div>
+</div>
+
+<div class="overlay"></div>
+
+<script>
+  function openIframe() {
+    document.getElementById("iframeContainer").classList.add("iframe-open");
+  }
+  
+  function closeIframe() {
+    document.getElementById("iframeContainer").classList.remove("iframe-open");
+  }
+</script>
+
 </body>
 </html>
