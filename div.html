@@ -1,53 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    #xxx {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background-color: lightblue;
+  <title>Movable Window</title>
+  <script>
+    function openMovableWindow() {
+      // Open a new window with specified properties
+      var movableWindow = window.open("", "", "width=400,height=300,resizable=yes");
+      
+      // Add content to the new window
+      movableWindow.document.write("<h1>Movable Window</h1>");
+      movableWindow.document.write("<p>This is a movable window!</p>");
     }
-  </style>
+  </script>
 </head>
 <body>
-  <button id="myButton">Click me</button>
-
-  <div id="xxx"></div>
-
-  <script>
-    var xxx = document.getElementById("xxx");
-    var moving = false;
-    var position = null;
-
-    xxx.addEventListener("mousedown", (e) => {
-      moving = true;
-      position = [e.clientX, e.clientY];
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      if (moving === false) {
-        return;
-      }
-
-      const x = e.clientX;
-      const y = e.clientY;
-
-      const deltaX = x - position[0];
-      const deltaY = y - position[1];
-
-      const left = parseInt(xxx.style.left || 0);
-      const top = parseInt(xxx.style.top || 0);
-
-      xxx.style.left = left + deltaX + "px";
-      xxx.style.top = top + deltaY + "px";
-
-      position = [x, y];
-    });
-
-    document.addEventListener("mouseup", () => {
-     moving = false;
-   });
- </script>
+  <button onclick="openMovableWindow()">Open Movable Window</button>
 </body>
 </html>
