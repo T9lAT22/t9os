@@ -1,24 +1,67 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        #myframe {
-            display: none;
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            width: 600px;
-            height: 400px;
-            z-index: 9999;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
-<body>
-    <button onclick="document.getElementById('myframe').style.display = 'block'">Open Iframe</button>
-    <div id="myframe">
-        <button onclick="document.getElementById('myframe').style.display = 'none'">Close</button>
-        <iframe src="https://www.example.com" draggable="true"></iframe>
-    </div>
-</body>
-</html>
+<button id="openButton">Open UI</button>
+<div id="uiContainer">
+  <div id="uiContent">
+    <h2>Hi!</h2>
+    <!-- Add any other content you want to display -->
+  </div>
+</div>
+
+
+<style>
+    #uiContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 20px;
+}
+
+#uiContent {
+  text-align: center;
+}
+
+</style>
+
+
+
+<script>
+    const openButton = document.getElementById('openButton');
+const uiContainer = document.getElementById('uiContainer');
+
+openButton.addEventListener('click', () => {
+  uiContainer.style.display = 'block';
+  
+  // Move the UI container with mouse drag
+  let isDragging = false;
+  
+  uiContainer.addEventListener('mousedown', (event) => {
+    isDragging = true;
+    offsetX = event.offsetX;
+    offsetY = event.offsetY;
+    
+    document.addEventListener('mousemove', moveUI);
+    document.addEventListener('mouseup', stopDragging);
+    
+    event.preventDefault();
+  });
+  
+  function moveUI(event) {
+    if (isDragging) {
+      uiContainer.style.left = `${event.clientX - offsetX}px`;
+      uiContainer.style.top = `${event.clientY - offsetY}px`;
+    }
+    
+    event.preventDefault();
+  }
+  
+  function stopDragging() {
+    isDragging = false;
+    
+    document.removeEventListener('mousemove', moveUI);
+    document.removeEventListener('mouseup', stopDragging);
+  }
+});
+
+</script>
