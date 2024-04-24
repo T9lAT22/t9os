@@ -2,14 +2,8 @@
 
 
 <script>
-  var wordlist = ["blue voilet"]
-
-  let userinput = prompt("enter the font color:")
-
-  if (wordlist.includes(userinput)) {
-    document.body.style.color = "#8a2be2"
-  }
-  else {
-    alert("sorry color that you've entered is not on the list.")
+  let color = prompt("enter font color")
+  if (color === "blue") {
+    document.body.style.color = "blue"
   }
 </script>
