@@ -1,87 +1,15 @@
-<button id="openButton">Open UI</button>
-<div id="uiContainer">
-  <div id="uiContent">
-    <h2>Hi!</h2>
-    <!-- Add any other content you want to display -->
-  </div>
-</div>
-
-
-<style>
-    #uiContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background-color: #fff;
-  padding: 20px;
-}
-
-#uiContent {
-  text-align: center;
-}
-
-</style>
-
+<h1>hello lol</h1>
 
 
 <script>
-    const openButton = document.getElementById('openButton');
-const uiContainer = document.getElementById('uiContainer');
+  var wordlist = ["blue voilet"]
 
-openButton.addEventListener('click', () => {
-  uiContainer.style.display = 'block';
-  
-  // Move the UI container with mouse drag
-  let isDragging = false;
-  
-  uiContainer.addEventListener('mousedown', (event) => {
-    isDragging = true;
-    offsetX = event.offsetX;
-    offsetY = event.offsetY;
-    
-    document.addEventListener('mousemove', moveUI);
-    document.addEventListener('mouseup', stopDragging);
-    
-    event.preventDefault();
-  });
-  
-  function moveUI(event) {
-    if (isDragging) {
-      uiContainer.style.left = `${event.clientX - offsetX}px`;
-      uiContainer.style.top = `${event.clientY - offsetY}px`;
-    }
-    
-    event.preventDefault();
+  let userinput = prompt("enter the font color:")
+
+  if (wordlist.includes(userinput)) {
+    document.body.style.color = "#8a2be2"
   }
-  
-  function stopDragging() {
-    isDragging = false;
-    
-    document.removeEventListener('mousemove', moveUI);
-    document.removeEventListener('mouseup', stopDragging);
+  else {
+    alert("sorry color that you've entered is not on the list.")
   }
-});
-
-</script>
-
-<script>
-
-  var wordlist = ["blue"]
-    let userinput = prompt("background color:");
-   
-
-    if (wordlist.includes(userinput)) {
-
-
-      document.body.style.backgroundColor = "blue"
-
-
-
-    }
-
-
-    
-   
 </script>
