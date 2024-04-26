@@ -109,15 +109,14 @@ img {
 img:hover {
   background-color:#4c4c4d;
   border-radius:15px;
-  cursor: url('https://i.ibb.co/6XPGD0W/hover33-removebg-preview.png'), auto;
 }
 
 </style>
 <style>
 body {
       background-image:url("ocean2.jpg");
+      background:fixed;
   font-family: Comic Sans MS;
-          cursor: url('https://i.ibb.co/S0d3TtZ/mouse44-removebg-preview.png'), auto;
 
   
 }
@@ -139,84 +138,39 @@ color: blue;
 <iframe src="test2.html"></iframe>
 </div>
 
-
-<style>
-#square {
-  width: 500px;
-  height: 290px;
-  background-color: red;
-  resize: both;
-  position: absolute;
-  display: none;
-}
-
-.close-button {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-background-color:red;
-color:white;
-}
-iframe {
-border-radius:20px;
-width:495px;
-height:275px;
-}
-</style>
-
+<div id="square" draggable="true">
+  <button class="close-button" onclick="hideSquare()">X</button>
+</div>
 
 <script>
 function showSquare() {
-  var square = document.getElementById("square");
-  
-  // Show the square
-  square.style.display = "block";
-  
-  // Make the square draggable
-  makeDraggable(square);
-  
-  // Add close button to the square
-  addCloseButton(square);
+   var square = document.getElementById("square");
+   square.style.display = "block";
 }
 
-function makeDraggable(element) {
-    var pos1 = pos2 = pos3 = pos4 = null;
-
-    element.onmousedown = dragMouseDown;
-
-    function dragMouseDown(e) {
-        e.preventDefault();
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-
-        document.onmouseup = closeDragElement;
-        document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-        e.preventDefault();
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-
-        element.style.top = (element.offsetTop - pos2) + "px";
-        element.style.left = (element.offsetLeft - pos1) + "px";
-    }
-
-    function closeDragElement() {
-      document.onmouseup = null;
-      document.onmousemove= null; 
-    }
+function hideSquare() {
+   var square = document.getElementById("square");
+   square.style.display = "none";
 }
 
-function addCloseButton(element) {
-   var closeButton= document.createElement("span");
-   closeButton.innerHTML = "&times;";
-   closeButton.className = "close-button";
-   closeButton.onclick = function() {
-      element.style.display = "none";
-   };
-   element.appendChild(closeButton);
-}
+// Drag and drop functionality
+var dragItem = document.getElementById("square");
+var container = document.body;
+
+dragItem.addEventListener("dragstart", function(event) {
+   event.dataTransfer.setData("text/plain", event.target.id);
+});
+
+container.addEventListener("dragover", function(event) {
+   event.preventDefault();
+});
+
+container.addEventListener("drop", function(event) {
+   event.preventDefault();
+   var data = event.dataTransfer.getData("text/plain");
+   var element = document.getElementById(data);
+   
+   element.style.left = (event.clientX - element.offsetWidth / 2) + "px";
+   element.style.top = (event.clientY - element.offsetHeight / 2) + "px";
+});
 </script>
