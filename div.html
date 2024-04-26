@@ -1,29 +1,222 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <header>
-<a class="btn" href="time.html">T9 OS</a>
-    </header>
-    <style>
-      .btn {
-        background-color: black;
-        color:white;
-        border-radius: 10px;
-        text-decoration: none;
-        padding:10px 20px;
-        font-family:sans;
-        top: 30px;
-        position: fixed;
-      }
-    </style>
-    <style>
-      header {
-        background-color:black;
-        border-radius: 10px;
-        height:60px;
-        width:1365px;
-      }
-    </style>
 
-  </body>
-</html>
+
+
+<style>
+  .clock {
+
+    bottom:0;
+    right:0;
+    color:white;
+   font-size:24px;
+    position:fixed;
+   color:white
+
+      
+
+  }
+</style>
+
+
+
+<script>
+function updateTime() {
+var date = new Date();
+var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
+var formattedTime = date.toLocaleTimeString('en-US', options);
+document.getElementById("time").innerHTML = formattedTime;
+}
+
+setInterval(updateTime, 1000); // Update time every second
+</script>
+
+<style>
+   .battery {
+     bottom:0;
+    right:0;
+    color:white;
+    position:fixed;
+    padding:10px 20px;
+
+  }
+</style>
+
+
+
+<script>
+// Check if Battery API is supported by the browser
+if ('getBattery' in navigator) {
+navigator.getBattery().then(function(battery) {
+  updateBatteryStatus(battery);
+
+  // Update battery status whenever it changes
+  battery.addEventListener('levelchange', function() {
+    updateBatteryStatus(battery);
+  });
+});
+} else {
+document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+}
+
+function updateBatteryStatus(battery) {
+var percentage = Math.floor(battery.level * 100);
+document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+}
+</script>
+
+<style>
+.navbar {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background-color: #141414; /* Replace with your desired background color */
+border-radius:6px;
+gap:30px;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+</style>
+
+<div class="navbar">
+<a onclick="showSquare()">
+<img src="games.png">
+</a>
+<a href="uh7gbram.html">
+<img src="web.png">
+</a>
+<a href="settings.html">
+<img src="settings22.png">
+</a>
+<a href="kings.html">
+<img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+</a>
+<a href="news.html">
+<img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+</a>
+<h2 class="battery"  id="batteryPercentage"></h2>
+    <div class="clock" id="time"></div>
+
+</div>
+
+<style>
+img {
+  width:49px;
+  padding:10px 20px;
+  border-radius:15px;
+  transition: background-color 0.3s ease-in-out;
+}
+img:hover {
+  background-color:#4c4c4d;
+  border-radius:15px;
+  cursor: url('https://i.ibb.co/6XPGD0W/hover33-removebg-preview.png'), auto;
+}
+
+</style>
+<style>
+body {
+      background-image:url("ocean2.jpg");
+  font-family: Comic Sans MS;
+          cursor: url('https://i.ibb.co/S0d3TtZ/mouse44-removebg-preview.png'), auto;
+
+  
+}
+</style>
+<style>
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+color: blue;
+}
+
+</style>
+<div class="container">
+<h1>T9 OS</h1>
+</div>
+<div id="square">
+<iframe src="test2.html"></iframe>
+</div>
+
+
+<style>
+#square {
+  width: 500px;
+  height: 290px;
+  background-color: red;
+  resize: both;
+  position: absolute;
+  display: none;
+}
+
+.close-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+background-color:red;
+color:white;
+}
+iframe {
+border-radius:20px;
+width:495px;
+height:275px;
+}
+</style>
+
+
+<script>
+function showSquare() {
+  var square = document.getElementById("square");
+  
+  // Show the square
+  square.style.display = "block";
+  
+  // Make the square draggable
+  makeDraggable(square);
+  
+  // Add close button to the square
+  addCloseButton(square);
+}
+
+function makeDraggable(element) {
+    var pos1 = pos2 = pos3 = pos4 = null;
+
+    element.onmousedown = dragMouseDown;
+
+    function dragMouseDown(e) {
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+
+        element.style.top = (element.offsetTop - pos2) + "px";
+        element.style.left = (element.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      document.onmouseup = null;
+      document.onmousemove= null; 
+    }
+}
+
+function addCloseButton(element) {
+   var closeButton= document.createElement("span");
+   closeButton.innerHTML = "&times;";
+   closeButton.className = "close-button";
+   closeButton.onclick = function() {
+      element.style.display = "none";
+   };
+   element.appendChild(closeButton);
+}
+</script>
