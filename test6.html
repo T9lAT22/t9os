@@ -1,136 +1,354 @@
 
 
-<style>
-        .clock {
 
-          bottom:0;
-          right:0;
-          color:white;
-         font-size:24px;
-          position:fixed;
-         color:white
-
-            
-
-        }
-    </style>
-
-    
-    
-    <script>
-    function updateTime() {
-      var date = new Date();
-      var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
-      var formattedTime = date.toLocaleTimeString('en-US', options);
-      document.getElementById("time").innerHTML = formattedTime;
-    }
-
-    setInterval(updateTime, 1000); // Update time every second
-  </script>
 
 <style>
-         .battery {
-           bottom:0;
-          right:0;
-          color:white;
-          position:fixed;
-          padding:10px 20px;
+  .clock {
 
-        }
-    </style>
-    
- 
+    bottom:0;
+    right:0;
+    color:white;
+   font-size:24px;
+    position:fixed;
+   color:white
 
-  <script>
-    // Check if Battery API is supported by the browser
-    if ('getBattery' in navigator) {
-      navigator.getBattery().then(function(battery) {
-        updateBatteryStatus(battery);
+      
 
-        // Update battery status whenever it changes
-        battery.addEventListener('levelchange', function() {
-          updateBatteryStatus(battery);
-        });
-      });
-    } else {
-      document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
-    }
+  }
+</style>
 
-    function updateBatteryStatus(battery) {
-      var percentage = Math.floor(battery.level * 100);
-      document.getElementById('batteryPercentage').innerHTML = percentage + '%';
-    }
-  </script>
+
+
+<script>
+function updateTime() {
+var date = new Date();
+var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
+var formattedTime = date.toLocaleTimeString('en-US', options);
+document.getElementById("time").innerHTML = formattedTime;
+}
+
+setInterval(updateTime, 1000); // Update time every second
+</script>
 
 <style>
-    .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #141414; /* Replace with your desired background color */
- border-radius:6px;
- gap:30px;
-        display: flex;
-  justify-content: center;
-  align-items: center;
+   .battery {
+     bottom:0;
+    right:0;
+    color:white;
+    position:fixed;
+    padding:10px 20px;
+
+  }
+</style>
+
+
+
+<script>
+// Check if Battery API is supported by the browser
+if ('getBattery' in navigator) {
+navigator.getBattery().then(function(battery) {
+  updateBatteryStatus(battery);
+
+  // Update battery status whenever it changes
+  battery.addEventListener('levelchange', function() {
+    updateBatteryStatus(battery);
+  });
+});
+} else {
+document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+}
+
+function updateBatteryStatus(battery) {
+var percentage = Math.floor(battery.level * 100);
+document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+}
+</script>
+
+<style>
+.navbar {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+background-color: #141414; /* Replace with your desired background color */
+border-radius:6px;
+gap:30px;
+  display: flex;
+justify-content: center;
+align-items: center;
 }
 </style>
 
 <div class="navbar">
-    <a href="test2.html">
-    <img src="games.png">
-    </a>
-    <a href="uh7gbram.html">
-    <img src="web.png">
-    </a>
-     <a href="settings.html">
-    <img src="settings22.png">
-    </a>
-    <a href="kings.html">
-    <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
-    </a>
-    <a href="news.html">
-    <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
-    </a>
+<a onclick="toggleUI()">
+<img src="https://t9os.pages.dev/games.png">
+</a>
+<a href="uh7gbram.html">
+<img src="https://t9os.pages.dev/web.png">
+</a>
+<a href="settings.html">
+<img src="https://t9os.pages.dev/settings22.png">
+</a>
+<a onclick="toggleUI2()">
+<img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+</a>
+<a href="news.html">
+<img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+</a>
+<a onclick="toggleFullScreen()">
+<img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+</a>
+
 <h2 class="battery"  id="batteryPercentage"></h2>
-          <div class="clock" id="time"></div>
+    <div class="clock" id="time"></div>
 
 </div>
 
 <style>
-    img {
-        width:49px;
-        padding:10px 20px;
-        border-radius:15px;
-        transition: background-color 0.3s ease-in-out;
-    }
-    img:hover {
-        background-color:#4c4c4d;
-        border-radius:15px;
-        cursor: url('https://i.ibb.co/6XPGD0W/hover33-removebg-preview.png'), auto;
+img {
+  width:49px;
+  padding:10px 20px;
+  border-radius:15px;
+  transition: background-color 0.3s ease-in-out;
+}
+img:hover {
+  background-color:#4c4c4d;
+  border-radius:15px;
 }
 
 </style>
 <style>
-    body {
-            background-image:url("ocean2.jpg");
-        font-family: Comic Sans MS;
-                cursor: url('https://i.ibb.co/S0d3TtZ/mouse44-removebg-preview.png'), auto;
+body {
+      background-image:url("https://t9os.pages.dev/ocean2.jpg");
+  font-family: Comic Sans MS;
 
-        
-    }
+  
+}
 </style>
 <style>
-    .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: blue;
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+color: blue;
 }
 
 </style>
 <div class="container">
-    <h1>T9 OS</h1>
+<h1>T9 OS</h1>
 </div>
+<div id="ui" style="display:none">
+  <!-- Your UI content goes here -->
+  <iframe src="https://t9os.pages.dev/test2.html"></iframe>
+
+  <div class="foot">
+
+  </div>
+
+
+  
+</div>
+
+<div id="ui-2" style="display:none">
+  <!-- Your UI content goes here -->
+  <iframe id="myFrame" src="https://t9os.pages.dev/kings.html"></iframe>
+</div>
+<style>
+  #ui {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:black;
+    width: 700px;
+    height: 400px;
+    position: fixed;
+    border-radius:10px;
+    border: 13px solid black;
+
+      }
+  iframe {
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightgray;
+    width: 640px;
+    height: 330px;
+  }
+  .foot {
+ width:700px;
+ height:45px;
+ bottom:0;
+ position: fixed;
+ resize: horizontal;
+ overflow: auto;
+ background-color:#4c4c4d;
+  }
+</style>
+
+<style>
+  #ui-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:black;
+    width: 650px;
+    height: 350px;
+    border-radius:10px;
+    resize: both;
+    overflow: auto;
+    border: 10px solid black;
+
+      }
+  iframe {
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: lightgray;
+    width: 640px;
+    height: 330px;
+  }
+</style>
+<script>
+  function toggleUI() {
+    var ui = document.getElementById("ui");
+    
+    if (ui.style.display === "none") {
+      ui.style.display = "block";
+      makeMovable(ui);
+    } else {
+      ui.style.display = "none";
+      removeMovable(ui);
+    }
+  }
+
+  function makeMovable(element) {
+    var isDragging = false;
+    var offset = { x: 0, y: 0 };
+
+    element.addEventListener("mousedown", startDrag);
+    
+    function startDrag(event) {
+      isDragging = true;
+
+      offset.x = event.clientX - element.offsetLeft;
+      offset.y = event.clientY - element.offsetTop;
+
+      document.addEventListener("mousemove", dragElement);
+      document.addEventListener("mouseup", stopDrag);
+      
+      event.preventDefault();
+    }
+
+    function dragElement(event) {
+      if (!isDragging) return;
+
+      element.style.left = (event.clientX - offset.x) + "px";
+      element.style.top = (event.clientY - offset.y) + "px";
+    }
+
+    function stopDrag() {
+      isDragging = false;
+      document.removeEventListener("mousemove", dragElement);
+      document.removeEventListener("mouseup", stopDrag);
+    }
+  }
+
+  function removeMovable(element) {
+    element.removeEventListener("mousedown", startDrag);
+  }
+</script>
+
+<script>
+  function toggleUI2() {
+    var ui = document.getElementById("ui-2");
+    
+    if (ui.style.display === "none") {
+      ui.style.display = "block";
+      makeMovable(ui);
+    } else {
+      ui.style.display = "none";
+      removeMovable(ui);
+    }
+  }
+
+  function makeMovable(element) {
+    var isDragging = false;
+    var offset = { x: 0, y: 0 };
+
+    element.addEventListener("mousedown", startDrag);
+    
+    function startDrag(event) {
+      isDragging = true;
+
+      offset.x = event.clientX - element.offsetLeft;
+      offset.y = event.clientY - element.offsetTop;
+
+      document.addEventListener("mousemove", dragElement);
+      document.addEventListener("mouseup", stopDrag);
+      
+      event.preventDefault();
+    }
+
+    function dragElement(event) {
+      if (!isDragging) return;
+
+      element.style.left = (event.clientX - offset.x) + "px";
+      element.style.top = (event.clientY - offset.y) + "px";
+    }
+
+    function stopDrag() {
+      isDragging = false;
+      document.removeEventListener("mousemove", dragElement);
+      document.removeEventListener("mouseup", stopDrag);
+    }
+  }
+
+  function removeMovable(element) {
+    element.removeEventListener("mousedown", startDrag);
+  }
+</script>
+
+
+
+
+<style>
+  #fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  #button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+</style>
+
+
+
+
+
+
+
+  <script>
+   function toggleFullScreen() {
+          var iframe = document.getElementById('fullscreenIframe');
+          if (!document.fullscreenElement) {
+              iframe.style.display = 'block';
+              iframe.requestFullscreen();
+          } else {
+              if (document.exitFullscreen) {
+                  document.exitFullscreen();
+                  iframe.style.display = 'none';
+              }
+          }
+      }
+  </script>
