@@ -1,10 +1,44 @@
 
-
+<img onclick="makeFullscreen()" class="full" src="https://cdn-icons-png.flaticon.com/512/5642/5642608.png">
+<style>
+    .full {
+     width:50px;
+     padding: 10px 20px;
+     background-color:white;
+     top:0;
+     right:0;
+    }
+</style>
 <style>
     h1 {
     color:green;
     }
     </style>
+
+
+<script>
+     function makeFullscreen() {
+       var frame = document.getElementById("myFrame");
+       
+       // Add the "fullscreen" class to the iframe
+       frame.classList.add("fullscreen");
+       
+       // Exit fullscreen when the user clicks outside the iframe
+       frame.addEventListener("click", exitFullscreen);
+     }
+ 
+     function exitFullscreen() {
+         var frame = document.getElementById("myFrame");
+ 
+         // Remove the "fullscreen" class from the iframe
+         frame.classList.remove("fullscreen");
+ 
+         // Remove the event listener to prevent further clicks from triggering fullscreen
+         frame.removeEventListener("click", exitFullscreen);
+     }
+ </script>
+ 
+
 <title>Games</title>
 
 <style>
