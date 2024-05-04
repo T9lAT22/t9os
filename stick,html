@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 149px;
+    }
+  </style>
+  <style>
+    .block2 {
+        background-color:red;
+        width:250px;
+        top:0;
+        right:0;
+        position: fixed;
+        padding:10px 20px;
+    }
+  </style>
+  <style>
+    body {
+        background-image:url("https://images.squarespace-cdn.com/content/v1/551a19f8e4b0e8322a93850a/1566776697516-A69UYWW58V0871IQXG9C/Title_Image.png");
+        background:cover;
+    }
+  </style>
+</head>
+<body>
+
+<div class="block"  id="block">
+    <img class="block" src="https://www.clker.com/cliparts/e/R/8/c/z/P/black-stick-man-hi.png">
+    <script>
+  // Get the block element
+  var block = document.getElementById('block');
+
+  // Set initial position
+  var xPos = 0;
+  var yPos = 0;
+
+  // Function to move the block
+  function moveBlock(event) {
+    switch (event.keyCode) {
+      case 37: // Left arrow key
+        xPos -= 20; // Decrease x position by a certain amount (e.g., pixels)
+        break;
+      case 38: // Up arrow key
+        yPos -= 20; // Decrease y position by a certain amount (e.g., pixels)
+        break;
+      case 39: // Right arrow key
+        xPos += 20; // Increase x position by a certain amount (e.g., pixels)
+        break;
+      case 40: // Down arrow key
+        yPos +=20; // Increase y position by a certain amount (e.g., pixels)
+        break;
+    }
+
+    // Update the block's style with new positions
+    block.style.left = xPos + 'px';
+    block.style.top = yPos + 'px';
+    
+    event.preventDefault(); // Prevent default behavior of arrow keys scrolling the page
+   }
+
+   // Attach event listener for keydown event on the document object
+   document.addEventListener('keydown', moveBlock);
+</script>
+
+
+<style>
+    .npc {
+        right:0;
+        top:50%;
+        position: fixed;
+    }
+</style>
+<div class="npc">
+    <img onclick="npc()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Basic_human_drawing.png/170px-Basic_human_drawing.png">
+</div>
+
+<script>
+    function npc() {
+        let npc = prompt("Hello, im bobby what are u looking for (idk / treasure)")
+        if (npc === "idk") {
+            alert("idk either")
+        }
+        else if (npc === "treasure") {
+            alert("Oooo so your looking for the treasure chest? Here.")
+            window.location.href = "stick2.html"
+        }
+
+    }
+</script>
+
+
+
+</body>
+</html>
