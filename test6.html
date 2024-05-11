@@ -83,7 +83,7 @@ align-items: center;
 <a onclick="toggleUI()">
 <img src="https://t9os.pages.dev/games.png">
 </a>
-<a href="uh7gbram.html">
+<a onclick="toggleUI3()">
 <img src="https://t9os.pages.dev/web.png">
 </a>
 <a href="settings.html">
@@ -93,9 +93,6 @@ align-items: center;
 <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
 </a>
 <a href="news.html">
-<img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
-</a>
-<a onclick="toggleFullScreen()">
 <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
 </a>
 
@@ -150,6 +147,17 @@ color: blue;
 </a>
   <!-- Your UI content goes here -->
   <iframe src="https://t9os.pages.dev/test2.html"></iframe>
+
+
+  
+</div>
+
+<div id="ui3" style="display:none">
+  <a href="uh7gbram.html">
+<img  class="fulls" src="https://cdn-icons-png.flaticon.com/512/5642/5642608.png"> 
+</a>
+  <!-- Your UI content goes here -->
+  <iframe src="https://t9os.pages.dev/uh7gbram.html"></iframe>
 
 
   
@@ -348,3 +356,65 @@ color: blue;
           }
       }
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function toggleUI3() {
+    var ui = document.getElementById("ui3");
+    
+    if (ui.style.display === "none") {
+      ui.style.display = "block";
+      makeMovable(ui);
+    } else {
+      ui.style.display = "none";
+      removeMovable(ui);
+    }
+  }
+
+  function makeMovable(element) {
+    var isDragging = false;
+    var offset = { x: 0, y: 0 };
+
+    element.addEventListener("mousedown", startDrag);
+    
+    function startDrag(event) {
+      isDragging = true;
+
+      offset.x = event.clientX - element.offsetLeft;
+      offset.y = event.clientY - element.offsetTop;
+
+      document.addEventListener("mousemove", dragElement);
+      document.addEventListener("mouseup", stopDrag);
+      
+      event.preventDefault();
+    }
+
+    function dragElement(event) {
+      if (!isDragging) return;
+
+      element.style.left = (event.clientX - offset.x) + "px";
+      element.style.top = (event.clientY - offset.y) + "px";
+    }
+
+    function stopDrag() {
+      isDragging = false;
+      document.removeEventListener("mousemove", dragElement);
+      document.removeEventListener("mouseup", stopDrag);
+    }
+  }
+
+  function removeMovable(element) {
+    element.removeEventListener("mousedown", startDrag);
+  }
+</script>
