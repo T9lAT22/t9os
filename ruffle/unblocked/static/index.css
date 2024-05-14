@@ -1,0 +1,142 @@
+/* Custom CSS for black theme */
+body {
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+#header {
+  padding: 20px;
+  text-align: center;
+}
+
+#header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header img {
+  width: 20%;
+  height: auto;
+}
+
+#content {
+  text-align: center;
+  padding: 20px;
+  margin-top: -4%;
+}
+
+#content h1 {
+  font-size: 24px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#searchbar {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.form__input {
+  opacity: 0.5; /* Set opacity to 50% */
+  font-family: Poppins;
+  padding: 25px 20px;
+  margin: 10px;
+  color: white; /* Change text color to white */
+  font-size: 16px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border-radius: 17px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  width: 290px;
+  transform: scale(1.05);
+  padding-left: 40px; /* Move text 20px to the right */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.form__input:hover {
+  transform: scale(1.06);
+}
+
+::placeholder { /* Use ::placeholder selector for placeholder text */
+  font-family: Poppins;
+  color: white; /* Change placeholder text color to white */
+}
+
+
+.form__input:focus {
+  outline: none;
+  width: 370px;
+  transform: scale(1.06);
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.form__input:focus:placeholder {
+  color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  width: 50px;
+  height: 50px;
+  padding-right: 1px;
+  padding-left: 1px;
+  text-align: center;
+  align-self: center;
+}
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #99ccff;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  height: 15px;
+  background-color: #000;
+  padding-top: 7.5px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px;
+}
+
+#footer p {
+  margin: 0;
+}
+
+.fa {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+.fa:hover {
+  color: #aaa;
+}
+.search-button{
+    position: absolute;
+    right: 5px; /* Adjust the value as needed */
+    bottom:14px;
+}
+.bi-search {
+  font-weight: bold;
+}
+.searchy {
+  fill: white;
+  opacity: 25%;
+}
