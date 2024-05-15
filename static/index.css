@@ -3,6 +3,7 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
+  background-image:url("ocean.jpg");
 }
 
 #header {
@@ -53,7 +54,7 @@ body {
   font-size: 16px;
   text-transform: uppercase;
   transition: all 0.3s;
-  background: url("ocean2.jpg");
+  background-image: url("ocean2.jpg");
   backdrop-filter: blur(9.5px);
   -webkit-backdrop-filter: blur(9.5px);
   border-radius: 7px;
