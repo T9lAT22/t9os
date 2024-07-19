@@ -1,265 +1,142 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    
-<link rel="icon" type="image/x-icon" href="https://t9lat9.netfy.blog/logo.png">
-   <style>
-  .round-btn {
-    border-radius: 12px;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-  }
-    .button:hover {
-  background-color: #3c68fa;
-  }
-</style>
 
-
-<script>
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "k") {
-      window.open("https://classroom.google.com/?pli=1");
+<img class="logo" src="https://test9dnx.netlify.app/logo.png">
+<style>
+    .logo {
+      bottom:20%;
+      left:40%;
+      position:fixed;
+      width:500px;
     }
-  });
-</script>
-
-
- <style>
-     body {
-                         cursor: url('https://t9lat9.netfy.blog/mouse22.png'), pointer;
-     }
-     button:hover {
-                         cursor: url('https://t9lat9.netfy.blog/cursor35.png'), pointer;
-
-     }
- </style>
-
-<style>
-    .term {
-        position: fixed;
-     bottom: 0;
-     position: fixed;
-     left: 0;
-
-        
-    }
-</style>
-<style>
-    .git {
-        position: fixed;
-     bottom: 0;
-     position: fixed;
-     left: 90px;
-
-        
-    }
-</style>
-
-<style>
-    .v2 {
-        position: fixed;
-     bottom: 0;
-     position: fixed;
-     left: 150px;
-
-        
-    }
-</style>
- 
-
-<div class="button-container">
-  <a href="choose.html">
-    <img   src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Apps_icon-72a7cf.svg/1024px-Apps_icon-72a7cf.svg.png" alt="Button Image">
-  </a>
-</div>
-
- <style>
-  img {
-    display: block;
-    margin: auto;
-    width: 35%; /* change this value to adjust the size of the image */
-  
-    
-   
-  }
-  img:hover {
-      cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
-  }
-</style>
-
-
-
-<style>
-   .icons {
-    display: block;
-    margin: auto;
-    width: 35%; /* change this value to adjust the size of the image */
-  
-  }
-   .icons:hover {
-      cursor: url('https://t9lat9.netfy.blog/hover22.png'), auto;
-  }
-</style>
-
-<img class="icons" src="logo22.png" alt="Image">
-
-<style>
-    .button-container {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-}
-
-.button-container img {
-  width: 79px; /* Adjust this value as per your image size */
-}
-
-</style>
-
-
-<a href="terms.html" class="term">Terms of use</a>
-<a href="https://github.com/T9LAT/Sample-of-buttons/tree/main" class="git">Github</a>
-<a href="t9os.html" class="v2">V3</a>
-
-
-
-
-
-  <style>
-        .clock {
-            border: 2px solid black;
-            padding: 10px 20px;
-            display: inline-block;
-            color:white;
-            background-color: transparent;
-            border-radius: 12px;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-              transform: translateY(-25%);
-                border-color: transparent;
-                padding:10px;
-                font-size:30px;
-
-        }
     </style>
-    
-   <script>
-    function updateTime() {
-      var date = new Date();
-      var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true, timeZone: 'America/New_York' };
-      var formattedTime = date.toLocaleTimeString('en-US', options);
-      document.getElementById("time").innerHTML = formattedTime;
-    }
-
-    setInterval(updateTime, 1000); // Update time every second
-  </script>
-
-  <div class="clock" id="time"></div>
-      <style>
-    body {
-      background-image: url('img.gif');
-      font-family:sans;
-    }
-  </style> 
-    <style>body {background-color: black;}</style>
-    
-    <style>
-         .battery {
-            border: 2px solid black;
-            padding: 10px 20px;
-            display: inline-block;
-            color:white;
-            background-color: transparent;
-            border-radius: 12px;
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-              transform: translateY(-25%);
-                border-color: transparent;
-                padding:10px;
-                font-size:30px;
-        }
-    </style>
-    
- 
- <p class="battery"  id="batteryPercentage"></p>
-
-  <script>
-    // Check if Battery API is supported by the browser
-    if ('getBattery' in navigator) {
-      navigator.getBattery().then(function(battery) {
-        updateBatteryStatus(battery);
-
-        // Update battery status whenever it changes
-        battery.addEventListener('levelchange', function() {
-          updateBatteryStatus(battery);
-        });
-      });
-    } else {
-      document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
-    }
-
-    function updateBatteryStatus(battery) {
-      var percentage = Math.floor(battery.level * 100);
-      document.getElementById('batteryPercentage').innerHTML = percentage + '%';
-    }
-  </script>
 
 
 
- <style>
-    .button {
-      background-color: blue; 
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      border-radius:25px;
+<style>
+    .clock {
+  
+      bottom:0;
+      right:0;
+      color:white;
+     font-size:24px;
+      position:fixed;
+     color:white
+  
+        
+  
     }
   </style>
   
   
-<script>function updateClock() {
-    const now = new Date();
-    let hours = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const seconds = now.getSeconds().toString().padStart(2, '0');
-
-    // Convert hours to 12-hour format
-    if (hours > 12) {
-        hours -= 12;
+  
+  <script>
+  function updateTime() {
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
+  }
+  
+  setInterval(updateTime, 1000); // Update time every second
+  </script>
+  
+  <style>
+     .battery {
+       bottom:0;
+      right:0;
+      color:white;
+      position:fixed;
+      padding:10px 20px;
+  
     }
+  </style>
+  
+  
+  
+  <script>
+  // Check if Battery API is supported by the browser
+  if ('getBattery' in navigator) {
+  navigator.getBattery().then(function(battery) {
+    updateBatteryStatus(battery);
+  
+    // Update battery status whenever it changes
+    battery.addEventListener('levelchange', function() {
+      updateBatteryStatus(battery);
+    });
+  });
+  } else {
+  document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+  }
+  
+  function updateBatteryStatus(battery) {
+  var percentage = Math.floor(battery.level * 100);
+  document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+  }
+  </script>
+  
+  <style>
+  .navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000; /* Replace with your desired background color */
+  border-color:white;
+  border-radius:6px;
+  gap:30px; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  </style>
+  
+  <div class="navbar">
+  <a href='test2.html'>
+  <img src="https://t9os.pages.dev/games.png">
+  </a>
+  <a href="/static/index.html">
+  <img src="https://t9os.pages.dev/web.png">
+  </a>
+  <a href="settings.html">
+  <img src="https://t9os.pages.dev/settings22.png">
+  </a>
+  <a href="king.html">
+  <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+  </a>
+  <a href="news.html">
+  <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+  </a>
+  
+  <h2 class="battery"  id="batteryPercentage"></h2>
+      <div class="clock" id="time"></div>
+  
+  </div>
+  
+  <style>
+  img {
+    width:49px;
+    padding:10px 20px;
+    border-radius:15px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  img:hover {
+    background-color:#141414;
+    border-radius:15px;
+  }
+  
+  </style>
+  <style>
+  body {
+        background:#141414;
+    font-family: sans-serif;
+  
+    
+  }
+  </style>
 
-    // Ensure that 12:00 is displayed correctly
-    if (hours === 0) {
-        hours = 12;
-    }
-
-    const timeString = `${hours}:${minutes}:${seconds}`;
-    document.getElementById('time').textContent = timeString;
-}
-
-// Update the clock immediately and then every second
-updateClock();
-setInterval(updateClock, 1000);
-</script>
-
- 
+  
+  </html>
 
 
-
-
-<div class="center">
-  <p>
-      
-              </p>
-</div>
-  <title>T9 OS</title>
