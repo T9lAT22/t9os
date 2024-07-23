@@ -54,4 +54,68 @@
 <meta name="google-adsense-account" content="ca-pub-7134787026595240">
 
 </script>
+<style>
+  .clock {
+
+    right:50%;
+    top:50px;
+    color:white;
+   font-size:24px;
+    position:fixed;
+   color:white
+
+      
+
+  }
+</style>
+
+
+
+<script>
+function updateTime() {
+var date = new Date();
+var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+var formattedTime = date.toLocaleTimeString('en-US', options);
+document.getElementById("time").innerHTML = formattedTime;
+}
+
+setInterval(updateTime, 1000); 
+</script>
+
+<style>
+   .battery {
+     bottom:0;
+    right:0;
+    color:white;
+    position:fixed;
+    padding:10px 20px;
+
+  }
+</style>
+
+
+
+<script>
+if ('getBattery' in navigator) {
+navigator.getBattery().then(function(battery) {
+  updateBatteryStatus(battery);
+
+  battery.addEventListener('levelchange', function() {
+    updateBatteryStatus(battery);
+  });
+});
+} else {
+document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+}
+
+function updateBatteryStatus(battery) {
+var percentage = Math.floor(battery.level * 100);
+document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+}
+</script>
+
+<h2 class="battery"  id="batteryPercentage"></h2>
+<h1 class="clock" id="time"></h1>
+
+
 <title>t9 os</title>

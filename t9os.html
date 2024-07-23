@@ -39,7 +39,7 @@
   document.getElementById("time").innerHTML = formattedTime;
   }
   
-  setInterval(updateTime, 1000); // Update time every second
+  setInterval(updateTime, 1000); 
   </script>
   
   <style>
@@ -56,12 +56,10 @@
   
   
   <script>
-  // Check if Battery API is supported by the browser
   if ('getBattery' in navigator) {
   navigator.getBattery().then(function(battery) {
     updateBatteryStatus(battery);
   
-    // Update battery status whenever it changes
     battery.addEventListener('levelchange', function() {
       updateBatteryStatus(battery);
     });
@@ -82,7 +80,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #000000; /* Replace with your desired background color */
+  background-color: #000000; 
   border-color:white;
   border-radius:6px;
   gap:30px; 
