@@ -30,14 +30,21 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 1000;
         }
+        .submit {
+          padding:10px 20px;
+          border-radius: 15px;
+          background:#141414;
+          color:white;
+
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="passwordForm">
-            <h2>Please enter the password</h2>
+            <h2>Enter the premium code:</h2>
             <input type="password" id="password" placeholder="Enter password">
-            <button onclick="checkPassword()">Submit</button>
+            <a class="submit" onclick="checkPassword()">Submit</a>
         </div>
         <div id="iframeContainer"></div>
     </div>
