@@ -1,75 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Mods room</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Iframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        #passwordForm {
+            display: block;
+        }
+        #iframeContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        #iframeContainer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-<style>
-  .code {
-    border-radius:20px;
-    font-size:18px;
-    color:black;
-    background-color:white;
-  }
-</style>
-  <div class="container">
-  <form id="guessForm">
-    <label for="codeInput">Mod code:</label>
-    <input class="code" type="text" id="codeInput" name="codeInput">
-    <button class="code" type="submit">Enter</button>
-  </form>
-  </div>
-  <style>
-    .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  color: white;
-}
+    <div class="container">
+        <div id="passwordForm">
+            <h2>Please enter the password</h2>
+            <input type="password" id="password" placeholder="Enter password">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+        <div id="iframeContainer">
+            <iframe src="https://example.com" id="iframe"></iframe>
+        </div>
+    </div>
 
-</style>
-  <style>
-    body {
-      background-image:url("https://wallpapers.com/images/featured/plain-gold-background-xltjzlz7df80i9ai.jpg");
-    }
-  </style>
-  <style>
-    img {
-      width:150px;
-    }
-  </style>
-<script>
-document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-});
-document.onkeydown = function(e) {
-    if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 73)) {
-        return false;
-    }
-};
+    <script>
+        function checkPassword() {
+            var correctPassword = "mySecretPassword"; // Change this to your desired password
+            var inputPassword = document.getElementById("password").value;
+            var iframeContainer = document.getElementById("iframeContainer");
+            var passwordForm = document.getElementById("passwordForm");
 
-</script>
-
-
-<!-- mod page is mod.html -->
-
+            if (inputPassword === correctPassword) {
+                passwordForm.style.display = "none";
+                iframeContainer.style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
