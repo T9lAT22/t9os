@@ -30,11 +30,6 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 1000;
         }
-        #iframeContainer iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
     </style>
 </head>
 <body>
@@ -44,9 +39,7 @@
             <input type="password" id="password" placeholder="Enter password">
             <button onclick="checkPassword()">Submit</button>
         </div>
-        <div id="iframeContainer">
-            <iframe src="https://example.com" id="iframe"></iframe>
-        </div>
+        <div id="iframeContainer"></div>
     </div>
 
     <script>
@@ -57,7 +50,20 @@
             var passwordForm = document.getElementById("passwordForm");
 
             if (inputPassword === correctPassword) {
+                // Hide the password form
                 passwordForm.style.display = "none";
+
+                // Create the iframe element
+                var iframe = document.createElement("iframe");
+                iframe.src = "https://example.com"; // Replace with your desired URL
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                
+                // Append the iframe to the container
+                iframeContainer.appendChild(iframe);
+
+                // Show the iframe container
                 iframeContainer.style.display = "block";
             } else {
                 alert("Incorrect password. Please try again.");
@@ -66,10 +72,6 @@
     </script>
 </body>
 </html>
-
-
-
-
 
 
 
