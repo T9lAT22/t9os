@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    Incognito
+	
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+        -->
+	<script src="./bm/bare.cjs"></script>
+	<script src="./lcl/index.js"></script>
+    <script src="./uv/uv.bundle.js"></script>
+    <script src="./uv/uv.config.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: url('./css/Roboto-Regular.ttf') format('woff');
+        }
+        body {
+            background: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0px;
+            align-items: center;
+        }
+        .msg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        p {
+            font-family: Roboto;
+        }
+        .info {
+            color: #FFF;
+            max-width: 600px;
+            text-align: center;
+            margin: 35px 0px 0px 0px;
+        }
+        .lds-dual-ring {
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+        }
+        .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 128px;
+            height: 128px;
+            margin: 16px;
+            border-radius: 50%;
+            border: 12px solid #fff;
+            border-color: #fff transparent #fff transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+        }
+        @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="msg">
+        <div class="lds-dual-ring"></div>
+        <p class="info">
+            Please wait a moment.
+            Our service maybe under high load causing some slowness on our servers. Your request will eventually be
+            responded to.
+        </p>
+    </div>
+    <script type="module">
+		import { searchProviders } from './script/search.js';
+
+		function searchUtil(input, search) {
+			try {
+				return new URL(input).toString();
+			} catch {}
+			try {
+				const url = new URL(`http://${input}`);
+				if(url.hostname.includes('.')) return url.toString()
+			} catch {}
+			return search.replace("%s", encodeURIComponent(input));
+		}
+        if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.ready.then(() => {
+				BareMux.SetTransport("CurlMod.LibcurlClient", { wisp: `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/wisp/` });
+				let url = atob(decodeURIComponent(window.location.hash.slice(1)));
+                let search = searchProviders[localStorage.getItem('incog||search') || 'google'].frontend;
+                if (url) url = searchUtil(url, search); else url = new URL(search).origin;
+                window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+            });
+        } else {
+            document.querySelector('.lds-dual-ring').remove();
+            if(window.location.protocol == 'http:') {
+                document.querySelector('.info').textContent = 'You are using http:// and your browser seems to be blocking service workers because of that. Try using https://.'
+            } else {
+                document.querySelector('.info').textContent = `Your browser does not support service workers or is blocking them (private browsing mode?). Try swapping or updating your browser.`
+            }
+        };
+    </script>
+</body>
+</html>

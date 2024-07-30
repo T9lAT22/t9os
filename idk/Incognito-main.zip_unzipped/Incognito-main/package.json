@@ -1,0 +1,46 @@
+{
+  "name": "incognito",
+  "version": "1.0.0",
+  "description": "Unofficial Incognito easy deployment version with TompHTTP bare server included.",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "install-webretro-linux": "chmod u+x ./src/webretro.sh && ./src/webretro.sh"
+  },
+  "files": [
+    "static",
+    "src",
+    "ssl",
+    ".gitignore",
+    "app.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amethystnetwork-dev/Incognito"
+  },
+  "keywords": [
+    "unoffical",
+    "ultraviolet",
+    "unblock",
+    "titaniumnetwork",
+    "bypass-filter",
+    "amethystnetwork-dev"
+  ],
+  "author": "caracal-js and Amethyst Network contributors",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "@amethystnetwork-dev/incognito-gfiles": "https://github.com/amethystnetwork-dev/Incognito-gfiles/archive/ede130174c30fc6931b3e7ba842341d90f958f5e.tar.gz",
+    "@mercuryworkshop/bare-mux": "^1.1.0",
+    "@mercuryworkshop/libcurl-transport": "^1.3.1",
+    "@titaniumnetwork-dev/ultraviolet": "^3.1.2",
+    "body-parser": "^1.20.2",
+    "connect": "^3.7.0",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.15.0",
+    "wisp-server-node": "^1.1.0"
+  },
+  "engines": {
+    "npm": ">=10.0.0",
+    "node": ">=20.0.0"
+  }
+}

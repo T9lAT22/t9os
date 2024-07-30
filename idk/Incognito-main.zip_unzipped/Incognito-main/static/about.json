@@ -1,0 +1,35 @@
+{
+    "main": {
+        "title": "About Incognito",
+        "data": "Access the world wide web, Incognito is an anti-censorship web service."
+    },
+    "authors": [
+        {
+            "name": "<a href=\"https://github.com/caracal-js\">Caracal.js</a>",
+            "data": "Creator of <a href=\"https://github.com/titaniumnetwork-dev/Ultraviolet\">Ultr&#173;avi&#173;olet</a> & Incognito</p>"
+        },
+        {
+            "name": "<a href=\"https://github.com/e9x\">e9x</a>",
+            "data": "Creator of <a href=\"https://github.com/tomphttp/\">TompHTTP</a>"
+        },
+        {
+            "name": "<a href=\"https://github.com/amethystnetwork-dev/\">Amethyst Network</a>",
+            "data": "Created deployable version"
+        }
+    ],
+    "socials": [
+        {
+            "name": "<a href=\"https://www.patreon.com/incognitotn\">TN Patreon</a>",
+            "data": "Helps TN restock its Incognito domains & upgrade servers"
+        },
+        {
+            "name": "<a href=\"https://discord.gg/unblock\">TN Discord</a>",
+            "data": "The official Titanium Network discord server."
+        }
+    ],
+    "contact": [
+        {
+            "name": "<a href=\"mailto:example@example.com\">No email provided</a>"
+        }
+    ]
+}
