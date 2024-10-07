@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <iframe src="https://forms.gle/GTLPZroB3EbVs8RM9" style="border: 0; width: 100%; height: 100%; border-radius:20px;" frameborder="0" marginheight="0" marginwidth="0">Your browser doesn't support iFrames.</iframe>
+    </body>
+  <style>
+    body {
+         background-image:url("bg.jpg");
+    font-family: sans-serif;
+     -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    }
+  </style>
+  <style>
+    .clock {
+  
+      top:0;
+      right:45%;
+      color:white;
+     font-size:24px;
+      position:fixed;
+     color:white;
+      background-color:black;
+      padding:10px 20px; 
+      border-radius:20px;
+        
+  
+    }
+  </style>
+  
+  
+  
+  <script>
+  function updateTime() {
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
+  }
+  
+  setInterval(updateTime, 1000); 
+  </script>
+  
+  <style>
+     .battery {
+       bottom:0;
+      right:0;
+      color:white;
+      position:fixed;
+      padding:10px 20px;
+       background-color:black;
+       border-radius:20px;
+       
+     }
+    .term{
+      border-radius:20px;
+    }
+  </style>
+  
+  
+  
+  <script>
+  if ('getBattery' in navigator) {
+  navigator.getBattery().then(function(battery) {
+    updateBatteryStatus(battery);
+  
+    battery.addEventListener('levelchange', function() {
+      updateBatteryStatus(battery);
+    });
+  });
+  } else {
+  document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+  }
+  
+  function updateBatteryStatus(battery) {
+  var percentage = Math.floor(battery.level * 100);
+  document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+  }
+  </script>
+  
+  <style>
+  .navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 690px;
+  background-color: black; 
+  border-radius:30px;
+  gap:30px; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    bottom:0px;
+    left:24%;
+    opacity:85%;
+  }
+  </style>
+  
+  <div class="navbar">
+  <a href='test2.html'>
+  <img src="https://t9os.pages.dev/games.png">
+  </a>
+  <a href="/static/index.html">
+  <img src="https://t9os.pages.dev/web.png">
+  </a>
+  <a href="settings.html">
+  <img src="https://t9os.pages.dev/settings22.png">
+  </a>
+  <a href="king.html">
+  <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+  </a>
+  <a href="news.html">
+  <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+  </a>
+       <a href="terms.html">
+      <img class="term" src="TERM.png">
+    </a>
+  
+  
+  <h2 class="battery"  id="batteryPercentage"></h2>
+      <div class="clock" id="time"></div>
+  
+  </div>
+  
+  <style>
+  img {
+    width:49px;
+    padding:10px 20px;
+    border-radius:15px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  img:hover {
+    background-color:#141414;
+    border-radius:15px;
+  }
+  
+  </style>
+</html>
