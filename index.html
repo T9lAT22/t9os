@@ -1,32 +1,83 @@
+
 <!DOCTYPE html>
 <html>
-    <body>
-        <h1 id="time" class="clock"></h1>
-        <style>
-            .clock {
-                color:white;
-                text-align:center;
-                top:67px;
-                font-size:87px;
-            }
-            body {
-                background-color:#141414;
-                font-family:sans-serif;
-
-            }
-        </style>
-
-        <script src="index.js"></script>
-        <script>
-              function updateTime() {
-  var date = new Date();
-  var options = { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-  var formattedTime = date.toLocaleTimeString('en-US', options);
-  document.getElementById("time").innerHTML = formattedTime;
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Blackout</title>
+<style>
+  /* Style for the loading screen */
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
   }
-  
-  setInterval(updateTime, 1000); 
-        </script>
-    </body>
-<script type="text/javascript" src="https://www.stat-counter.org/count/gb9x"></script><br>
- <a href='https://www.versicherungen.at/cyber-versicherung/'>Cyber-Versicherung</a> <script type='text/javascript' src='https://www.whomania.com/ctr?id=e8e4f705ea1d3e6fa26526ff699944b749631f40'></script></html>
+
+  .logo {
+    width: 100px;
+    height: 100px;
+    animation: fadeOut 3s forwards;
+  }
+
+
+        @keyframes fadeOut {
+          0% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+
+    .text {
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-style: normal;
+      margin-top: 10px;
+      font-size: 50px;
+      opacity: 1; /* Set initial opacity to 1 */
+    color:white;
+    animation: fadeOut 3s forwards;
+    }
+      </style>
+</head>
+<body>
+<div class="text">T9 OS</div>
+
+<script>
+  window.onload = function() {
+    setTimeout(function() {
+      window.location.href = "start.html"; // Replace with your desired URL
+    }, 3000); // 3000 milliseconds = 3 seconds
+  };
+</script>
+</head>
+<body>
+</body>
+</html>
+<div class="dust-particle"></div></body>
+<style>
+  body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-image: url("os2.jpg");
+  }
+  #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+  }
+</style>
+</head>
+<body>
+
+
+</body>
+</html>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
