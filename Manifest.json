@@ -5,6 +5,6 @@
   "description": "A basic example extension with only required keys",
   "icons": {
     "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
-  },
+    "128": "https://upload.wikimedia.org/wikipedia/commons/8/8c/128px-Nuvola_man_icon.png"
+  }
 }
