@@ -1,98 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Iframe</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: black;
+    <style type="text/css">
+    body {
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    }
+        form {
+            display: inline-block;
+            text-align: left;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius:15px;
+            right:35%;
+            position:fixed;
+            width:200px;
+            height:200px;
+          background: rgb(126,126,233);
+background: linear-gradient(90deg, rgba(126,126,233,1) 35%, rgba(166,26,215,1) 100%);
+     color:white;            
         }
-        .container {
-            text-align: center;
-        }
-        #passwordForm {
+        label, input {
             display: block;
+            margin: 5px 0;
         }
-        #iframeContainer {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-        }
-        .submit {
-          padding:10px 20px;
-          border-radius: 15px;
-          background:#141414;
-          color:white;
-
-        }
-        input{
-          width: 300px;
-          height:50px;
-          border-radius:20px;
-          color:white;
-          background-Color:#141414;
-        }
-        h2 {
-          color:white;
+        input[type="submit"] {
+            margin: 10px 0 0 0;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div id="passwordForm">
-            <h2>Enter the premium code:</h2>
-            <input type="password" id="password" placeholder="Enter password">
-            <a class="submit" onclick="checkPassword()">Submit</a>
-        </div>
-        <div id="iframeContainer"></div>
-    </div>
+    <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
 
-    <script>
-        function checkPassword() {
-            var correctPassword = "mySecretPassword"; // Change this to your desired password
-            var inputPassword = document.getElementById("password").value;
-            var iframeContainer = document.getElementById("iframeContainer");
-            var passwordForm = document.getElementById("passwordForm");
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
 
-            if (inputPassword === correctPassword) {
-                // Hide the password form
-                passwordForm.style.display = "none";
+        <input type="submit" value="Login">
+    </form>
 
-                // Create the iframe element
-                var iframe = document.createElement("iframe");
-                iframe.src = "https://example.com"; // Replace with your desired URL
-                iframe.style.width = "100%";
-                iframe.style.height = "100%";
-                iframe.style.border = "none";
-                
-                // Append the iframe to the container
-                iframeContainer.appendChild(iframe);
-
-                // Show the iframe container
-                iframeContainer.style.display = "block";
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
-        }
-    </script>
+  
 </body>
 </html>
-
-
-
-
 
 
 
