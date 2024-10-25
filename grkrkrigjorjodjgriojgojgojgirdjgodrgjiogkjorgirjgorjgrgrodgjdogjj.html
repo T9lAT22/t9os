@@ -1,0 +1,67 @@
+
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1 id="time" class="clock"></h1>
+        <p class="text">(Press any key to begin)</p>
+        <style>
+            .clock {
+                color:white;
+                text-align:center;
+                top:67px;
+                font-size:87px;
+            }
+            body {
+                background-image:url("os2.jpg");
+                font-family:sans-serif;
+                color:white;
+
+            }
+            .text{
+                animation: fadeOut 6s forwards infinite  ;
+                top:55%;
+                right:45%;
+                position:fixed;
+                font-size: 22px;
+            }
+            @keyframes fadeOut {
+          0% { opacity: 1; }
+          50% { opacity: 0.5; }
+          100% { opacity: 0; }
+          50% { opacity: 0.5; }
+          0% { opacity: 1; }
+
+
+        
+
+
+
+
+
+
+
+            }
+        </style>
+
+        <script src="index.js"></script>
+        <script>
+              function updateTime() {
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
+  }
+  
+  setInterval(updateTime, 1000); 
+        </script>
+    </body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1HRPZBNPDP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1HRPZBNPDP');
+</script>
