@@ -6,6 +6,9 @@ body {
     padding: 0;
 }
 
+h1 {
+    color: white;
+}
 
 .container{
 width: 100%;
