@@ -1,219 +1,185 @@
-
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Div Fix</title>
 
 <style>
-    .clock {
-    
-  font: caption;
-      right:30px;
-      color:white;
-     font-size:25px;
-      position:fixed;
-     color:white
-  
-  
-        
-  
-    }
-  </style>
-  
-  
-  
-  <script>
-  function updateTime() {
-  var date = new Date();
-  var options = { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' };
-  var formattedTime = date.toLocaleTimeString('en-US', options);
-  document.getElementById("time").innerHTML = formattedTime;
+  /* General Styles */
+  body {
+    background-image: url("https://t9os.com/T93.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
   }
-  
-  setInterval(updateTime, 1000); // Update time every second
-  </script>
-  
-  <style>
-     .battery {
-     font: caption;
-      right:185px;
-      color:white;
-      position:fixed;
-     font-size:25px;
-  
-    }
-  </style>
-  
-  
-  
-  <script>
-  // Check if Battery API is supported by the browser
-  if ('getBattery' in navigator) {
-  navigator.getBattery().then(function(battery) {
-    updateBatteryStatus(battery);
-  
-    // Update battery status whenever it changes
-    battery.addEventListener('levelchange', function() {
-      updateBatteryStatus(battery);
-    });
-  });
-  } else {
-  document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+
+  /* Clock Styles */
+  .clock {
+    font: caption;
+    right: 30px;
+    color: white;
+    font-size: 25px;
+    position: fixed;
   }
-  
-  function updateBatteryStatus(battery) {
-  var percentage = Math.floor(battery.level * 100);
-  document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+
+  /* Battery Styles */
+  .battery {
+    font: caption;
+    right: 185px;
+    color: white;
+    position: fixed;
+    font-size: 25px;
   }
-  </script>
-  
-  <style>
+
+  /* Navbar Styles */
   .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #141414; 
-  border-radius:6px;
-  gap:30px; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #141414;
+    border-radius: 6px;
+    gap: 30px;
     display: flex;
-  justify-content: center;
-  align-items: center;
-  height:50px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
   }
-  </style>
-  
-  <div class="navbar">
-    <a id="toggleDivButton">
-        <img src="https://t9os.com/logo22.png">
-        </a>
-      
-  <a href="test2.html">
-  <img src="https://t9os.pages.dev/games.png">
-  </a>
-  <a onclick="toggleUI3()">
-  <img src="https://t9os.pages.dev/web.png">
-  </a>
-  <a href="settings.html">
-  <img src="https://t9os.pages.dev/settings22.png">
-  </a>
-  <a onclick="toggleUI2()">
-  <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
-  </a>
-  <a href="news.html">
-  <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
-  </a>
 
-  
-  <h2 class="battery"  id="batteryPercentage"></h2>
-  <div class="line"></div>
-  <div class="line2"></div>
-  
-      <div class="clock" id="time"></div>
-  
-  </div>
-
-
-
-
-
-
-
-
-<!-- T9 OS logo ui toggle -->
-  
-
-<style>
-    #hiddenDiv {
-      display: none;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: red;
-      border: 1px solid #ccc;
-      color:white;
-      top:50%;
-      position:fixed;
-    }
-  </style>
-
-
-
-
-  <div  id="hiddenDiv">
-    Hello! I am now visible.
-    <p>iisdj</p>
-  </div>
-
-  <script>
-    const button = document.getElementById('toggleDivButton');
-    const hiddenDiv = document.getElementById('hiddenDiv');
-
-    button.addEventListener('click', () => {
-      if (hiddenDiv.style.display === 'none' || hiddenDiv.style.display === '') {
-        hiddenDiv.style.display = 'block';
-      } else {
-        hiddenDiv.style.display = 'none';
-      }
-    });
-  </script>
-
-
-
-
-
-
-
-  
-  <style>
   img {
-    width:35px;
-    padding:10px 20px;
-    border-radius:15px;
-       transition: transform 0.3s ease-in-out;       
+    width: 35px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
   }
+
   img:hover {
     transform: translateY(-3px);
-      box-shadow: none;
-      border-radius:15px;
+    box-shadow: none;
+    border-radius: 15px;
   }
-  .line{
-  width:2px;
-  height: 50px;
-  background-color:white;
-  right:150px;
-  position:fixed;
-  }
-  .line2{
-  width:2px;
-  height: 50px;
-  background-color:white;
-  right:280px;
-  position:fixed;
-  }
-  
-  </style>
-  <style>
-  body {
-        background-image:url("T93.png");
-      
-    
-  }
-  </style>
 
+  .line {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 150px;
+    position: fixed;
+  }
+
+  .line2 {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 280px;
+    position: fixed;
+  }
+
+  /* Toggle Div Styles */
+  #hiddenDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: red;
+    border: 1px solid #ccc;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 1000;
+  }
+
+  /* Logo Styles */
+  .logo {
+    right: 45%;
+    top: 150px;
+    position: fixed;
+    font-size: 200px;
+    color: white;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
 
 <h1 class="logo">T9</h1>
 
- 
+<!-- Navbar -->
+<div class="navbar">
+  <a id="toggleDivButton">
+    <img src="https://t9os.com/logo22.png">
+  </a>
+  <a href="test2.html">
+    <img src="https://t9os.pages.dev/games.png">
+  </a>
+  <a onclick="toggleUI3()">
+    <img src="https://t9os.pages.dev/web.png">
+  </a>
+  <a href="settings.html">
+    <img src="https://t9os.pages.dev/settings22.png">
+  </a>
+  <a onclick="toggleUI2()">
+    <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+  </a>
+  <a href="news.html">
+    <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+  </a>
 
- 
+  <h2 class="battery" id="batteryPercentage"></h2>
+  <div class="line"></div>
+  <div class="line2"></div>
+  <div class="clock" id="time"></div>
+</div>
 
-<style>
-    .logo {
-      right:45%;
-      top:150px;
-      position:fixed;
-      font-size:200px;
-      color:white;
-      font-family: sans-serif;
+<!-- Hidden Div -->
+<div id="hiddenDiv">
+  Hello! I am now visible.
+  <p>iisdj</p>
+</div>
+
+<script>
+  // Clock Update
+  function updateTime() {
+    var date = new Date();
+    var options = { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' };
+    var formattedTime = date.toLocaleTimeString('en-US', options);
+    document.getElementById("time").innerHTML = formattedTime;
+  }
+  setInterval(updateTime, 1000); // Update time every second
+
+  // Battery Status
+  if ('getBattery' in navigator) {
+    navigator.getBattery().then(function(battery) {
+      updateBatteryStatus(battery);
+      battery.addEventListener('levelchange', function() {
+        updateBatteryStatus(battery);
+      });
+    });
+  } else {
+    document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+  }
+
+  function updateBatteryStatus(battery) {
+    var percentage = Math.floor(battery.level * 100);
+    document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+  }
+
+  // Toggle Div Visibility
+  const button = document.getElementById('toggleDivButton');
+  const hiddenDiv = document.getElementById('hiddenDiv');
+
+  button.addEventListener('click', () => {
+    if (hiddenDiv.style.display === 'none' || hiddenDiv.style.display === '') {
+      hiddenDiv.style.display = 'block';
+    } else {
+      hiddenDiv.style.display = 'none';
     }
-    </style>
-  
+  });
+</script>
+
+</body>
+</html>
