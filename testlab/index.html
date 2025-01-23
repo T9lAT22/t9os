@@ -146,14 +146,14 @@
 </div>
 
 <script>
-  // Clock Update
   function updateTime() {
-    var date = new Date();
-    var options = { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' };
-    var formattedTime = date.toLocaleTimeString('en-US', options);
-    document.getElementById("time").innerHTML = formattedTime;
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
   }
-  setInterval(updateTime, 1000); // Update time every second
+  
+  setInterval(updateTime, 1000); 
 
   // Battery Status
   if ('getBattery' in navigator) {
