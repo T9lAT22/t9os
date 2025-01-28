@@ -1,190 +1,461 @@
 
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toggle Div Fix</title>
 
 <style>
-    .clock {
-    
-  font: caption;
-      right:30px;
-      color:white;
-     font-size:25px;
+  /* General Styles */
+  body {
+    background-image: url("https://t9os.com/T93.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Clock Styles */
+  .clock {
+    font: caption;
+    right: 30px;
+    color: white;
+    font-size: 25px;
+    position: fixed;
+  }
+
+  /* Battery Styles */
+  .battery {
+    font: caption;
+    right: 185px;
+    color: white;
+    position: fixed;
+    font-size: 25px;
+  }
+
+  /* Navbar Styles */
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #141414;
+    border-radius: 6px;
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    opacity:85%;
+  }
+
+  img {
+    width: 35px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img:hover {
+    transform: translateY(-3px);
+    box-shadow: none;
+    border-radius: 15px;
+  }
+
+  .line {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 150px;
+    position: fixed;
+  }
+
+  .line2 {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 280px;
+    position: fixed;
+  }
+
+  /* Toggle Div Styles */
+  #hiddenDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Logo Styles */
+  .logo {
+    right:45%;
+      top:150px;
       position:fixed;
-     color:white
+    position: fixed;
+    font-size: 200px;
+    color: white;
+    font-family: sans-serif;
+  }
+  .Lbtn{
+    padding:10px 20px; 
+    background-color:black;
+    border-radius: 15px;
+    color:white;
+    text-decoration: none;
+
+    
+  }
+  .btn {
+     width:150px;
+     height:150px;
+     border-radius:20px;
+     gap:100px;
+     transition: transform 0.3s ease-in-out; 
+
+
+     }
+     .btn:hover{
+   transform: translateY(-3px);
+    box-shadow: none;
+     }
+     .gtext{
+          text-align:center;
+          font-family: sans-serif;
+          background-color:rgb(34, 34, 34);
+          color:#ffffff;
+          border-radius: 98px 21px 69px 20px;
+-webkit-border-radius: 98px 21px 69px 20px;
+-moz-border-radius: 98px 21px 69px 20px;
+border: 7px solid #ffffff;          
+     }
   
-  
+</style>
+</head>
+<body>
+
+<h1 class="logo">T9</h1>
+
+<!-- Navbar -->
+<div class="navbar">
+  <a id="toggleDivButton">
+    <img src="https://t9os.com/logo22.png">
+  </a>
+  <a id="toggleDivButton">
+    <img src="https://t9os.com/img/game.png">
+  </a>
+  <a onclick="toggleUI3()">
+    <img src="https://t9os.pages.dev/web.png">
+  </a>
+  <a href="settings.html">
+    <img src="https://t9os.pages.dev/settings22.png">
+  </a>
+  <a onclick="toggleUI2()">
+    <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
+  </a>
+  <a href="news.html">
+    <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+  </a>
+
+  <h2 class="battery" id="batteryPercentage"></h2>
+  <div class="line"></div>
+  <div class="line2"></div>
+  <div class="clock" id="time"></div>
+</div>
+
+<!-- Hidden Div -->
+<div id="hiddenDiv">
+     <h1 class="gtext">Games</h1>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaAq2bhgZipNNKUL74Q8FnKlPnPycsXZVVsLunrIfcoiR1tg/viewform?usp=sf_link">
+        <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
+             </a>
+                <a href="terms.html">
+        <img class="btn" src="TERM.png">
+             </a>
+        <a href="usService.html">
+        <img class="btn" src="among.webp">
+             </a>
         
+        <a href="crossy.html">
+        <img class="btn" src="crossy.jpg">
+             </a>
+             
+             <a href="cookie.html">
+        <img class="btn" src="cookie.png">
+             </a>
+        
+         <a href="1v1.html">
+        <img class="btn" src="1v1.jpg">
+         </a>
+        
+         
+        
+         
+        
+         <a href="ninjaNF.html">
+        <img class="btn" src="fninja.jpg">
+             </a>
+             
+              <a href="dino.html">
+        <img class="btn" src="dino.png">
+             </a>
+             
+          
+        <a href="run.html">
+        <img class="btn" src="https://www.coolmathgames.com/sites/default/files/Run_OG-logo.jpg">
+             </a>
+             
+             
+              
+        <a href="run2.html">
+        <img class="btn" src="https://cdn2.steamgriddb.com/grid/3f6d363e3a8771d0cc7163db621741af.png">
+             </a>
+             
+             <a href="2048.html">
+        <img class="btn" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/2048_Icon.png">
+             </a>
+             
+              <a href="wheels.html">
+        <img class="btn" src="https://media.moddb.com/images/games/1/71/70609/happy-wheels-game.png">
+             </a>
+        
+         <a href="baldi.html">
+        <img class="btn" src="https://fontmeme.com/images/badis-basics-font.png">
+             </a>
+        
+         <a href="hunter.html">
+        <img class="btn" src="https://slopegame.io/upload/imgs/drift-hunters-logo.png">
+             </a>
+             
+              <a href="slope.html">
+        <img class="btn" src="https://slopegame.io/upload/imgs/slope1.jpg">
+             </a>
+             
+              <a href="bitlifeService.html">
+        <img class="btn" src="https://static.wikia.nocookie.net/logopedia/images/9/99/Bitlife.png">
+             </a>
+             
+                <a href="https://thewebsitesbridge.com/">
+        <img class="btn" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg">
+             </a>
+             
+             
+            <a href="fnaf.html">
+        <img class="btn" src="https://www.bewild.com/cdn/shop/products/official-five-nights-at-freddy-s-logo-mens-t-shirt-black-12.jpg">
+             </a>
+             
+              <a href="run3.html">
+        <img class="btn" src="https://jpg.hoodamath.com/large/run3_300x225.jpg">
+             </a>
+             
+              <a href="temple.html">
+        <img class="btn" src="https://i.pinimg.com/736x/07/ef/10/07ef10c982b089babd27eb19228264e5.jpg">
+             </a>
+             
+             <a href="tetris.html">
+        <img class="btn" src="https://s3.amazonaws.com/tetris-www1/assets/editorial/2022/12/tetris-logo.png">
+             </a>
+             
+             <a href="minecraft.html">
+        <img class="btn" src="https://wallpapers.com/images/hd/hd-minecraft-logo-3nehf0ctjgk3d0zp.jpg">
+             </a>
+             
+             <a href="stickhook.html">
+        <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/99e090d154caf30f3625df7e456d5984.png">
+             </a>
+             
+              <a href="deathrun.html">
+        <img class="btn" src="https://deathrun3d.io/rs/banner-death-run-3d.jpg">
+             </a>
+             
+             
+               <a href="bowl.html">
+        <img class="btn" src="https://geometry-dash.co/data/image/game/retro-bowl-logo.jpg">
+             </a>
+             
+             <a href="subway.html">
+        <img class="btn" src="https://static.wikia.nocookie.net/subwaysurf/images/f/f7/Barcelona2022Icon.jpg">
+             </a>
+             
+             <a href="granny.html">
+        <img class="btn" src="https://izigames.net/uploads/2023/6/granny-logo.jpg">
+             </a>
+             
+             <a href="geom.html">
+        <img class="btn" src="https://static.wikia.nocookie.net/logopedia/images/4/41/Geometry_Dash_Icon.svg/">
+             </a>
+             
+              <a href="jet.html">
+        <img class="btn" src="https://upload.wikimedia.org/wikipedia/en/9/90/Jetpack_Joyride_iOS.png">
+             </a>
+             
+             <a href="sausage.html">
+        <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/7d0655113228257bad41d851c074600d.png">
+             </a>
+             
+             <a href="motox3m.html">
+        <img class="btn" src="https://skribblio.online/upload/imgs/moto-x3m-2.jpg">
+             </a>
+             
+             <a href="kartz.html">
+        <img class="btn" class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/9c9e529b14731be871b07b89660bbc2a.png">
+             </a>
+             
+             <a href="basket.html">
+        <img class="btn" src="https://8ball-pool.io/data/image/basketball-stars-2.jpeg">
+             </a>
+             
+             <a href="bullet.html">
+        <img class="btn" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/41/e2/f8/41e2f8e8-f2a5-34ea-ab12-426d63be2fcb/AppIcon-0-0-1x_U007emarketing-0-4-0-85-220.png/512x512bb.jpg">
+             </a>
+             
+             <a href="tunnel.html">
+        <img class="btn" src="https://images.hellokids.com/_uploads/_tiny_galerie/20180415/vign-tunnel-rush-hk-w8v_u89.jpg">
+             </a>
+             
+             <a href="paper2.html">
+        <img class="btn" src="https://cdn-1.webcatalog.io/catalog/paper-io/paper-io-icon-filled-256.png">
+             </a>
+             
+              <a href="core.html">
+        <img class="btn" src="https://coreball.co/data/image/favicon.png">
+             </a>
+             
+              <a href="dmad.html">
+        <img class="btn" src="https://www.fancade.com/images/5F084A0BCE06B710.jpg">
+             </a>
+             
+             <a href="stack.html">
+        <img class="btn" src="https://is4-ssl.mzstatic.com/image/thumb/Purple114/v4/db/ee/72/dbee72bc-a37e-9aa0-d083-b883dc6056f1/source/512x512bb.jpg">
+             </a>
+             
+              <a href="flip.html">
+        <img class="btn" src="https://img.itch.zone/aW1nLzI5MDYwNzIucG5n/315x250%23c/wFJ8TV.png">
+             </a>
+             
+             <a href="gta5.html">
+        <img class="btn" src="https://seeklogo.com/images/G/grand-theft-auto-5-logo-54E30512F6-seeklogo.com.png">
+             </a>
+             
+             <a href="box.html">
+        <img class="btn" src="https://cdn2.steamgriddb.com/thumb/c442b40dabc7f4bda930bef2b5d100fc.jpg">
+             </a>
+             
+             <a href="soccer.html">
+        <img class="btn" src="https://img.gamedistribution.com/ecd138ae69cf4e92b5f5cdd328b6b62e-512x512.jpeg">
+             </a>
+             
+             <a href="shortlife.html">
+        <img class="btn" src="https://img.gamepix.com/games/short-life/icon/short-life.png">
+             </a>
+             
+              <a href="manic.html">
+        <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/22ccecfbdad116a115a9d6517b0de2f8.png">
+             </a>
+             
+             <a href="slope2.html">
+                 <img class="btn" src="https://slopegame.io/upload/imgs/slope-2-player-logo.jpg">
+             </a>
+             
+             <a href="thrill.html">
+                 <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/fe12a3fe056ed89fe38f6d22e807978b.png">
+             </a>
+             
+             <a href="shortride.html">
+                 <img class="btn" src="https://geometry-dash.co/data/image/game/short-ride-logo.jpg">
+             </a>
+             
+             <a href="stair.html">
+                 <img class="btn" src="https://www.plonga.com/storage/game-thumbs/stair-race-3d.png">
+             </a>
+             
+              <a href="blight.html">
+                 <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/7c3c1d84708ed1b08bd1b76887eb2e0e.png">
+             </a>
+             
+              <a href="vex.html">
+                 <img class="btn" src="https://img.gamepix.com/games/vex-4/icon/vex-4.png">
+             </a>
+        
+        <a href="hallow.html">
+                 <img class="btn" src="https://i.ibb.co/dmBbf5s/Screenshot-2024-04-10-7-06-13-PM.png">
+             </a>
+                <a href="tapgoal.html">
+                 <img class="btn" src="tap.webp">
+             </a>
+        </a>
+        <a href="snowrider.html">
+         <img class="btn" src="https://t9lat22.github.io/t9os/img/snow.png">
+        </a>
+        <a href="rocketsoccer.html">
+             <img class="btn" src="https://t9lat22.github.io/t9os/img/soccer.png">
+            </a>
+            <a href="superhot.html">
+             <img class="btn" src="https://t9lat22.github.io/t9os/img/superhot.png">
+            </a>
+                 <a href="funnyshooter.html">
+             <img class="btn" src="download.jpg">
+            </a>
+                    <a href="icedodo.html">
+             <img class="btn" src="ice.jpg">
+            </a>
+                       <a href="eggy-car-main/eggy-car-main/frame.html">
+             <img class="btn" src="eggy.jpg">
+            </a>
+        
+</div>
   
-    }
-  </style>
-  
-  
-  
-  <script>
+<script>
   function updateTime() {
   var date = new Date();
-  var options = { hour: 'numeric', minute: 'numeric', hour12: true, timeZone: 'America/New_York' };
+  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
   var formattedTime = date.toLocaleTimeString('en-US', options);
   document.getElementById("time").innerHTML = formattedTime;
   }
   
-  setInterval(updateTime, 1000); // Update time every second
-  </script>
-  
-  <style>
-     .battery {
-     font: caption;
-      right:185px;
-      color:white;
-      position:fixed;
-     font-size:25px;
-  
-    }
-  </style>
-  
-  
-  
-  <script>
-  // Check if Battery API is supported by the browser
+  setInterval(updateTime, 1000); 
+
+  // Battery Status
   if ('getBattery' in navigator) {
-  navigator.getBattery().then(function(battery) {
-    updateBatteryStatus(battery);
-  
-    // Update battery status whenever it changes
-    battery.addEventListener('levelchange', function() {
+    navigator.getBattery().then(function(battery) {
       updateBatteryStatus(battery);
+      battery.addEventListener('levelchange', function() {
+        updateBatteryStatus(battery);
+      });
     });
-  });
   } else {
-  document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+    document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
   }
-  
+
   function updateBatteryStatus(battery) {
-  var percentage = Math.floor(battery.level * 100);
-  document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+    var percentage = Math.floor(battery.level * 100);
+    document.getElementById('batteryPercentage').innerHTML = percentage + '%';
   }
-  </script>
-  
-  <style>
-  .navbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #141414; /* Replace with your desired background color */
-  border-radius:6px;
-  gap:30px; 
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  height:50px;
-  }
-  </style>
-  
-  <div class="navbar">
-  <a href="test2.html">
-  <img src="https://t9os.pages.dev/games.png">
-  </a>
-  <a onclick="toggleUI3()">
-  <img src="https://t9os.pages.dev/web.png">
-  </a>
-  <a href="settings.html">
-  <img src="https://t9os.pages.dev/settings22.png">
-  </a>
-  <a onclick="toggleUI2()">
-  <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
-  </a>
-  <a href="news.html">
-  <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
-  </a>
-  
-  <h2 class="battery"  id="batteryPercentage"></h2>
-  <div class="line"></div>
-  <div class="line2"></div>
-  
-      <div class="clock" id="time"></div>
-  
-  </div>
-  
-  <style>
-  img {
-    width:35px;
-    padding:10px 20px;
-    border-radius:15px;
-       transition: transform 0.3s ease-in-out;       
-  }
-  img:hover {
-    transform: translateY(-3px);
-      box-shadow: none;
-      border-radius:15px;
-  }
-  .line{
-  width:2px;
-  height: 50px;
-  background-color:white;
-  right:150px;
-  position:fixed;
-  }
-  .line2{
-  width:2px;
-  height: 50px;
-  background-color:white;
-  right:280px;
-  position:fixed;
-  }
-  
-  </style>
-  <style>
-  body {
-        background-image:url("T93.png");
-        -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
-    
-  }
-  </style>
 
+  // Toggle Div Visibility
+  const button = document.getElementById('toggleDivButton');
+  const hiddenDiv = document.getElementById('hiddenDiv');
 
-<h1 class="logo">T9</h1>
-
- 
-
- 
-
-<style>
-    .logo {
-      right:45%;
-      top:150px;
-      position:fixed;
-      font-size:200px;
-      color:white;
-      font-family: sans-serif;
+  button.addEventListener('click', () => {
+    if (hiddenDiv.style.display === 'none' || hiddenDiv.style.display === '') {
+      hiddenDiv.style.display = 'block';
+    } else {
+      hiddenDiv.style.display = 'none';
     }
-    </style>
-  
- 
- 
- 
- 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  });
+</script>
+
+</body>
+</html>
