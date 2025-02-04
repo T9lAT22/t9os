@@ -4,7 +4,6 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
-      <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
       <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
@@ -12,10 +11,9 @@
    </head>
    <body>
       <div id="header">
-         <img src="https://t9os.com/logo22.png" alt="Logo">
+         <h1 id="time">T9 OS</h1>
       </div>
       <div id="content">
-         <h1>T9 OS</h1>
 
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
@@ -25,9 +23,7 @@
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
           </div>
-         <a href="https://discord.gg/zJhPJYJCeJ" target="_blank" class="fa-brands fa-discord"></a>
-         <a href="https://github.com/TheTIW/UV-Static" target="_blank"class="fa-brands fa-github"></a>
-         <a href="https://starttiw.org" target="_blank"class="fa-solid fa-cloud"></a>
+      
       </div>
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
@@ -35,6 +31,18 @@
       <script src="search.js" defer></script>
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
+
+
+    <script>
+       function updateTime() {
+  var date = new Date();
+  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+  var formattedTime = date.toLocaleTimeString('en-US', options);
+  document.getElementById("time").innerHTML = formattedTime;
+  }
+  
+  setInterval(updateTime, 1000); 
+    </script>
       
    </body>
 </html>
