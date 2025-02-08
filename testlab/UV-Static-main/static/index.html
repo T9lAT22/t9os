@@ -11,7 +11,7 @@
    </head>
    <body>
       <div id="header">
-         <h1 id="time">T9 OS</h1>
+         <h1 class="clock" id="time">T9 OS</h1>
       </div>
       <div class="navbar">
          <div id="content">
@@ -27,10 +27,6 @@
              </div>
          
        
-         <h2 class="battery" id="batteryPercentage"></h2>
-         <div class="line"></div>
-         <div class="line2"></div>
-         <div class="clock" id="time"></div>
        </div>
     
       <script src="uv/uv.bundle.js" defer></script>
@@ -65,6 +61,11 @@
     align-items: center;
     height: 50px;
     opacity:85%;
+  }
+  .clock{
+   right:0;
+   color:white;
+   position:fixed;
   }
 
     </style>
