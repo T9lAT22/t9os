@@ -4,7 +4,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toggle Div Fix</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<title>T9 OS</title>
 
 <style>
   /* General Styles */
@@ -414,6 +420,14 @@ border: 7px solid #ffffff;
                        <a href="eggy-car-main/eggy-car-main/frame.html">
              <img class="btn" src="eggy.jpg">
             </a>
+            <form id="uv-form">
+               <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
+               <input id="uv-address" type="text" placeholder="Put URL here" class="form__input"/>
+             </form>
+             <div class="desc left-margin">
+               <p id="uv-error"></p>
+               <pre id="uv-error-code"></pre>
+             </div>
         
 </div>
   
@@ -456,6 +470,13 @@ border: 7px solid #ffffff;
     }
   });
 </script>
+
+<script src="uv/uv.bundle.js" defer></script>
+      <script src="uv/uv.config.js" defer></script>
+      <script src="register-sw.js" defer></script>
+      <script src="search.js" defer></script>
+      <script src="proxy.js" defer></script>
+      <script src="error.js" defer></script>
 
 </body>
 </html>
