@@ -56,8 +56,9 @@ body {
   background-color: #222;
   text-align: center;
   color: #fff;
-  inset: 0;
-  margin:auto;
+  top:0;
+  left:50%;
+  position: fixed;
 }
 
 a{
