@@ -1,7 +1,9 @@
 /* Custom CSS for black theme */
 body {
-  background-color: #000;
-  color: #fff;
+  background-image: url("https://t9os.com/T93.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+    color: #fff;
   margin: 0;
   padding: 0;
 }
