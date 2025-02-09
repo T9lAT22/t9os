@@ -362,6 +362,55 @@
       }
     });
   </script>
-  
+  <style>
+   img {
+    width: 35px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img:hover {
+    transform: translateY(-3px);
+    box-shadow: none;
+    border-radius: 15px;
+  }
+
+  .line {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 150px;
+    position: fixed;
+  }
+
+  .line2 {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 280px;
+    position: fixed;
+  }
+
+  /* Toggle Div Styles */
+  #hiddenDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  </style>
 </body>
 </html>
