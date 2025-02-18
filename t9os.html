@@ -364,7 +364,7 @@ border: 7px solid #ffffff;
              <img class="btn" src="/img/superhot.png">
             </a> 
                  <a href="funnyshooter.html">
-             <img class="btn" src="download.jpg">
+             <img class="btn" src="funny.png">
             </a>
                     <a href="icedodo.html">
              <img class="btn" src="ice.jpg">
@@ -402,16 +402,26 @@ border: 7px solid #ffffff;
              </a>
              <a href="grandvegas.html">
               <img class="btn" src="grandvegas.png">
-             </a>
-
-
-
-  
-           
-        
+             </a>    
 </div>
 
 <div id="settingsDiv">
+  <h1 class="seth">Settings</h1>
+  <a   onclick="openGame()"  class="round-btn">Hide url</a>
+<style>
+   .round-btn {
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 20px 30px;
+    font-size:medium;
+   }
+   .seth{
+    text-align: center;
+    font-family: sans-serif;
+   }
+</style>
   
 </div>
   
@@ -466,7 +476,18 @@ border: 7px solid #ffffff;
 
 
 
-
+<script>
+  function openGame() {
+    var win = window.open ()
+    var url = "index.html"
+    var iframe = win.document.createElement('iframe')
+    iframe.style.width = "100%"
+    iframe.style.height = "100%"
+    iframe.style.border = "none"
+    iframe.src = url
+    win.document.body.appendChild(iframe)
+  }
+  </script>
 
 
 </body>
