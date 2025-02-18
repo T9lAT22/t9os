@@ -104,6 +104,23 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
+  #settingsDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
   /* Logo Styles */
   .logo {
@@ -164,7 +181,7 @@ border: 7px solid #ffffff;
   <a href="search.html">
     <img src="search.png">
   </a>
-  <a href="settings.html">
+  <a onclick="settings()">
     <img src="https://t9os.pages.dev/settings22.png">
   </a>
   <a href="news.html">
@@ -325,8 +342,16 @@ border: 7px solid #ffffff;
              <a href="ovo.html">
               <img class="btn" src="ovo.png">
              </a>
+
+
+
+  
            
         
+</div>
+
+<div id="settingsDiv">
+  
 </div>
   
 <script>
@@ -367,6 +392,13 @@ border: 7px solid #ffffff;
       hiddenDiv.style.display = 'none';
     }
   });
+</script>
+
+<script>
+  function settings(){
+    const div = document.getElementById('settingsDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
 </script>
 
 
