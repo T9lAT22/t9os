@@ -168,6 +168,23 @@
 -moz-border-radius: 98px 21px 69px 20px;
 border: 7px solid #ffffff;          
      }
+     #leaderboardDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
   
 </style>
 </head>
@@ -186,7 +203,7 @@ border: 7px solid #ffffff;
   <a onclick="settings()">
     <img src="https://t9os.pages.dev/settings22.png">
   </a>
-  <a href="news.html">
+  <a id="leader">
     <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
   </a>
 
@@ -451,6 +468,37 @@ border: 7px solid #ffffff;
              
 </div>
 
+<div id="leaderboardDiv">
+ 
+  </section>
+    <section>
+    <h2>Welcome to T9 OS - Leaderboard</h2>
+    <p>This where you upload your high scores in games</p>
+    <p class="post">Posted by: T9 OS</p>
+  </section>
+
+
+<style>
+  section {
+  background-color:black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius:20px;
+    color:white;
+}
+
+</style>
+
+<style>
+   .post {
+    color:#adacac;
+    font-size:14px;
+   }
+    
+</style>
+
+</div>
+
 <div id="settingsDiv">
   <h1 class="seth">|| Settings ||</h1>
   <a   onclick="openGame()"  class="round-btn">Hide url</a>
@@ -517,23 +565,19 @@ border: 7px solid #ffffff;
     div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
 </script>
-
-
-
-
-
 <script>
-  function openGame() {
-    var win = window.open ()
-    var url = "index.html"
-    var iframe = win.document.createElement('iframe')
-    iframe.style.width = "100%"
-    iframe.style.height = "100%"
-    iframe.style.border = "none"
-    iframe.src = url
-    win.document.body.appendChild(iframe)
+  function leader(){
+    const div = document.getElementById('leaderboardDiv');
+    div.style.display = div.style. display === 'block' ? 'none' : 'block';
   }
-  </script>
+</script>
+
+
+
+
+
+
+
 
 
 </body>
