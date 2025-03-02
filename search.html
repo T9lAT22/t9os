@@ -191,24 +191,17 @@ border: 7px solid #ffffff;
 
 
 <div class="navbar">
-    <a id="toggleDivButton">
-      <img src="https://t9os.com/logo22.png">
-    </a>
-    <a id="toggleDivButton">
-      <img src="https://t9os.com/img/game.png">
-    </a>
-    <a onclick="toggleUI3()">
-      <img src="https://t9os.pages.dev/web.png">
-    </a>
-    <a href="settings.html">
-      <img src="https://t9os.pages.dev/settings22.png">
-    </a>
-    <a onclick="toggleUI2()">
-      <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
-    </a>
-    <a href="news.html">
-      <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
-    </a>
+     <a id="toggleDivButton">
+          <img src="gameicon.png">
+        </a>
+        <a href="search.html">
+          <img src="search.png">
+        </a>
+        
+        <a onclick="leader()">
+          <img src="trophie.png">
+        </a>
+      
   
     <h2 class="battery" id="batteryPercentage"></h2>
     <div class="line"></div>
@@ -564,5 +557,179 @@ border: 7px solid #ffffff;
 
 
   </style>
+
+<div id="leaderboardDiv">
+ 
+</section>
+  <section>
+  <h2>Welcome to T9 OS - Leaderboard</h2>
+  <p>This where you upload your high scores in games</p>
+  <p class="post">Posted by: T9 OS</p>
+</section>
+
+
+<style>
+section {
+background-color:black;
+padding: 20px;
+margin-bottom: 20px;
+border-radius:20px;
+  color:white;
+}
+
+</style>
+
+<style>
+ .post {
+  color:#adacac;
+  font-size:14px;
+ }
+  
+</style>
+
+</div>
+
+
+<style>
+.tnav {
+  top:0;
+  left:0;
+  height:25px;
+  width:100%;
+  opacity:50%;
+  background-color:black;
+  position:fixed;
+  
+}
+.timg{
+  width:17px;
+  transform: translateY(-3px);
+  gap:70px;
+}
+.timg:hover{
+  transform: translateY(-4x);
+
+
+}
+
+
+
+</style>
+
+
+<div class="tnav">
+
+<a href="https://discord.gg/hWa6UXbjWh">
+  <img class="timg" src="discord.png">
+</a>  
+
+<a onclick="settings()">
+  <img class="timg" src="https://t9os.pages.dev/settings22.png">
+</a>
+
+<a href="index.html">
+  <img class="timg" src="home.png">
+</a>
+
+<a id="fullscreen-button">
+  <img class="timg" src="fullscreen.png">
+</a>
+
+
+</div>
+
+
+
+<div id="settingsDiv">
+<h1 class="seth">|| Settings ||</h1>
+<a   onclick="openGame()"  class="round-btn">Hide url</a>
+<style>
+ .round-btn {
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 20px 30px;
+  font-size:medium;
+ }
+ .seth{
+  text-align: center;
+  font-family: sans-serif;
+ }
+</style>
+
+</div>
+
+<script>
+function updateTime() {
+var date = new Date();
+var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+var formattedTime = date.toLocaleTimeString('en-US', options);
+document.getElementById("time").innerHTML = formattedTime;
+}
+
+setInterval(updateTime, 1000); 
+
+// Battery Status
+if ('getBattery' in navigator) {
+  navigator.getBattery().then(function(battery) {
+    updateBatteryStatus(battery);
+    battery.addEventListener('levelchange', function() {
+      updateBatteryStatus(battery);
+    });
+  });
+} else {
+  document.getElementById('batteryPercentage').innerHTML = 'Battery API not supported.';
+}
+
+function updateBatteryStatus(battery) {
+  var percentage = Math.floor(battery.level * 100);
+  document.getElementById('batteryPercentage').innerHTML = percentage + '%';
+}
+
+// Toggle Div Visibility
+const button = document.getElementById('toggleDivButton');
+const hiddenDiv = document.getElementById('hiddenDiv');
+
+button.addEventListener('click', () => {
+  if (hiddenDiv.style.display === 'none' || hiddenDiv.style.display === '') {
+    hiddenDiv.style.display = 'block';
+  } else {
+    hiddenDiv.style.display = 'none';
+  }
+});
+</script>
+
+
+
+
+<script>
+function settings(){
+  const div = document.getElementById('settingsDiv');
+  div.style.display = div.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+<script>
+function leader(){
+  const div = document.getElementById('leaderboardDiv');
+  div.style.display = div.style.display === 'block' ? 'none' : 'block';
+}
+</script>
+
+<script>
+const fullscreenButton = document.getElementById('fullscreen-button');
+
+fullscreenButton.addEventListener('click', toggleFullscreen);
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+</script>
+
+
 </body>
 </html>
