@@ -18,7 +18,7 @@
 </style>
 </head>
 <body>
-    <iframe src="https://t9os.com/testlab/UV-Static-main/static/index.html"></iframe>
+    <iframe src="/static/index.html"></iframe>
     <style>
   body {
     background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
@@ -27,19 +27,124 @@
 
 
 <style>
-     .navbar {
+      .clock {
+    font: caption;
+    right: 30px;
+    color: white;
+    font-size: 25px;
+    position: fixed;
+  }
+
+  /* Battery Styles */
+  .battery {
+    font: caption;
+    right: 185px;
+    color: white;
+    position: fixed;
+    font-size: 25px;
+  }
+
+  /* Navbar Styles */
+  .navbar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: #141414;
-    border-radius: 6px;
+    border-radius: 35px 35px 0px 0px;
     gap: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     opacity:85%;
+  }
+
+  img {
+    width: 35px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img:hover {
+    transform: translateY(-3px);
+    box-shadow: none;
+    border-radius: 15px;
+  }
+
+  .line {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 150px;
+    position: fixed;
+  }
+
+  .line2 {
+    width: 2px;
+    height: 50px;
+    background-color: white;
+    right: 280px;
+    position: fixed;
+  }
+
+  /* Toggle Div Styles */
+  #hiddenDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  #settingsDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Logo Styles */
+  .logo {
+    right:45%;
+      top:150px;
+      position:fixed;
+    position: fixed;
+    font-size: 200px;
+    font-family: 'Luckiest Guy', cursive;
+   
+  color: white;
+
+  }
+  .Lbtn{
+    padding:10px 20px; 
+    background-color:black;
+    border-radius: 15px;
+    color:white;
+    text-decoration: none;
+
+    
   }
   .btn {
      width:150px;
@@ -54,7 +159,36 @@
    transform: translateY(-3px);
     box-shadow: none;
      }
+     .gtext{
+          text-align:center;
+          font-family: sans-serif;
+          background-color:rgb(34, 34, 34);
+          color:#ffffff;
+          border-radius: 50px 50px 50px 50px;
+-webkit-border-radius: 98px 21px 69px 20px;
+-moz-border-radius: 98px 21px 69px 20px;
+border: 7px solid #ffffff;          
+     }
+     #leaderboardDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
 </style>
+
 
 <div class="navbar">
     <a id="toggleDivButton">
