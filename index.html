@@ -76,18 +76,23 @@
 </style>
 </head>
 <body>
-  
+  <script>
 
-  <script type="text/javascript">
-    atOptions = {
-      'key' : 'a8b527f8d0e4da9e1380bc94812c6200',
-      'format' : 'iframe',
-      'height' : 300,
-      'width' : 160,
-      'params' : {}
-    };
-  </script>
-  <script type="text/javascript" src="//www.highperformanceformat.com/a8b527f8d0e4da9e1380bc94812c6200/invoke.js"></script>
+    var today = new Date()
+    var curHr = today.getHours()
+
+    if (curHr >= 0 && curHr < 6) {
+        document.getElementById("demo").innerHTML = 'What are you doing that early?';
+    } else if (curHr >= 6 && curHr <= 12) {
+        document.getElementById("demo").innerHTML = 'Good Morning';
+    } else if (curHr >= 12 && curHr < 17) {
+        document.getElementById("demo").innerHTML = 'Good Afternoon';
+    } else {
+        document.getElementById("demo").innerHTML = 'Good Evening';
+    }
+
+</script>
+
 
 
   
