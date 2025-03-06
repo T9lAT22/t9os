@@ -171,20 +171,54 @@ border: 7px solid #ffffff;
      #leaderboardDiv {
     display: none;
     margin-top: 20px;
-    padding: 10px;
-    background-color: #141414;
-    color: white;
+    padding: 20px;
+    background-color: rgba(20, 20, 20, 0.9);
+    color: #ffffff;
     inset: 0;
-    margin:auto;
+    margin: auto;
     position: fixed;
     z-index: 1000;
-    border-radius:0px; 
-    opacity:85%; 
-    width:600px;
-    height: 500px; 
+    border-radius: 12px;
+    width: 600px;
+    height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
-  }
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+#leaderboardDiv::-webkit-scrollbar {
+    width: 8px;
+}
+
+#leaderboardDiv::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+#leaderboardDiv::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+#leaderboardDiv::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    #leaderboardDiv {
+        width: 90%;
+        height: 70%;
+        padding: 15px;
+    }
+}
   .gnav{
     left:0;
     width:100%;
