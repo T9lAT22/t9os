@@ -171,7 +171,7 @@ border: 7px solid #ffffff;
      #leaderboardDiv {
     display: none;
     margin-top: 20px;
-    padding: 20px;
+    padding: 0; /* Remove padding to let the top section handle spacing */
     background-color: rgba(20, 20, 20, 0.9);
     color: #ffffff;
     inset: 0;
@@ -181,8 +181,7 @@ border: 7px solid #ffffff;
     border-radius: 12px;
     width: 600px;
     height: 500px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden; /* Ensure no overflow from child elements */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     font-family: 'Inter', sans-serif;
     font-size: 16px;
@@ -190,33 +189,72 @@ border: 7px solid #ffffff;
     animation: fadeIn 0.3s ease-in-out;
 }
 
-#leaderboardDiv::-webkit-scrollbar {
+/* Top Section Styling */
+.leaderboard-top {
+    background-color: #333; /* Different color for the top section */
+    padding: 15px 20px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leaderboard-top h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn:hover {
+    color: #ff5555; /* Change color on hover */
+}
+
+/* Leaderboard Content Styling */
+.leaderboard-content {
+    padding: 20px;
+    height: calc(100% - 70px); /* Adjust height to fit remaining space */
+    overflow-y: auto;
+}
+
+/* Scrollbar Styling */
+.leaderboard-content::-webkit-scrollbar {
     width: 8px;
 }
 
-#leaderboardDiv::-webkit-scrollbar-track {
+.leaderboard-content::-webkit-scrollbar-track {
     background: #1e1e1e;
 }
 
-#leaderboardDiv::-webkit-scrollbar-thumb {
+.leaderboard-content::-webkit-scrollbar-thumb {
     background: #555;
     border-radius: 4px;
 }
 
-#leaderboardDiv::-webkit-scrollbar-thumb:hover {
+.leaderboard-content::-webkit-scrollbar-thumb:hover {
     background: #777;
 }
 
+/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     #leaderboardDiv {
         width: 90%;
         height: 70%;
-        padding: 15px;
     }
 }
   .gnav{
