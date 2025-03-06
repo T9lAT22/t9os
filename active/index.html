@@ -1,0 +1,236 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unblockzone</title>
+    <link rel="icon" href="https://files.catbox.moe/ao6qv3.png" type="image/png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROdNIejFmjeKC5u6Xq2yqOCa5y-uJseTCTfA&s') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .title {
+            position: absolute;
+            top: 20%; /* Adjusted to move closer to the icons */
+            font-size: 48px;
+            font-weight: bold;
+            text-transform: lowercase;
+            transition: transform 0.3s ease-in-out;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+        .title:hover {
+            transform: scale(1.2);
+        }
+        .header {
+            position: absolute;
+            top: 70%; /* Keeps the search bar below the icons */
+            left: 50%;
+            transform: translateX(-50%); /* Center the search bar */
+            width: 80%;
+            height: 60px;
+            background: black;
+            border: 2px solid white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .search-bar {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            font-size: 18px;
+        }
+        .icons-container {
+            position: absolute;
+            top: 40%; /* Positioned below the title */
+            display: flex;
+            justify-content: center; /* Center the icons */
+            gap: 25px;
+            width: 100%;
+        }
+        .icon-container {
+            width: 100px;
+            height: 120px;
+            background: black;
+            border: 3px solid white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+        }
+        .icon-container:hover {
+            transform: scale(1.2);
+            background: black;
+        }
+        .icon {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+        }
+        .icon-label {
+            margin-top: 5px;
+            font-size: 14px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Glowy Support Text */
+        .support-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-transform: lowercase;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+
+        /* Floating Shapes */
+        .coolBlobIdk {
+            position: absolute;
+            bottom: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.5), rgba(169, 169, 169, 0.6), rgba(255, 255, 255, 0.4));
+            border-radius: 50%;
+            filter: blur(100px);
+            box-shadow: 0 0 120px rgba(255, 255, 255, 0.5);
+        }
+        .coolBlobIdk::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(169, 169, 169, 0.5), rgba(169, 169, 169, 0.4), rgba(255, 255, 255, 0.3));
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+        }
+
+        /* Particle Background */
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+    
+    <script>
+        function handleSearch(event) {
+            if (event.key === "Enter") {
+                let query = event.target.value.trim();
+                if (query) {
+                    window.location.href = `https://4893dm-8080.csb.app/proxy/https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                }
+            }
+        }
+
+        function openSupportPage() {
+            window.open('https://docs.google.com/forms/d/e/1FAIpQLScAjuO9s-lwojOfEMwf-_jtQOjWCzkrkz4NKGPCIpbED3k2rA/viewform', '_blank');
+        }
+    </script>
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Shape Effect -->
+    <div class="coolBlobIdk"></div>
+
+    <div class="title">unblockzone v3</div>
+
+    <!-- Icons Container -->
+    <div class="icons-container">
+        <div class="icon-container">
+            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" onclick="window.open('https://unblockzone.github.io/g/', '_blank')">
+            <div class="icon-label">games</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFFFFF/apple-app-store--v2.png" onclick="window.open('https://unblockzone.github.io/a/', '_blank')">
+            <div class="icon-label">apps</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" onclick="window.open('https://unblockzone.github.io/e/', '_blank')">
+            <div class="icon-label">exploits</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRclWJCEIPuuU-0DeRx9HfoSWM4y8Ei59lGhQ&s" onclick="window.open('https://unblockzone.github.io/es/', '_blank')">
+            <div class="icon-label">extras</div>
+        </div>
+        <div class="icon-container">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFFFFF/settings.png" onclick="window.open('https://unblockzone.github.io/s/', '_blank')">
+            <div class="icon-label">settings</div>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="search..." onkeydown="handleSearch(event)">
+    </div>
+
+    <!-- Glowy Support Text -->
+    <div class="support-text" onclick="openSupportPage()">support</div>
+
+    <!-- Particle.js Library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 100, "density": { "enable": false } },
+                "color": { "value": "#aaa" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": true },
+                "size": { "value": 4, "random": true },
+                "move": { "enable": true, "speed": 8, "direction": "random" }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
+</body>
+</html>
