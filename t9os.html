@@ -59,6 +59,18 @@
     opacity:85%;
   
   }
+  .close-btn {
+    background: none;
+    border: none;
+    color: rgb(187, 36, 36);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn:hover {
+    color: #ff0000; /* Change color on hover */
+}
 
   img {
     width: 35px;
@@ -261,7 +273,9 @@ border: 7px solid #ffffff;
 
 <!-- Hidden Div -->
 <div id="appsDiv">
-     <h1 class="gtext">|| Apps ||</h1>
+  <button class="close-btn" onclick="document.getElementById('appsDiv').style.display = 'none';">×</button>
+
+     <h1 class="gtext"> Apps </h1>
    
              
         <a href="https://t9os.com/active/iframe.html#https://netflix.com">
@@ -274,8 +288,10 @@ border: 7px solid #ffffff;
 </div>
 
 <div id="leaderboardDiv">
+  <button class="close-btn" onclick="document.getElementById('leaderboardDiv').style.display = 'none';">×</button>
+
+
  
-  </section>
     <section>
     <h2>Welcome to T9 OS - Leaderboard</h2>
     <p>This where you upload your high scores in games</p>
@@ -335,8 +351,10 @@ border: 7px solid #ffffff;
   <div class="gnav">
 
   </div>
-     <h1 class="gtext">||-Games-||</h1>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaAq2bhgZipNNKUL74Q8FnKlPnPycsXZVVsLunrIfcoiR1tg/viewform?usp=sf_link">
+  <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
+
+     <h1 class="gtext">Games</h1>
+    <a href="https://forms.gle/idyRqPcwSoj5Mmjv6">
         <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
              </a>
                 <a href="terms.html">
@@ -630,6 +648,8 @@ border: 7px solid #ffffff;
 
 
 <div id="settingsDiv">
+  <button class="close-btn" onclick="document.getElementById('settingsDiv').style.display = 'none';">×</button>
+
   <h1 class="seth">|| Settings ||</h1>
   <a   onclick="openGame()"  class="round-btn">Hide url</a>
 <style>
