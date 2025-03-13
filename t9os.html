@@ -106,6 +106,8 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
   #settingsDiv {
     display: none;
@@ -123,6 +125,8 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
   #appsDiv {
     display: none;
@@ -140,6 +144,8 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
 
   /* Logo Styles */
@@ -202,6 +208,8 @@ border: 7px solid #ffffff;
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
   .ui-top {
     background-color: #ffffff; /* Different color for the top section */
@@ -211,6 +219,18 @@ border: 7px solid #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #leaderboardDiv {
+        width: 90%;
+        height: 70%;
+    }
 }
 
   
@@ -566,6 +586,16 @@ border: 7px solid #ffffff;
              </a>  
              <a href="onlyup.html">
               <img class="btn" src="onlyup.png">
+             </a> 
+             <a href="tinyfishing.html">
+              <img class="btn" src="fishing.png">
+             </a> 
+             <a href="goball.html">
+              <img class="btn" src="goball.png">
+             </a> 
+             
+             <a href="helix.html">
+              <img class="btn" src="helix.png">
              </a> 
               
              
