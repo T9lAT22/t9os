@@ -34,6 +34,18 @@
     font-size: 25px;
     position: fixed;
   }
+  .close-btn {
+    background: none;
+    border: none;
+    color: rgb(187, 36, 36);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.close-btn:hover {
+    color: #ff0000; /* Change color on hover */
+}
 
   /* Battery Styles */
   .battery {
@@ -106,6 +118,8 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
   #settingsDiv {
     display: none;
@@ -123,6 +137,8 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
 
   /* Logo Styles */
@@ -185,7 +201,22 @@ border: 7px solid #ffffff;
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #leaderboardDiv {
+        width: 90%;
+        height: 70%;
+    }
+}
+
   
 </style>
 
@@ -211,6 +242,8 @@ border: 7px solid #ffffff;
   
   <!-- Hidden Div -->
   <div id="hiddenDiv">
+    <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
+
      <h1 class="gtext">||-Games-||</h1>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScaAq2bhgZipNNKUL74Q8FnKlPnPycsXZVVsLunrIfcoiR1tg/viewform?usp=sf_link">
         <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
@@ -463,6 +496,16 @@ border: 7px solid #ffffff;
              <a href="onlyup.html">
               <img class="btn" src="onlyup.png">
              </a> 
+             <a href="tinyfishing.html">
+              <img class="btn" src="fishing.png">
+             </a> 
+             <a href="goball.html">
+              <img class="btn" src="goball.png">
+             </a> 
+             
+             <a href="helix.html">
+              <img class="btn" src="helix.png">
+             </a> 
               
   </div>
     
@@ -574,6 +617,8 @@ border: 7px solid #ffffff;
   </style>
 
 <div id="leaderboardDiv">
+  <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
+
  
 </section>
   <section>
