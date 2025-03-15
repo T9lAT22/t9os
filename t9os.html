@@ -73,7 +73,7 @@
 }
 
   img {
-    width: 35px;
+    width: 50px;
     padding: 10px 20px;
     border-radius: 25px;
     transition: transform 0.3s ease-in-out;
@@ -182,18 +182,18 @@
     
   }
   .btn {
-     width:150px;
-     height:150px;
-     border-radius:20px;
-     gap:100px;
-     transition: transform 0.3s ease-in-out; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50px ; /* Add !important to ensure it overrides other styles */
+    gap: 100px;
+    transition: transform 0.3s ease-in-out;
+}
 
-
-     }
-     .btn:hover{
-   transform: translateY(-3px);
+.btn:hover {
+    transform: translateY(-3px);
     box-shadow: none;
-     }
+    border-radius: 50px !important; /* Ensure hover state also has the same border-radius */
+}
      .gtext{
           text-align:center;
           font-family: sans-serif;
