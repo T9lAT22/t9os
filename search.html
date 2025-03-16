@@ -61,7 +61,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 60%;
     background-color: #141414;
     border-radius: 35px 35px 0px 0px;
     gap: 30px;
@@ -163,18 +163,18 @@
     
   }
   .btn {
-     width:150px;
-     height:150px;
-     border-radius:20px;
-     gap:100px;
-     transition: transform 0.3s ease-in-out; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50px ; /* Add !important to ensure it overrides other styles */
+    gap: 150px;
+    transition: transform 0.3s ease-in-out;
+}
 
-
-     }
-     .btn:hover{
-   transform: translateY(-3px);
+.btn:hover {
+    transform: translateY(-3px);
     box-shadow: none;
-     }
+    border-radius: 50px !important; /* Ensure hover state also has the same border-radius */
+}
      .gtext{
           text-align:center;
           font-family: sans-serif;
