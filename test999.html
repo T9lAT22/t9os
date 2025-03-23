@@ -354,8 +354,8 @@
   <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
 
      <h1 class="gtext">Games</h1>
-     <input type="text" id="searchBar" placeholder="Search images by alt text...">
-<div id="imageContainer">
+     <input type="text" id="searchBar" placeholder="Search games by name...">
+     <div id="imageContainer">
   <a href="https://forms.gle/idyRqPcwSoj5Mmjv6">
     <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
          </a>
@@ -756,19 +756,20 @@
 </script>
 
 <script>
-  document.getElementById('searchBar').addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase(); 
-      const images = document.querySelectorAll('#imageContainer img'); 
-  
-      images.forEach(image => {
-          const altText = image.getAttribute('alt').toLowerCase(); 
-          if (altText.includes(searchTerm)) {
-              image.classList.remove('hidden'); 
-          } else {
-              image.classList.add('hidden');
-          }
-      });
-  });    </script>
+  document.getElementById('searchBar').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    const images = document.querySelectorAll('#imageContainer img');
+
+    images.forEach(image => {
+      const altText = image.getAttribute('alt') || '';
+      if (altText.toLowerCase().includes(searchTerm)) {
+        image.style.display = 'inline-block';
+      } else {
+        image.style.display = 'none';
+      }
+    });
+  });
+</script>
 
 
 
