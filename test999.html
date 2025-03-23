@@ -238,21 +238,20 @@
 }
 
 /* Responsive Design */
+/* Responsive Design */
 @media (max-width: 768px) {
     #leaderboardDiv {
         width: 90%;
         height: 70%;
     }
-    .searchGames{
-      text-align:center;
-      font-family: sans-serif;
-      border-radius: 15;
-      background-color:#141414;
-      color:white;
-      width:250px;
-      height:100px;
-      left:10%;
-        
+}
+#searchBar{
+  text-align:center;
+  background-color: #141414;
+  left: 10%;
+  color: white;
+  border-radius: 15px;
+
 }
 
   
@@ -353,6 +352,8 @@
 
   }
 
+
+
   
  
 </style>
@@ -364,7 +365,7 @@
   <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
 
      <h1 class="gtext">Games</h1>
-     <input class="searchGames" type="text" id="searchBar" placeholder="Search games by name...">
+     <input  type="text" id="searchBar" placeholder="Search games by name...">
      <div id="imageContainer">
   <a href="https://forms.gle/idyRqPcwSoj5Mmjv6">
     <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
