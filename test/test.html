@@ -29,7 +29,11 @@
         auth.onAuthStateChanged(user => {
             if (user) {
                 const userEmail = user.email;
-                const allowedEmail = "t9osta@example.com"; // Change to your target email
+                const allowedEmails = [
+    "admin@example.com",
+    "manager@example.com",
+    "t9osta@gmail.com.com"
+];
                 
                 if (userEmail === allowedEmail) {
                     window.location.href = "https://example.com/special-page"; // Redirect if email matches
