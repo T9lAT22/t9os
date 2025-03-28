@@ -81,7 +81,25 @@
 
 <h1 class="logo">T9</h1>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+var select = document.getElementById("background-select");
 
+var selectedBackground = localStorage.getItem("selectedBackground");
+
+if (selectedBackground) {
+  document.body.style.backgroundImage = "url(" + selectedBackground + ")";
+  select.value = selectedBackground;
+}
+
+ select.addEventListener("change", function() {
+   var newBackground = this.value;
+   document.body.style.backgroundImage = "url(" + newBackground + ")";
+   localStorage.setItem("selectedBackground", newBackground);
+ });
+});
+
+</script>
 
 
 
