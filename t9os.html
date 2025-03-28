@@ -692,6 +692,12 @@
 
   <h1 class="seth">|| Settings ||</h1>
   <a   onclick="openGame()"  class="round-btn">Hide url</a>
+  <label class="label" for="background-select">Select Background:</label>
+<select id="background-select">
+  <option value="https://t9os.com/T93.png">Default</option>
+  <option value="city.jpg">City</option>
+  <option value="sunset.jpg">Sunset</option>
+</select>
 <style>
    .round-btn {
     border-radius: 12px;
@@ -708,6 +714,19 @@
 </style>
   
 </div>
+
+<script>
+  function openGame() {
+    var win = window.open ()
+    var url = "t9os.html"
+    var iframe = win.document.createElement('iframe')
+    iframe.style.width = "100%"
+    iframe.style.height = "100%"
+    iframe.style.border = "none"
+    iframe.src = url
+    win.document.body.appendChild(iframe)
+  }
+  </script>
   
 <script>
   function updateTime() {
@@ -799,6 +818,44 @@
       }
     });
   });
+</script>
+<style>
+  /* Style for the select dropdown */
+#background-select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Fallback color */
+    font-size: 16px;
+    width: 200px;
+    font-family: Poppins;
+    background-repeat: no-repeat;
+}
+
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+// Get the select element
+var select = document.getElementById("background-select");
+
+// Set initial background image based on stored preference or default
+var selectedBackground = localStorage.getItem("selectedBackground");
+
+if (selectedBackground) {
+  document.body.style.backgroundImage = "url(" + selectedBackground + ")";
+  select.value = selectedBackground;
+}
+
+ // Listen for changes in the select element
+ select.addEventListener("change", function() {
+   var newBackground = this.value;
+   document.body.style.backgroundImage = "url(" + newBackground + ")";
+   localStorage.setItem("selectedBackground", newBackground);
+ });
+});
+
 </script>
 
 
