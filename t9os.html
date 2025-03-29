@@ -64,10 +64,11 @@
   .close-btn {
     background: none;
     border: none;
-    color: rgb(255, 0, 0);
+    color: white;
     font-size: 24px;
     cursor: pointer;
     padding: 0;
+    font-size:20px;
 }
 
 .close-btn:hover {
@@ -157,6 +158,25 @@
     opacity:85%; 
     width:600px;
     height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
+  #searchDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:85%;
+    height: 73%; 
     overflow-x: hidden;
     overflow-y: auto;
     animation: fadeIn 0.3s ease-in-out;
@@ -271,8 +291,8 @@
   <a id="toggleDivButton">
     <img src="gameicon.png">
   </a>
-  <a href="search.html">
-    <img src="search.png">
+  <a onclick="s()">
+    <img  src="search.png">
   </a>
   
   <a onclick="leader()">
@@ -298,6 +318,43 @@
           <a href="https://t9os.com/active/iframe.html#https://discord.com">
            <img class="btn" src="dc.png">
                 </a>
+           
+     
+        
+       
+
+          
+</div>
+
+<div id="searchDiv">
+  <button class="close-btn" onclick="document.getElementById('searchDiv').style.display = 'none';">×</button>
+  &nbsp;&nbsp;&nbsp;&nbsp; <!-- Adds manual spacing -->
+  <a href="t9os.html">
+    <button class="close-btn">refresh</button>
+  </a>
+<style>
+  .warn{
+    top:0;
+    font-family: sans-serif;
+    position: absolute;
+    right:0;
+  }
+
+  </style>
+  <p class="warn">If you get an error, refresh or add https:// to the URL</p>
+
+  <iframe class="frame" src="/static/index.html"></iframe>
+  <style>
+    .frame{
+      width:100%;
+      height:95%;
+      bottom:0;
+      position: absolute;
+      border:none;
+      border-radius:0px 0px 20px 20px;
+      left:0;
+    }
+  </style>
            
      
         
@@ -654,6 +711,12 @@
          <a href="granny2.html">
           <img class="btn" src="granny2.png" alt="granny 2">
          </a> 
+         <a href="hunter.html">
+          <img class="btn" src="hunter.png" alt="drift hunter">
+         </a> 
+         <a href="just.html">
+          <img class="btn" src="just.png" alt="just fall">
+         </a> 
 </div>
    
              
@@ -691,13 +754,14 @@
   <button class="close-btn" onclick="document.getElementById('settingsDiv').style.display = 'none';">×</button>
 
   <h1 class="seth">|| Settings ||</h1>
-  <a   onclick="openGame()"  class="round-btn">Hide url</a>
-  <label class="label" for="background-select">Select Background:</label>
+  
+<label class="label" for="background-select">Select Background:</label>
 <select id="background-select">
   <option value="https://t9os.com/T93.png">Default</option>
   <option value="city.jpg">City</option>
-  <option value="sunset.jpg">Sunset</option>
+  <option value="sunset.jpg">Sunaet</option>
 </select>
+  <a   onclick="openGame()"  class="round-btn">Hide url</a>
 <style>
    .round-btn {
     border-radius: 12px;
@@ -714,19 +778,6 @@
 </style>
   
 </div>
-
-<script>
-  function openGame() {
-    var win = window.open ()
-    var url = "t9os.html"
-    var iframe = win.document.createElement('iframe')
-    iframe.style.width = "100%"
-    iframe.style.height = "100%"
-    iframe.style.border = "none"
-    iframe.src = url
-    win.document.body.appendChild(iframe)
-  }
-  </script>
   
 <script>
   function updateTime() {
@@ -771,6 +822,7 @@
 
 
 
+
 <script>
   function settings(){
     const div = document.getElementById('settingsDiv');
@@ -789,6 +841,13 @@
     div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
 </script>
+<script>
+  function s(){
+    const div = document.getElementById('searchDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 
 <script>
   const fullscreenButton = document.getElementById('fullscreen-button');
@@ -819,6 +878,7 @@
     });
   });
 </script>
+
 <style>
   /* Style for the select dropdown */
 #background-select {
@@ -857,8 +917,6 @@ if (selectedBackground) {
 });
 
 </script>
-
-
 
 </head>
 
