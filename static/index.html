@@ -10,7 +10,18 @@
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
    </head>
    <body>
-      
+    <script>
+      function updateTime() {
+var date = new Date();
+var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
+var formattedTime = date.toLocaleTimeString('en-US', options);
+document.getElementById("time").innerHTML = formattedTime;
+}
+
+setInterval(updateTime, 1000); 
+</script>
+<h1 id="time" class="clock">Time</h1>
+
       <div class="navbar">
          <div id="content">
             <div id="header">
@@ -76,6 +87,12 @@
    
   color: white;
   }
+  .clock {
+                color:white;
+                text-align:center;
+                top:67px;
+                font-size:87px;
+            }
 
     </style>
 
