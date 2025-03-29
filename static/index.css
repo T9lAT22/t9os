@@ -1,6 +1,5 @@
 /* Custom CSS for black theme */
 body {
-  background-image: url("https://t9os.com/T93.png");
   background-size: cover;
   background-repeat: no-repeat;
     color: #fff;
@@ -50,14 +49,14 @@ body {
 .form__input {
   padding: 10px;
   border: none;
-  border-radius: 0px 0px 50px 50px;
+  border-radius: 30px;
   font-size: 16px;
   width: 300px;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
   background-color: #242424;
   text-align: center;
   color: #fff;
-  top:30%;
+  top:50%;
   left:40%;
   position: fixed;
 }
