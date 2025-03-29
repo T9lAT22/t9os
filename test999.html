@@ -801,10 +801,15 @@
   }
 </script>
 <script>
-  function search(){
-    const div = document.getElementById('sDiv');
-    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+ function search(){
+  const div = document.getElementById('sDiv');
+  if (div.style.display === 'none' || div.style.display === '') {
+    div.style.display = 'block';
+  } else {
+    div.style.display = 'none';
   }
+  console.log("Search function called"); // For debugging
+}
 </script>
 
 <script>
