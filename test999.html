@@ -162,6 +162,25 @@
     animation: fadeIn 0.3s ease-in-out;
 
   }
+  #sDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
 
   /* Logo Styles */
   .logo {
@@ -271,7 +290,7 @@
   <a id="toggleDivButton">
     <img src="gameicon.png">
   </a>
-  <a href="search.html">
+  <a onclick="search()">
     <img src="search.png">
   </a>
   
@@ -304,6 +323,12 @@
        
 
           
+</div>
+
+<div id="sDiv">
+  <button class="close-btn" onclick="document.getElementById('leaderboardDiv').style.display = 'none';">×</button>
+<iframe src="/static/index.html"></iframe>
+
 </div>
 
 <div id="leaderboardDiv">
@@ -771,6 +796,12 @@
 <script>
   function apps(){
     const div = document.getElementById('appsDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+<script>
+  function search(){
+    const div = document.getElementById('sDiv');
     div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
 </script>
