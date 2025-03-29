@@ -290,8 +290,8 @@
   <a id="toggleDivButton">
     <img src="gameicon.png">
   </a>
-  <a onclick="search()">
-    <img src="search.png">
+  <a onclick="s()">
+    <img  src="search.png">
   </a>
   
   <a onclick="leader()">
@@ -326,8 +326,23 @@
 </div>
 
 <div id="searchDiv">
-  <button class="close-btn" onclick="document.getElementById('sDiv').style.display = 'none';">×</button>
+  <button class="close-btn" onclick="document.getElementById('appsDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Apps </h1>
+  <p color="white" text-align="center">Warning if it says page not found refresh then it should work</p>
 
+          
+     <a href="https://t9os.com/active/iframe.html#https://netflix.com">
+     <img class="btn" src="netflix.png">
+          </a>
+          <a href="https://t9os.com/active/iframe.html#https://discord.com">
+           <img class="btn" src="dc.png">
+                </a>
+           
+     
+        
+       
+
+          
 </div>
 
 <div id="leaderboardDiv">
@@ -800,16 +815,12 @@
   }
 </script>
 <script>
- function search(){
-  const div = document.getElementById('searchDiv');
-  if (div.style.display === 'block' || div.style.display === '') {
-    div.style.display = 'none';
-  } else {
-    div.style.display = 'block';
+  function s(){
+    const div = document.getElementById('searchDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
-  console.log("Search function called"); // For debugging
-}
 </script>
+
 
 <script>
   const fullscreenButton = document.getElementById('fullscreen-button');
