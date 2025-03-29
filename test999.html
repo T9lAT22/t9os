@@ -64,10 +64,11 @@
   .close-btn {
     background: none;
     border: none;
-    color: rgb(255, 0, 0);
+    color: white;
     font-size: 24px;
     cursor: pointer;
     padding: 0;
+    font-size:20px;
 }
 
 .close-btn:hover {
@@ -326,7 +327,9 @@
 </div>
 
 <div id="searchDiv">
-  <button class="close-btn" onclick="document.getElementById('searchDiv').style.display = 'block';">×</button>
+  <button class="close-btn" onclick="document.getElementById('searchDiv').style.display = 'none';">×</button>
+  &nbsp;&nbsp;&nbsp;&nbsp; <!-- Adds manual spacing -->
+<button class="close-btn">refresh</button>
 
   <iframe class="frame" src="/static/index.html"></iframe>
   <style>
