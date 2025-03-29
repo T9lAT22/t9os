@@ -163,6 +163,7 @@
 
   }
   #searchDiv {
+    display: none;
     margin-top: 20px;
     padding: 10px;
     background-color: #141414;
@@ -289,7 +290,7 @@
   <a id="toggleDivButton">
     <img src="gameicon.png">
   </a>
-  <a id="search">
+  <a onclick="search()">
     <img src="search.png">
   </a>
   
@@ -800,11 +801,11 @@
 </script>
 <script>
  function search(){
-  const div = document.getElementById('sDiv');
-  if (div.style.display === 'none' || div.style.display === '') {
-    div.style.display = 'block';
-  } else {
+  const div = document.getElementById('searchDiv');
+  if (div.style.display === 'block' || div.style.display === '') {
     div.style.display = 'none';
+  } else {
+    div.style.display = 'block';
   }
   console.log("Search function called"); // For debugging
 }
