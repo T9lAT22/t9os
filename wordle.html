@@ -39,18 +39,20 @@
 <style>
 
      .ad{
-      position: fixed; /* Keeps ad at bottom of the page */
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%); /* Center it */
-            width: 320px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.9); /* Light background for visibility */
-            border: 2px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000; /* Ensures it's above the iframe */
+      position: fixed; /* Keeps the ad at the bottom of the page */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centers the ad */
+    width: 320px; /* Standard mobile ad width */
+    height: 50px; /* Correct height */
+    background: rgba(255, 255, 255, 0.9); /* Light background for visibility */
+    border: 2px solid #000; /* Optional: Adds a border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensures it's above the iframe */
+    overflow: hidden; /* Prevents extra space */
+    padding: 0; /* Removes extra padding */
      }
 </style>
 </div>
