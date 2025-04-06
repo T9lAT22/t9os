@@ -286,7 +286,7 @@
 </head>
 <body>
 
-<h1 class="logo">T9</h1>
+<h1 id="logo" class="logo">T9</h1>
 
 <!-- Navbar -->
 <div class="navbar">
@@ -784,6 +784,11 @@
 
 </select>
 <a   onclick="opengame()"  class="round-btn">Hide url</a>
+<a   onclick="
+const text = document.getElementById('logo');
+text.textContent = text.textContent === ' ' ? 'T9' : ' ';
+"  class="round-btn">Toggle logo</a>
+
 <style>
    .round-btn {
     border-radius: 12px;
