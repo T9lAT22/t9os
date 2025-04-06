@@ -781,7 +781,7 @@
 
 
 </select>
-  <a   onclick="openGame()"  class="round-btn">Hide url</a>
+<a   onclick="opengame()"  class="round-btn">Hide url</a>
 <style>
    .round-btn {
     border-radius: 12px;
@@ -796,6 +796,19 @@
     font-family: sans-serif;
    }
 </style>
+
+<script>
+  function opengame() {
+    var win = window.open ()
+    var url = "t9os.html"
+    var iframe = win.document.createElement('iframe')
+    iframe.style.width = "100%"
+    iframe.style.height = "100%"
+    iframe.style.border = "none"
+    iframe.src = url
+    win.document.body.appendChild(iframe)
+  }
+  </script>
   
 </div>
   
