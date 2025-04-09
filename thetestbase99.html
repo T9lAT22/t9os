@@ -136,7 +136,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     box-shadow: 0px 4px 12px #1f1f1f;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
 
   }
   #settingsDiv {
@@ -266,19 +266,16 @@ position: absolute;
     justify-content: space-between;
     align-items: center;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive Design */
-/* Responsive Design */
-@media (max-width: 768px) {
-    #leaderboardDiv {
-        width: 90%;
-        height: 70%;
+ @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-}
 #searchBar{
   text-align:center;
   background-color: #141414;
