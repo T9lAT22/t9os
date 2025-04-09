@@ -1,19 +1,24 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7134787026595240"
+     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-      <link rel="stylesheet" href="index.css">
-      <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
+
+
 <title>T9 OS</title>
 
 <style>
-  /* General Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+
+
+
   body {
     background-image: url("https://t9os.com/T93.png");
     background-size: cover;
@@ -46,16 +51,32 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 60%;
     background-color: #141414;
-    border-radius: 6px;
+    border-radius: 35px 35px 0px 0px;
     gap: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     opacity:85%;
+    left: 50%;
+    transform: translateX(-50%); 
+  
   }
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    font-size:20px;
+}
+
+.close-btn:hover {
+    color: #ff0000; /* Change color on hover */
+}
 
   img {
     width: 35px;
@@ -98,22 +119,83 @@
     position: fixed;
     z-index: 1000;
     border-radius:20px; 
+    opacity:80%; 
+    width:85%;
+    height: 73%; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: 0px 4px 12px #1f1f1f;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
+  #settingsDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
     opacity:85%; 
     width:600px;
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
+  #appsDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
+  #searchDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:85%;
+    height: 73%; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
   }
 
   /* Logo Styles */
   .logo {
-    right:45%;
-      top:150px;
-      position:fixed;
+    right: 45%;
+    top:150px;
     position: fixed;
     font-size: 200px;
-    color: white;
-    font-family: sans-serif;
+    font-family: 'Luckiest Guy', cursive;
+   
+  color: white;
+
   }
   .Lbtn{
     padding:10px 20px; 
@@ -125,54 +207,99 @@
     
   }
   .btn {
-     width:150px;
-     height:150px;
-     border-radius:20px;
-     gap:100px;
-     transition: transform 0.3s ease-in-out; 
+    width: 150px;
+    height: 150px;
+    border-radius: 50px ; /* Add !important to ensure it overrides other styles */
+    gap: 150px;
+    transition: transform 0.3s ease-in-out;
+}
 
-
-     }
-     .btn:hover{
-   transform: translateY(-3px);
+.btn:hover {
+    transform: translateY(-3px);
     box-shadow: none;
-     }
+    border-radius: 50px !important; /* Ensure hover state also has the same border-radius */
+}
      .gtext{
           text-align:center;
           font-family: sans-serif;
           background-color:rgb(34, 34, 34);
           color:#ffffff;
-          border-radius: 98px 21px 69px 20px;
--webkit-border-radius: 98px 21px 69px 20px;
--moz-border-radius: 98px 21px 69px 20px;
-border: 7px solid #ffffff;          
+          border-radius: 15px;
+                  
      }
+     #leaderboardDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
+  .ui-top {
+    background-color: #ffffff; /* Different color for the top section */
+    padding: 15px 20px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+    #leaderboardDiv {
+        width: 90%;
+        height: 70%;
+    }
+}
+#searchBar{
+  text-align:center;
+  background-color: #141414;
+  color: white;
+  border-radius: 15px;
+  position: absolute;
+  left:43%;
+  padding: 10px 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color:rgb(255, 255, 255);
+
+}
+
   
 </style>
 </head>
 <body>
 
-<h1 class="logo">T9</h1>
+<h1 id="logo" class="logo">T9</h1>
 
 <!-- Navbar -->
 <div class="navbar">
   <a id="toggleDivButton">
-    <img src="https://t9os.com/logo22.png">
+    <img src="gameicon.png">
   </a>
-  <a id="toggleDivButton">
-    <img src="https://t9os.com/img/game.png">
+  <a onclick="s()">
+    <img  src="search.png">
   </a>
-  <a onclick="toggleUI3()">
-    <img src="https://t9os.pages.dev/web.png">
-  </a>
-  <a href="settings.html">
-    <img src="https://t9os.pages.dev/settings22.png">
-  </a>
-  <a onclick="toggleUI2()">
-    <img src="https://i.ibb.co/K9ddYPy/image-removebg-preview-8.png">
-  </a>
-  <a href="news.html">
-    <img src="https://i.ibb.co/9whrkZw/image-removebg-preview-9.png">
+  
+  <a onclick="leader()">
+    <img src="trophie.png">
   </a>
 
   <h2 class="battery" id="batteryPercentage"></h2>
@@ -182,246 +309,508 @@ border: 7px solid #ffffff;
 </div>
 
 <!-- Hidden Div -->
+<div id="appsDiv">
+  <button class="close-btn" onclick="document.getElementById('appsDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Apps </h1>
+  <p color="white" text-align="center">Warning if it says page not found refresh then it should work</p>
+
+          
+     <a href="https://t9os.com/active/iframe.html#https://netflix.com">
+     <img class="btn" src="netflix.png">
+          </a>
+          <a href="https://t9os.com/active/iframe.html#https://discord.com">
+           <img class="btn" src="dc.png">
+                </a>
+                <a href="https://t9os.com/active/iframe.html#https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2">
+                  <img class="btn" src="fortnite.png">
+                       </a>
+     
+        
+       
+
+          
+</div>
+
+<div id="searchDiv">
+  <button class="close-btn" onclick="document.getElementById('searchDiv').style.display = 'none';">×</button>
+  &nbsp;&nbsp;&nbsp;&nbsp; <!-- Adds manual spacing -->
+  <a href="t9os.html">
+    <button class="close-btn">refresh</button>
+  </a>
+<style>
+  .warn{
+    top:0;
+    font-family: sans-serif;
+    position: absolute;
+    right:0;
+  }
+
+  </style>
+  <p class="warn">If you get an error, refresh or add https:// to the URL</p>
+
+  <iframe class="frame" src="/static/index.html"></iframe>
+  <style>
+    .frame{
+      width:100%;
+      height:95%;
+      bottom:0;
+      position: absolute;
+      border:none;
+      border-radius:0px 0px 20px 20px;
+      left:0;
+    }
+  </style>
+           
+     
+        
+       
+
+          
+</div>
+
+<div id="leaderboardDiv">
+  <button class="close-btn" onclick="document.getElementById('leaderboardDiv').style.display = 'none';">×</button>
+
+
+ 
+    <section>
+    <h2>Welcome to T9 OS - Leaderboard</h2>
+    <p>This where you upload your high scores in games</p>
+    <p class="post">Posted by: T9 OS</p>
+  </section>
+
+
+<style>
+  section {
+  background-color:black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius:20px;
+    color:white;
+}
+
+</style>
+
+<style>
+   .post {
+    color:#adacac;
+    font-size:14px;
+   }
+    
+</style>
+
+</div>
+
+
+<style>
+  .tnav {
+    top:0;
+    left:0;
+    height:25px;
+    width:100%;
+    opacity:50%;
+    background-color:black;
+    position:fixed;
+    
+  }
+  .timg{
+    width:17px;
+    transform: translateY(-3px);
+    gap:70px;
+  }
+  .timg:hover{
+    transform: translateY(-4x);
+
+
+  }
+
+
+
+  
+ 
+</style>
+
 <div id="hiddenDiv">
+  <div class="gnav">
+
+  </div>
+  <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
+  <input  type="text" id="searchBar" placeholder="Search games by name...">
+
+
+
      <h1 class="gtext">Games</h1>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScaAq2bhgZipNNKUL74Q8FnKlPnPycsXZVVsLunrIfcoiR1tg/viewform?usp=sf_link">
-        <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
-             </a>
-                <a href="terms.html">
-        <img class="btn" src="TERM.png">
-             </a>
-        <a href="usService.html">
-        <img class="btn" src="among.webp">
-             </a>
-        
-        <a href="crossy.html">
-        <img class="btn" src="crossy.jpg">
-             </a>
-             
-             <a href="cookie.html">
-        <img class="btn" src="cookie.png">
-             </a>
-        
-         <a href="1v1.html">
-        <img class="btn" src="1v1.jpg">
+
+     <div id="imageContainer">
+  <a href="https://forms.gle/idyRqPcwSoj5Mmjv6">
+    <img class="btn" src="https://reider71164.github.io/images/gamerequest.png">
          </a>
-        
+            <a href="terms.html">
+    <img class="btn" src="TERM.png" alt="terms">
+         </a>
+    <a href="usService.html">
+    <img class="btn" src="among.webp" alt="among us">
+         </a>
+    
+    <a href="crossy.html">
+    <img class="btn" src="crossy.jpg" alt="crossy road">
+         </a>
          
-        
+         <a href="cookie.html">
+    <img class="btn" src="cookie.png" alt="cookie clicker">
+         </a>
+    
+   
+     
+    
+     <a href="ninjaNF.html">
+    <img class="btn" src="fninja.jpg" alt="fruit ninja">
+         </a>
          
-        
-         <a href="ninjaNF.html">
-        <img class="btn" src="fninja.jpg">
-             </a>
-             
-              <a href="dino.html">
-        <img class="btn" src="dino.png">
-             </a>
-             
+          <a href="dino.html">
+    <img class="btn" src="dino.png" alt="dinosour game">
+         </a>
+         
+      
+    <a href="run.html">
+    <img class="btn" src="run.png" alt="run">
+         </a>
+         
+         
           
-        <a href="run.html">
-        <img class="btn" src="run.png">
-             </a>
-             
-             
-              
-        <a href="run2.html">
-        <img class="btn" src="run2.png">
-             </a>
-             
-             <a href="2048.html">
-        <img class="btn" src="2048.png">
-             </a>
-             
-              <a href="wheels.html">
-        <img class="btn" src="wheels.png">
-             </a>
+    <a href="run2.html">
+    <img class="btn" src="run2.png" alt="run 2">
+         </a>
+         
+         <a href="2048.html">
+    <img class="btn" src="2048.png" alt="2048">
+         </a>
+         
+          <a href="wheels.html">
+    <img class="btn" src="wheels.png"alt="happy wheels">
+         </a>
+    
+     <a href="baldi.html">
+    <img class="btn" src="baldi.png" alt="baldi">
+         </a>
+    
+
+         
+          <a href="slope.html">
+    <img class="btn" src="slope1.png" alt="slope">
+         </a>
+   
+         
+            <a href="https://t9os.com/roblox.html">
+    <img class="btn" src="roblox.png" alt="roblox">
+         </a>
+         
+         
+        <a href="fnaf.html">
+    <img class="btn" src="fnaf.png" alt="fnaf" alt="five nights at freddy">
+         </a>
+         
+          <a href="run3.html">
+    <img class="btn" src="run3.png" alt="run 3">
+         </a>
+         
+          <a href="temple.html">
+    <img class="btn" src="temple.png" alt="temple run">
+         </a>
+         
+         <a href="tetris.html">
+    <img class="btn" src="tetris.png" alt="tetris">
+         </a>
+         
+         <a href="minecraft.html">
+    <img class="btn" src="mine.png" alt="eaglercraft">
+         </a>
+         
+         <a href="stickhook.html">
+    <img class="btn" src="stickhook.png" alt="stickman hook">
+         </a>
+         
         
-         <a href="baldi.html">
-        <img class="btn" src="https://fontmeme.com/images/badis-basics-font.png">
-             </a>
+         
+          <a href="core.html">
+    <img class="btn" src="core.png" alt="core ball">
+         </a>
+    
+         
         
+         
+         <a href="stack.html">
+    <img class="btn" src="stack.png" alt="stack block">
+         </a>
+         
+          <a href="flip.html">
+    <img class="btn" src="flip.png" alt="just flip">
+         </a>
+         
+         <a href="gta5.html">
+    <img class="btn" src="gta6.png" alt="gta">
+         </a>
+         
+         <a href="box.html">
+    <img class="btn" src="https://cdn2.steamgriddb.com/thumb/c442b40dabc7f4bda930bef2b5d100fc.jpg" alt="incredibox">
+         </a>
+         
+         <a href="soccer.html">
+    <img class="btn" src="football.png" alt="football legends">
+         </a>
+         
+         <a href="shortlife.html">
+    <img class="btn" src="shortlife.png" alt="short life">
+         </a>
+         
+          <a href="manic.html">
+    <img class="btn" src="manic.png" alt="moto maniac">
+         </a>
+         
+         <a href="slope2.html">
+             <img class="btn" src="slope2.png" alt="slope 2">
+         </a>
+         
+         <a href="thrill.html">
+             <img class="btn" src="thrill.png" alt="aqua thrill">
+         </a>
+         
+         <a href="shortride.html">
+             <img class="btn" src="shortlife.png" alt="short ride">
+         </a>
+         
+         <a href="stair.html">
+             <img class="btn" src="stair.png" alt="stair race 3d">
+         </a>
+         
+          <a href="blight.html">
+             <img class="btn" src="blight.png">
+         </a>
+         
+          <a href="vex.html">
+             <img class="btn" src="vex4.png" alt="vex 4">
+         </a>
+    
+    <a href="hallow.html">
+             <img class="btn" src="https://i.ibb.co/dmBbf5s/Screenshot-2024-04-10-7-06-13-PM.png" alt="secrets of hallowland">
+         </a>
+      
+            <a href="tapgoal.html">
+             <img class="btn" src="tap.webp" alt="tap goal">
+         </a>
+    </a>
+    <a href="snowrider.html">
+     <img class="btn" src="/img/snow.png" alt="snow rider">
+    </a>
+    <a href="rocketsoccer.html">
+         <img class="btn" src="img/soccer.png" alt="rocket soccer">
+    </a>
+        <a href="superhot.html">
+         <img class="btn" src="/img/superhot.png" alt="super hot">
+        </a> 
+             <a href="funnyshooter.html">
+         <img class="btn" src="funny.png" alt="funny shooter 2">
+        </a>
+                <a href="icedodo.html">
+         <img class="btn" src="ice.jpg" alt="ice dodo">
+        </a>
+                   <a href="eggy-car-main/eggy-car-main/frame.html">
+         <img class="btn" src="eggy.jpg" alt="eggy car">
+        </a>
+        <a href="holeio.html">
+          <img class="btn" src="holeio.png" alt="hole.io">
+         </a>
+       
+         <a href="dmad.html">
+          <img class="btn" src="dmad.png" alt="drive mad">
+         </a>
+         <a href="cubeshot.html">
+          <img class="btn" src="cubeshot.png" alt="cubeshot">
+         </a>
+         <a href="1v1.html">
+          <img class="btn" src="1v1.jpg" alt="1v1 lol">
+         </a>
+         <a href="bitlifeService.html">
+          <img class="btn" src="bitlife.png" alt="bitlife">
+         </a>
+         <a href="jet.html">
+          <img class="btn" src="jet.png" alt="jetpack joyride">
+         </a>
+         <a href="kartz.html">
+          <img class="btn" src="smash.png" alt="smash kartz">
+         </a>
+         <a href="ovo.html">
+          <img class="btn" src="ovo.png" alt="ovo">
+         </a>
+         <a href="granny.html">
+          <img class="btn" src="granny.png" alt="granny">
+         </a>
+         <a href="grandvegas.html">
+          <img class="btn" src="grandvegas.png" alt="grand vegas">
+         </a>    
+         <a href="polytrack.html">
+          <img class="btn" src="polytrack.png" alt="polytrack">
+         </a>   
+         <a href="subwayHW.html">
+          <img class="btn" src="subwayHW.png" alt="subway surfers">
+         </a>  
+         <a href="basket.html">
+          <img class="btn" src="basketL.png" alt="basketball legends">
+         </a>   
+         <a href="timeshooter3.html">
+          <img class="btn" src="timeshooter.png" alt="timeshooter 3">
+         </a>   
+         <a href="moneyroll.html">
+          <img class="btn" src="moneyroll.png" alt="money roll">
+         </a>   
+         <a href="backrooms.html">
+          <img class="btn" src="backrooms.png" alt="backrooms">
+         </a> 
+         <a href="fnaf.html">
+          <img class="btn" src="fnaf2.png" alt="fnaf2" alt="five nights at freddys 2">
+         </a> 
+         <a href="bowl.html">
+          <img class="btn" src="bowl.png" alt="retro bowl">
+         </a>  
+         <a href="uno.html">
+          <img class="btn" src="uno.png" alt="uno">
+         </a>  
+         <a href="burgeria.html">
+          <img class="btn" src="burgeria.png" alt="burgeria">
+         </a>   
+         <a href="pou.html">
+          <img class="btn" src="pou.png" alt="pou">
+         </a>  
+         <a href="johnny.html">
+          <img class="btn" src="johnny.png" alt="johnny">
+         </a>  
+         <a href="robber.html">
+          <img class="btn" src="robber2.png" alt="bob the robber 2">
+         </a>  
+         <a href="wordle.html">
+          <img class="btn" src="wordle.png" alt="wordle">
+         </a>  
+         <a href="onlyup.html">
+          <img class="btn" src="onlyup.png" alt="onlyup">
+         </a> 
+         <a href="tinyfishing.html">
+          <img class="btn" src="fishing.png" alt="tinyfishing">
+         </a> 
+         <a href="goball.html">
+          <img class="btn" src="goball.png" alt="goball">
+         </a> 
+         
+         <a href="helix.html">
+          <img class="btn" src="helix.png" alt="helix">
+         </a> 
+         <a href="hohazards.html">
+          <img class="btn" src="hohazards.png" alt="house of hazards">
+         </a> 
+          
+         <a href="president.html">
+          <img class="btn" src="president.png" alt="president simulator">
+         </a> 
+         <a href="pokemon.html">
+          <img class="btn" src="pokemon.png" alt="pokemon red">
+         </a> 
+         <a href="granny2.html">
+          <img class="btn" src="granny2.png" alt="granny 2">
+         </a> 
          <a href="hunter.html">
-        <img class="btn" src="https://slopegame.io/upload/imgs/drift-hunters-logo.png">
-             </a>
+          <img class="btn" src="hunter.png" alt="drift hunter">
+         </a> 
+         <a href="just.html">
+          <img class="btn" src="just.png" alt="just fall">
+         </a> 
+         <a href="pacman.html">
+          <img class="btn" src="pacman.png" alt="pacman">
+         </a> 
+         <a href="knife.html">
+          <img class="btn" src="knife.png" alt="knife hit">
+         </a> 
+</div>
+   
              
-              <a href="slope.html">
-        <img class="btn" src="https://slopegame.io/upload/imgs/slope1.jpg">
-             </a>
-             
-              <a href="bitlifeService.html">
-        <img class="btn" src="https://static.wikia.nocookie.net/logopedia/images/9/99/Bitlife.png">
-             </a>
-             
-                <a href="https://thewebsitesbridge.com/">
-        <img class="btn" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Roblox_Logo_2022.jpg">
-             </a>
-             
-             
-            <a href="fnaf.html">
-        <img class="btn" src="https://www.bewild.com/cdn/shop/products/official-five-nights-at-freddy-s-logo-mens-t-shirt-black-12.jpg">
-             </a>
-             
-              <a href="run3.html">
-        <img class="btn" src="https://jpg.hoodamath.com/large/run3_300x225.jpg">
-             </a>
-             
-              <a href="temple.html">
-        <img class="btn" src="https://i.pinimg.com/736x/07/ef/10/07ef10c982b089babd27eb19228264e5.jpg">
-             </a>
-             
-             <a href="tetris.html">
-        <img class="btn" src="https://s3.amazonaws.com/tetris-www1/assets/editorial/2022/12/tetris-logo.png">
-             </a>
-             
-             <a href="minecraft.html">
-        <img class="btn" src="https://wallpapers.com/images/hd/hd-minecraft-logo-3nehf0ctjgk3d0zp.jpg">
-             </a>
-             
-             <a href="stickhook.html">
-        <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/99e090d154caf30f3625df7e456d5984.png">
-             </a>
-             
-              <a href="deathrun.html">
-        <img class="btn" src="https://deathrun3d.io/rs/banner-death-run-3d.jpg">
-             </a>
-             
-             
-               <a href="bowl.html">
-        <img class="btn" src="https://geometry-dash.co/data/image/game/retro-bowl-logo.jpg">
-             </a>
-             
-             <a href="subway.html">
-        <img class="btn" src="https://static.wikia.nocookie.net/subwaysurf/images/f/f7/Barcelona2022Icon.jpg">
-             </a>
-             
-             <a href="granny.html">
-        <img class="btn" src="https://izigames.net/uploads/2023/6/granny-logo.jpg">
-             </a>
-             
-             <a href="geom.html">
-        <img class="btn" src="https://static.wikia.nocookie.net/logopedia/images/4/41/Geometry_Dash_Icon.svg/">
-             </a>
-             
-              <a href="jet.html">
-        <img class="btn" src="https://upload.wikimedia.org/wikipedia/en/9/90/Jetpack_Joyride_iOS.png">
-             </a>
-             
-             <a href="sausage.html">
-        <img class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=314,height=314,fit=cover,f=auto/7d0655113228257bad41d851c074600d.png">
-             </a>
-             
-             <a href="motox3m.html">
-        <img class="btn" src="https://skribblio.online/upload/imgs/moto-x3m-2.jpg">
-             </a>
-             
-             <a href="kartz.html">
-        <img class="btn" class="btn" src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/9c9e529b14731be871b07b89660bbc2a.png">
-             </a>
-             
-             <a href="basket.html">
-        <img class="btn" src="https://8ball-pool.io/data/image/basketball-stars-2.jpeg">
-             </a>
-             
-             <a href="bullet.html">
-        <img class="btn" src="https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/41/e2/f8/41e2f8e8-f2a5-34ea-ab12-426d63be2fcb/AppIcon-0-0-1x_U007emarketing-0-4-0-85-220.png/512x512bb.jpg">
-             </a>
-             
-             <a href="tunnel.html">
-        <img class="btn" src="https://images.hellokids.com/_uploads/_tiny_galerie/20180415/vign-tunnel-rush-hk-w8v_u89.jpg">
-             </a>
-             
-             <a href="paper2.html">
-        <img class="btn" src="https://cdn-1.webcatalog.io/catalog/paper-io/paper-io-icon-filled-256.png">
-             </a>
-             
-              <a href="core.html">
-        <img class="btn" src="https://coreball.co/data/image/favicon.png">
-             </a>
-             
-              <a href="dmad.html">
-        <img class="btn" src="https://www.fancade.com/images/5F084A0BCE06B710.jpg">
-             </a>
-             
-             <a href="stack.html">
-        <img class="btn" src="https://is4-ssl.mzstatic.com/image/thumb/Purple114/v4/db/ee/72/dbee72bc-a37e-9aa0-d083-b883dc6056f1/source/512x512bb.jpg">
-             </a>
-             
-              <a href="flip.html">
-        <img class="btn" src="https://img.itch.zone/aW1nLzI5MDYwNzIucG5n/315x250%23c/wFJ8TV.png">
-             </a>
-             
-             <a href="gta5.html">
-        <img class="btn" src="https://seeklogo.com/images/G/grand-theft-auto-5-logo-54E30512F6-seeklogo.com.png">
-             </a>
-             
-             <a href="box.html">
-        <img class="btn" src="https://cdn2.steamgriddb.com/thumb/c442b40dabc7f4bda930bef2b5d100fc.jpg">
-             </a>
-             
-             <a href="soccer.html">
-        <img class="btn" src="https://img.gamedistribution.com/ecd138ae69cf4e92b5f5cdd328b6b62e-512x512.jpeg">
-             </a>
-             
-             <a href="shortlife.html">
-        <img class="btn" src="https://img.gamepix.com/games/short-life/icon/short-life.png">
-             </a>
-             
-              <a href="manic.html">
-        <img class="btn" src="manic.png">
-             </a>
-             
-             <a href="slope2.html">
-                 <img class="btn" src="slope2.png">
-             </a>
-             
-             <a href="thrill.html">
-                 <img class="btn" src="thrill.png">
-             </a>
-             
-             <a href="shortride.html">
-                 <img class="btn" src="shortlife.png">
-             </a>
-             
-             <a href="stair.html">
-                 <img class="btn" src="stair.png">
-             </a>
-             
-              <a href="blight.html">
-                 <img class="btn" src="blight.png">
-             </a>
-             
-              <a href="vex.html">
-                 <img class="btn" src="vex4.png">
-             </a>
-        
-        <a href="hallow.html">
-                 <img class="btn" src="https://i.ibb.co/dmBbf5s/Screenshot-2024-04-10-7-06-13-PM.png">
-             </a>
-                <a href="tapgoal.html">
-                 <img class="btn" src="tap.webp">
-             </a>
-        </a>
-        <a href="snowrider.html">
-         <img class="btn" src="/img/snow.png">
-        </a>
-        <a href="rocketsoccer.html">
-             <img class="btn" src="img/soccer.png">
-        </a>
-            <a href="superhot.html">
-             <img class="btn" src="/img/superhot.png">
-            </a> 
-                 <a href="funnyshooter.html">
-             <img class="btn" src="download.jpg">
-            </a>
-                    <a href="icedodo.html">
-             <img class="btn" src="ice.jpg">
-            </a>
-                       <a href="eggy-car-main/eggy-car-main/frame.html">
-             <img class="btn" src="eggy.jpg">
-            </a>
-          
-        
+</div>
+
+
+<div class="tnav">
+
+  <a href="https://discord.gg/hWa6UXbjWh">
+    <img class="timg" src="discord.png">
+  </a>  
+
+  <a onclick="settings()">
+    <img class="timg" src="https://t9os.pages.dev/settings22.png">
+  </a>
+
+  <a href="index.html">
+    <img class="timg" src="home.png">
+  </a>
+
+  <a id="fullscreen-button">
+    <img class="timg" src="fullscreen.png">
+  </a>
+
+  <a onclick="apps()">
+    <img class="timg" src="apps1.png">
+  </a>
+
+
+</div>
+
+
+
+<div id="settingsDiv">
+  <button class="close-btn" onclick="document.getElementById('settingsDiv').style.display = 'none';">×</button>
+
+  <h1 class="seth">|| Settings ||</h1>
+  
+<label class="label" for="background-select">Select Background:</label>
+<select id="background-select">
+  <option value="https://t9os.com/T93.png">Default</option>
+  <option value="city.jpg">City</option>
+  <option value="sunset.jpg">Sunset</option>
+  <option value="mountains.jpg">Mountains</option>
+  <option value="tree.jpg">Tropical trees</option>
+  <option value="space.jpg">Space</option>
+    <option value="psky.jpg">Purple sky</option>
+    <option value="abstract.jpg">Abstract</option>
+    <option value="cyberpunk.gif">Cyberpunk</option>
+    <option value="luffy.gif">Luffy Straw hat</option>
+    <option value="tmoon.gif">Samurai Spirit Under the Moon</option>
+
+
+
+
+
+
+
+
+</select>
+<a   onclick="opengame()"  class="round-btn">Hide url</a>
+<a   onclick="
+const text = document.getElementById('logo');
+text.textContent = text.textContent === ' ' ? 'T9' : ' ';
+"  class="round-btn">Toggle logo</a>
+
+<style>
+   .round-btn {
+    border-radius: 12px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size:medium;
+   }
+   .seth{
+    text-align: center;
+    font-family: sans-serif;
+   }
+</style>
+
+
+  
 </div>
   
 <script>
@@ -464,12 +853,111 @@ border: 7px solid #ffffff;
   });
 </script>
 
-<script src="uv/uv.bundle.js" defer></script>
-      <script src="uv/uv.config.js" defer></script>
-      <script src="register-sw.js" defer></script>
-      <script src="search.js" defer></script>
-      <script src="proxy.js" defer></script>
-      <script src="error.js" defer></script>
+
+
+
+
+<script>
+  function settings(){
+    const div = document.getElementById('settingsDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+<script>
+  function leader(){
+    const div = document.getElementById('leaderboardDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+<script>
+  function apps(){
+    const div = document.getElementById('appsDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+<script>
+  function s(){
+    const div = document.getElementById('searchDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+
+<script>
+  const fullscreenButton = document.getElementById('fullscreen-button');
+
+  fullscreenButton.addEventListener('click', toggleFullscreen);
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }
+</script>
+
+<script>
+  document.getElementById('searchBar').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    const images = document.querySelectorAll('#imageContainer img');
+
+    images.forEach(image => {
+      const altText = image.getAttribute('alt') || '';
+      if (altText.toLowerCase().includes(searchTerm)) {
+        image.style.display = 'inline-block';
+      } else {
+        image.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Style for the select dropdown */
+#background-select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9; /* Fallback color */
+    font-size: 16px;
+    width: 200px;
+    font-family: Poppins;
+    background-repeat: no-repeat;
+}
+
+</style>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+// Get the select element
+var select = document.getElementById("background-select");
+
+// Set initial background image based on stored preference or default
+var selectedBackground = localStorage.getItem("selectedBackground");
+
+if (selectedBackground) {
+  document.body.style.backgroundImage = "url(" + selectedBackground + ")";
+  select.value = selectedBackground;
+}
+
+ // Listen for changes in the select element
+ select.addEventListener("change", function() {
+   var newBackground = this.value;
+   document.body.style.backgroundImage = "url(" + newBackground + ")";
+   localStorage.setItem("selectedBackground", newBackground);
+ });
+});
+
+</script>
+
+</head>
+
+
+
+
 
 </body>
 </html>
+
