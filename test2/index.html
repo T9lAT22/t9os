@@ -69,7 +69,7 @@
     letter-spacing: .15em; /* Adjust as needed */
     text-align:center;
     animation: 
-      typing 3.5s steps(30, end),
+      typing 3.5s steps(0, end),
       blink-caret .5s step-end infinite;
       top:200px;
       position:relative;
@@ -85,7 +85,7 @@
   /* The typewriter cursor effect */
   @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: orange }
+    50% { border-color: rgb(255, 255, 255) }
   }
   body{
     background-image: linear-gradient( 179deg,  rgba(0,0,0,1) 9.2%, rgb(83, 16, 127) 103.9% );  
