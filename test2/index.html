@@ -1,4 +1,4 @@
-<a href="https://t9os.com/thetestbase99.html">
+<a class="container" href="https://t9os.com/thetestbase99.html">
 
 
 <button>
@@ -34,8 +34,6 @@ button {
   border: none;
   letter-spacing: 0.05em;
   border-radius: 16px;
-  display: block; /* Makes the button a block element */
-  margin: 0 auto; /* Centers horizontally */
 }
 
 button svg {
@@ -55,5 +53,10 @@ button:hover svg {
 button:hover span {
   transform: translateX(7px);
 }
+.container {
+    display: grid;
+    place-items: center; /* Centers both horizontally and vertically */
+    height: 100vh;
+  }
 
 </style>
