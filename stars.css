@@ -88,7 +88,7 @@
     #stars4:after {
     content: " ";
     position: fixed;
-    top: 2000px;
+    top: 1000px;
     width: 1px;
     height: 1px;
     background: transparent;
