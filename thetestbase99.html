@@ -441,6 +441,14 @@
 
 
   }
+  .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: var(--darker-bg);
+      border-bottom: 1px solid #333;
+    }
 
 
 
@@ -449,8 +457,8 @@
 </style>
 
 <div id="hiddenDiv">
-  <div class="gnav">
-
+  <div class="modal-header">
+  
   </div>
   <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
   <input  type="text" id="searchBar" placeholder="Search games by name...">
