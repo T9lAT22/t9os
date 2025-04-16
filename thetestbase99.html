@@ -188,6 +188,25 @@
     animation: fadeIn 0.3s ease-in-out;
 
   }
+  #collabDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
   #searchDiv {
     display: none;
     margin-top: 20px;
@@ -346,6 +365,23 @@
                         <img class="btn" src="tiktok.png">
                              </a>
            
+     
+        
+       
+
+          
+</div>
+
+<div id="appsDiv">
+  <button class="close-btn" onclick="document.getElementById('appsDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Partners </h1>
+  <p color="white" text-align="center">They are partners not sponsers</p>
+
+          
+     <a href="https://sites.google.com/view/wtex/home?authuser=0">
+     <img class="btn" src="rat.gif">
+          </a>
+        
      
         
        
@@ -774,6 +810,10 @@
     <img class="timg" src="apps1.png">
   </a>
 
+  <a onclick="apps()">
+    <img class="timg" src="collab.png">
+  </a>
+
 
   <h2 class="battery" id="batteryPercentage"></h2>
   <div class="clock" id="time"></div>
@@ -901,6 +941,14 @@ text.textContent = text.textContent === ' ' ? 'T9' : ' ';
     div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
 </script>
+
+<script>
+  function collab(){
+    const div = document.getElementById('collabDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 <script>
   function s(){
     const div = document.getElementById('searchDiv');
