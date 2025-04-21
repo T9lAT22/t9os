@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +7,22 @@
      crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stars.css">
 <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
 
 
 <title>T9 OS</title>
+
+    
+<div class="bg-animation">
+  <div id='stars'></div>
+  <div id='stars2'></div>
+  <div id='stars3'></div>
+  <div id='stars4'></div>
+</div><!-- / STAR ANIMATION -->
+
+</div>
+
 
 <style>
 
@@ -19,8 +32,7 @@
 
 
   body {
-    background-image: url("https://t9os.com/T93.png");
-    background-size: cover;
+    background-image: linear-gradient( 179deg,  rgba(0,0,0,1) 9.2%, rgb(83, 16, 127) 103.9% );      background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
@@ -32,35 +44,46 @@
     font: caption;
     right: 30px;
     color: white;
-    font-size: 25px;
+    font-size: 15px;
     position: fixed;
+    top:5px;
   }
 
   /* Battery Styles */
   .battery {
-    font: caption;
-    right: 185px;
-    color: white;
-    position: fixed;
-    font-size: 25px;
-  }
+    
+  font: caption;
+  right: 185px;
+  color: white;
+  position: absolute;
+  top: 0;
+  font-size: 15px;
+  line-height: 1;
+  /* Optional: if you still need fine adjustment */
+  transform: translateY(-5px);
+}
+
+  
 
   /* Navbar Styles */
   .navbar {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
-    width: 60%;
+    width: 25%;
     background-color: #141414;
-    border-radius: 35px 35px 0px 0px;
+    border-radius: 50px;
     gap: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
-    opacity:85%;
+    opacity:60%;
     left: 50%;
     transform: translateX(-50%); 
+    box-shadow: 0px 4px 12px #1f1f1f;
+
+
   
   }
   .close-btn {
@@ -124,7 +147,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     box-shadow: 0px 4px 12px #1f1f1f;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
 
   }
   #settingsDiv {
@@ -165,6 +188,25 @@
     animation: fadeIn 0.3s ease-in-out;
 
   }
+  #collabDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease-in-out;
+
+  }
   #searchDiv {
     display: none;
     margin-top: 20px;
@@ -187,11 +229,13 @@
 
   /* Logo Styles */
   .logo {
-    right: 45%;
-    top:150px;
+    inset: 0;
+    margin:auto;
+      position:fixed;
     position: fixed;
     font-size: 200px;
     font-family: 'Luckiest Guy', cursive;
+    width:500px;
    
   color: white;
 
@@ -254,19 +298,16 @@
     justify-content: space-between;
     align-items: center;
 }
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsive Design */
-/* Responsive Design */
-@media (max-width: 768px) {
-    #leaderboardDiv {
-        width: 90%;
-        height: 70%;
+ @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 80%;
+        transform: scale(1);
+      }
     }
-}
 #searchBar{
   text-align:center;
   background-color: #141414;
@@ -286,7 +327,7 @@
 </head>
 <body>
 
-<h1 id="logo" class="logo">T9</h1>
+
 
 <!-- Navbar -->
 <div class="navbar">
@@ -301,10 +342,7 @@
     <img src="trophie.png">
   </a>
 
-  <h2 class="battery" id="batteryPercentage"></h2>
-  <div class="line"></div>
-  <div class="line2"></div>
-  <div class="clock" id="time"></div>
+
 </div>
 
 <!-- Hidden Div -->
@@ -323,6 +361,27 @@
                 <a href="https://t9os.com/active/iframe.html#https://www.xbox.com/en-US/play/games/fortnite/BT5P2X999VH2">
                   <img class="btn" src="fortnite.png">
                        </a>
+                       <a href="https://t9os.com/active/iframe.html#https://www.tiktok.com/">
+                        <img class="btn" src="tiktok.png">
+                             </a>
+           
+     
+        
+       
+
+          
+</div>
+
+<div id="collabDiv">
+  <button class="close-btn" onclick="document.getElementById('collabDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Partners </h1>
+  <p color="white" text-align="center">They are partners not sponsers</p>
+
+          
+     <a href="https://sites.google.com/view/wtex/home?authuser=0">
+     <img class="btn" src="rat.gif">
+          </a>
+        
      
         
        
@@ -423,16 +482,12 @@
 
   }
 
-
-
   
  
 </style>
 
 <div id="hiddenDiv">
-  <div class="gnav">
-
-  </div>
+  
   <button class="close-btn" onclick="document.getElementById('hiddenDiv').style.display = 'none';">×</button>
   <input  type="text" id="searchBar" placeholder="Search games by name...">
 
@@ -727,6 +782,36 @@
          <a href="knife.html">
           <img class="btn" src="knife.png" alt="knife hit">
          </a> 
+         <a href="/crazycattle3d/index.html">
+          <img class="btn" src="sheep.png" alt="Crazy Cattle 3D">
+         </a> 
+         <a href="window.html">
+          <img class="btn" src="window.png" alt="The man from the window">
+         </a> 
+         <a href="capybara.html">
+          <img class="btn" src="capybara.png" alt="capybara clicker">
+         </a> 
+         <a href="balditrip.html">
+          <img class="btn" src="balditrip.png" alt="Baldi field trip">
+         </a> 
+         <a href="basketrandom.html">
+          <img class="btn" src="basketrandom.png" alt="Basket Random">
+         </a> 
+         <a href="deathrun.html">
+          <img class="btn" src="deathrun.png" alt="death run 3d">
+         </a> 
+         <a href="axe.html">
+          <img class="btn" src="axe.png" alt="axe random">
+         </a> 
+         <a href="motox3m.html">
+          <img class="btn" src="moto.png" alt="moto x3m">
+         </a> 
+         <a href="driftboss.html">
+          <img class="btn" src="driftboss.png" alt="drift boss">
+         </a> 
+         <a href="bullet.html">
+          <img class="btn" src="bullet.png" alt="mr bullet">
+         </a> 
 </div>
    
              
@@ -755,9 +840,18 @@
     <img class="timg" src="apps1.png">
   </a>
 
+  <a onclick="collab()">
+    <img class="timg" src="collab.png">
+  </a>
+
+
+  <h2 class="battery" id="batteryPercentage"></h2>
+  <div class="clock" id="time"></div>
+
 
 </div>
 
+<img src="logo5.png" class="logo">
 
 
 <div id="settingsDiv">
@@ -767,7 +861,7 @@
   
 <label class="label" for="background-select">Select Background:</label>
 <select id="background-select">
-  <option value="https://t9os.com/T93.png">Default</option>
+  <option value="bg4.png">Default</option>
   <option value="city.jpg">City</option>
   <option value="sunset.jpg">Sunset</option>
   <option value="mountains.jpg">Mountains</option>
@@ -778,6 +872,8 @@
     <option value="cyberpunk.gif">Cyberpunk</option>
     <option value="luffy.gif">Luffy Straw hat</option>
     <option value="tmoon.gif">Samurai Spirit Under the Moon</option>
+      <option value="pbWaves.jpg">Purple Blue Abstract</option>
+
 
 
 
@@ -806,6 +902,7 @@ text.textContent = text.textContent === ' ' ? 'T9' : ' ';
     text-align: center;
     font-family: sans-serif;
    }
+  
 </style>
 
 
@@ -874,6 +971,14 @@ text.textContent = text.textContent === ' ' ? 'T9' : ' ';
     div.style.display = div.style.display === 'block' ? 'none' : 'block';
   }
 </script>
+
+<script>
+  function collab(){
+    const div = document.getElementById('collabDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 <script>
   function s(){
     const div = document.getElementById('searchDiv');
@@ -952,7 +1057,6 @@ if (selectedBackground) {
 </script>
 
 </head>
-
 
 
 
