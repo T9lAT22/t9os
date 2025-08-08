@@ -12,43 +12,6 @@
 </div>
 
 
-<script>
-  // Your Firebase config (replace with yours)
-  const firebaseConfig = {
-      apiKey: "AIzaSyAk5KUEWvbTHS0wvpURqxFkBZEK0-gNwJ8",
-authDomain: "t9-os-3b3ba.firebaseapp.com",
-projectId: "t9-os-3b3ba",
-storageBucket: "t9-os-3b3ba.firebasestorage.app",
-messagingSenderId: "263567071189",
-appId: "1:263567071189:web:9c0007563982992e2a8f5c",
-measurementId: "G-JLQR3X28BW"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-
-  // Check if user is logged in
-  auth.onAuthStateChanged(user => {
-      if (user) {
-          const userEmail = user.email;
-          const allowedEmails = [
-"admin@example.com",
-"manager@example.com",
-"praneel.patel@usjstudents.org"
-];
-          
-          if (userEmail === allowedEmail) {
-              window.location.href = "ban.html"; // Redirect if email matches
-          } else {
-              alert("You don't have access.");
-          }
-      } else {
-          // If not logged in, redirect to login page
-          window.location.href = "ban.html";
-      }
-  });
-</script>
     
     
     <style>
