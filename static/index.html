@@ -4,110 +4,39 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
       <link rel="stylesheet" href="index.css">
+      <script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script>
       <link rel="shortcut icon" type="image/jpg" href="~/favicon.ico"/>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
    </head>
    <body>
-    <script>
-      function updateTime() {
-var date = new Date();
-var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
-var formattedTime = date.toLocaleTimeString('en-US', options);
-document.getElementById("time").innerHTML = formattedTime;
-}
+      <div id="header">
+         <img src="logo.gif" alt="Logo">
+      </div>
+      <div id="content">
+         <h1>Search the Web and use the BEST static proxy!</h1>
 
-setInterval(updateTime, 1000); 
-</script>
-<h1 id="time" class="clock">Time</h1>
-
-      <div class="navbar">
-         <div id="content">
-            <div id="header">
-            </div>
-
-
-            <form id="uv-form">
-               <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
-               <input id="uv-address" type="text" placeholder="Use https:// in the URL" class="form__input"/>
-             </form>
-             <div class="desc left-margin">
-               <p id="uv-error"></p>
-               <pre id="uv-error-code"></pre>
-             </div>
-         
-       
-       </div>
-    
+         <form id="uv-form"">
+            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
+            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
+          </form>
+          <div class="desc left-margin">
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+          </div>
+         <a href="https://discord.gg/zJhPJYJCeJ" target="_blank" class="fa-brands fa-discord"></a>
+         <a href="https://github.com/TheTIW/UV-Static" target="_blank"class="fa-brands fa-github"></a>
+         <a href="https://starttiw.org" target="_blank"class="fa-solid fa-cloud"></a>
+      </div>
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
       <script src="search.js" defer></script>
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
-
-
-    <script>
-       function updateTime() {
-  var date = new Date();
-  var options = { hour: 'numeric', minute: 'numeric',  hour12: true };
-  var formattedTime = date.toLocaleTimeString('en-US', options);
-  document.getElementById("time").innerHTML = formattedTime;
-  }
-  
-  setInterval(updateTime, 1000); 
-    </script>
-    <style>
-@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
-
-
-
-      .navbar {
-    position: fixed;
-    top: 50%;
-    left: 25%;
-    width: 900px;
-    background-color: #141414;
-    border-radius: 30px;
-    gap: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    opacity:85%;
-  }
-  .logo {
-    right:45%;
-      top:150px;
-      position:fixed;
-    position: fixed;
-    font-size: 200px;
-    font-family: 'Luckiest Guy', cursive;
-   
-  color: white;
-  }
-  .clock {
-                color:white;
-                text-align:center;
-                top:67px;
-                font-size:87px;
-                font-family:sans-serif;
-
-            }
-            .warn{
-      top:0;
-      text-align:center;
-      font-family: sans-serif;
-      position: absolute;
-    }
-
-    </style>
-
-
-
-
-
-      
+      <div id="footer">
+         <p>&copy; 2023 TIW. All rights reserved.</p>
+      </div>
    </body>
 </html>
