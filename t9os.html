@@ -882,7 +882,7 @@
 
 
 </select>
-<a   onclick="opengame()"  class="round-btn">Hide url</a>
+<a   onclick="openGame()"  class="round-btn">Hide url</a>
 <a  id="toggleBTN" class="round-btn">Toggle logo</a>
 
 <style>
@@ -996,6 +996,19 @@
     }
   }
 </script>
+
+<script>
+  function openGame() {
+    var win = window.open ()
+    var url = "index.html"
+    var iframe = win.document.createElement('iframe')
+    iframe.style.width = "100%"
+    iframe.style.height = "100%"
+    iframe.style.border = "none"
+    iframe.src = url
+    win.document.body.appendChild(iframe)
+  }
+  </script>
 
 <script>
   document.getElementById('searchBar').addEventListener('input', function () {
