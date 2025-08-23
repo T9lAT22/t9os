@@ -226,7 +226,7 @@
   }
 
   /* Logo Styles */
-  .logo {
+  #logo {
     inset: 0;
     margin:auto;
       position:fixed;
@@ -402,7 +402,7 @@
   }
 
   </style>
-  <p class="warn">If you get an error, refresh or add https:// to the URL</p>
+  <p class="warn"></p>
 
   <iframe class="frame" src="/active/index.html"></iframe>
   <style>
@@ -837,9 +837,7 @@
     <img class="timg" src="fullscreen.png">
   </a>
 
-  <a onclick="apps()">
-    <img class="timg" src="apps1.png">
-  </a>
+
 
   <a onclick="collab()">
     <img class="timg" src="collab.png">
@@ -852,7 +850,7 @@
 
 </div>
 
-<img src="logo5.png" class="logo">
+<img src="logo5.png" id="logo">
 
 
 <div id="settingsDiv">
@@ -885,10 +883,7 @@
 
 </select>
 <a   onclick="opengame()"  class="round-btn">Hide url</a>
-<a   onclick="
-const text = document.getElementById('logo');
-text.textContent = text.textContent === ' ' ? 'T9' : ' ';
-"  class="round-btn">Toggle logo</a>
+<a  id="toggleBTN" class="round-btn">Toggle logo</a>
 
 <style>
    .round-btn {
@@ -1055,6 +1050,19 @@ if (selectedBackground) {
  });
 });
 
+</script>
+
+<script>
+  const btn = document.getElementById("toggleBTN");
+  const img = document.getElementById("logo");
+
+  btn.addEventListener("click", () => {
+    if (img.style.display === "none") {
+      img.style.display = "block"; 
+    } else {
+      img.style.display = "none";  
+    }
+  });
 </script>
 
 </head>
