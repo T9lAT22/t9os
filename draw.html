@@ -1,0 +1,124 @@
+<head>
+            <style>
+              body, html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+                width: 100%;
+              }
+              iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+              }
+            </style>
+          </head>
+<body>
+            <iframe srcdoc="<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?>
+<Module>
+<ModulePrefs title=&quot;Draw Climber&quot; />
+<Content type=&quot;html&quot;><![CDATA[
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset=&quot;utf-8&quot;>
+    <script type=&quot;text/javascript&quot;>document.domain='4399.com'</script>
+    <meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no&quot; />
+    <meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; />
+    <meta name=&quot;full-screen&quot; content=&quot;true&quot; />
+    <meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot; />
+    <meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot; />
+    <meta name=&quot;360-fullscreen&quot; content=&quot;true&quot; />
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #5E5858;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+
+</head> 
+ 
+<body onload=&quot;sdk.showBanner();&quot;>
+
+    <script>
+    window.$T_GAME_VERSION=&quot;1.0.9&quot;
+    window.$T_GAME_ARGS={};
+    window.$T__RES__FILE=&quot;https://cdn.jsdelivr.net/gh/yrgen73/draw-cl@8733508d84acdb41f47f102753e570de9f0a9971/resource/default.res.json&quot;;
+    window.$T__THE__FILE=&quot;resource/default.thm.json&quot;;
+    </script>
+    <div style=&quot;margin: auto;width: 100%;height: 100%;&quot; class=&quot;egret-player&quot;
+         data-entry-class=&quot;Main&quot;
+         data-orientation=&quot;auto&quot;
+         data-scale-mode=&quot;showAll&quot;
+         data-frame-rate=&quot;60&quot;
+         data-content-width=&quot;640&quot;
+         data-content-height=&quot;1136&quot;
+         data-multi-fingered=&quot;2&quot;
+         data-show-fps=&quot;false&quot; data-show-log=&quot;false&quot;
+         data-show-fps-style=&quot;x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9&quot;>
+    </div>
+<script>
+    var loadScript = function (list, callback) {
+        var loaded = 0;
+        var loadNext = function () {
+            loadSingleScript(list[loaded], function () {
+                loaded++;
+                if (loaded >= list.length) {
+                    callback();
+                }
+                else {
+                    loadNext();
+                }
+            })
+        };
+        loadNext();
+    };
+
+    var loadSingleScript = function (src, callback) {
+        var s = document.createElement('script');
+        s.async = false;
+        s.src = src;
+        s.addEventListener('load', function () {
+            s.parentNode.removeChild(s);
+            s.removeEventListener('load', arguments.callee, false);
+            callback();
+        }, false);
+        document.body.appendChild(s);
+    };
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://cdn.jsdelivr.net/gh/yrgen73/draw-cl@5cebc8634ca87bab6a76bf0ce2ef0fb99fa2548c/manifest.json?v=' + Math.random(), true);
+    xhr.addEventListener(&quot;load&quot;, function () {
+        var manifest = JSON.parse(xhr.response);
+        var list = manifest.initial.concat(manifest.game);
+        loadScript(list, function () {
+            egret.runEgret({ renderMode: &quot;webgl&quot;, audioType: 0, calculateCanvasScaleFactor:function(context) {
+                var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
+            }});
+        });
+    });
+    xhr.send(null);
+</script>
+</body>
+
+</html>
+
+]]></Content>
+</Module>
+" frameborder="0" allowfullscreen=""></iframe>
+          
+          
+        </body>
