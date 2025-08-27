@@ -225,6 +225,25 @@
       animation: popIn 0.5s ease-out forwards;
 
   }
+   #emulatorDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+      animation: popIn 0.5s ease-out forwards;
+
+  }
   #searchDiv {
     display: none;
     margin-top: 20px;
@@ -443,6 +462,27 @@
             });
         });
     </script>
+
+        
+     
+        
+       
+
+          
+</div>
+
+<div id="emulatorDiv">
+  <button class="close-btn" onclick="document.getElementById('soundDiv').style.display = 'none';">×</button>
+  <h1 class="gtext">| Emulators |</h1>
+  <p color="white" style="text-align: center;"></p>
+
+   <a href="/emulatorjs/index.html">
+     <img class="btn" src="emulatorjs.png">
+          </a>
+           <a href="https://blackoutgames.pages.dev/">
+     <img class="btn" src="zenith.png">
+          </a>
+        
 
         
      
@@ -927,6 +967,10 @@
     <img class="timg" src="music.png">
   </a>
 
+  <a onclick="emulator()">
+    <img class="timg" src="emulator.png">
+  </a>
+
 
   <h2 class="battery" id="batteryPercentage"></h2>
   <div class="clock" id="time"></div>
@@ -1028,6 +1072,14 @@
     }
   });
 </script>
+
+<script>
+  function emulator(){
+    const div = document.getElementById('emulatorDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 
 <script>
   function sound(){
