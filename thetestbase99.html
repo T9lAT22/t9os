@@ -28,15 +28,13 @@
 
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
 
-
-
-
   body {
-    background-image: linear-gradient( 179deg,  rgba(0,0,0,1) 9.2%, rgb(83, 16, 127) 103.9% );      background-size: cover;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #000000, #3a0057, #550075);
+  background-repeat: no-repeat;
+  background-size: cover;   /* make sure images cover the whole screen */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
   }
 
   /* Clock Styles */
@@ -82,6 +80,7 @@
     left: 50%;
     transform: translateX(-50%); 
     box-shadow: 0px 4px 12px #1f1f1f;
+
 
 
   
@@ -166,7 +165,7 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
 
   }
   #appsDiv {
@@ -185,7 +184,25 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
+
+  }
+    #updateDiv {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+      animation: popIn 0.5s ease-out forwards;
 
   }
   #collabDiv {
@@ -204,7 +221,45 @@
     height: 500px; 
     overflow-x: hidden;
     overflow-y: auto;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
+
+  }
+    #soundDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+      animation: popIn 0.5s ease-out forwards;
+
+  }
+   #emulatorDiv {
+    display: none;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #141414;
+    color: white;
+    inset: 0;
+    margin:auto;
+    position: fixed;
+    z-index: 1000;
+    border-radius:20px; 
+    opacity:85%; 
+    width:600px;
+    height: 500px; 
+    overflow-x: hidden;
+    overflow-y: auto;
+      animation: popIn 0.5s ease-out forwards;
 
   }
   #searchDiv {
@@ -223,12 +278,12 @@
     height: 73%; 
     overflow-x: hidden;
     overflow-y: auto;
-    animation: fadeIn 0.3s ease-in-out;
+      animation: popIn 0.5s ease-out forwards;
 
   }
 
   /* Logo Styles */
-  .logo {
+  #logo {
     inset: 0;
     margin:auto;
       position:fixed;
@@ -236,6 +291,8 @@
     font-size: 200px;
     font-family: 'Luckiest Guy', cursive;
     width:500px;
+      animation: popIn 0.5s ease-out forwards;
+
    
   color: white;
 
@@ -255,6 +312,8 @@
     border-radius: 50px ; /* Add !important to ensure it overrides other styles */
     gap: 150px;
     transition: transform 0.3s ease-in-out;
+    font-family: sans-serif;
+    font-size: 15px;
 }
 
 .btn:hover {
@@ -375,12 +434,100 @@
 <div id="collabDiv">
   <button class="close-btn" onclick="document.getElementById('collabDiv').style.display = 'none';">×</button>
   <h1 class="gtext"> Partners </h1>
-  <p color="white" text-align="center">They are partners not sponsers</p>
+  <p color="white" style="text-align: center;">They are partners not sponsers</p>
 
           
      <a href="https://sites.google.com/view/wtex/home?authuser=0">
      <img class="btn" src="rat.gif">
           </a>
+           <a href="https://blackoutgames.pages.dev/">
+     <img class="btn" src="zenith.png">
+          </a>
+        
+     
+        
+       
+
+          
+</div>
+
+<div id="updateDiv">
+  <button class="close-btn" onclick="document.getElementById('updateDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Updates</h1>
+  <h1 style="text-align: center;">Version 1.19</h1>
+  <h2 style="text-align: center; color:white;">I added 3 new games: Riddle school, Riddle school 2, and Riddle school 3.</h2>
+    <h2 style="text-align: center; color:white;">New games and updates are coming soon, make sure to rquest games in our form.</h2>
+
+
+          
+   
+        
+     
+        
+       
+
+          
+</div>
+
+
+<div id="soundDiv">
+  <button class="close-btn" onclick="document.getElementById('soundDiv').style.display = 'none';">×</button>
+  <h1 class="gtext"> Soundboard </h1>
+  <p color="white" style="text-align: center;"></p>
+
+          
+      <button class="btn" data-sound="bruh.mp3">Bruh</button>
+
+    <button class="btn" data-sound="boom.mp3">Vine boom</button>
+
+    <button class="btn" data-sound="indian.mp3">Indian music</button>
+
+    <button class="btn" data-sound="tacobell.mp3">Taco Bell bong</button>
+
+    <button class="btn" data-sound="fart.mp3">Loud Fart</button>
+
+        <script>
+        const buttons = document.querySelectorAll('.btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const soundFile = button.getAttribute('data-sound');
+                
+                const audio = new Audio(soundFile);
+                
+                audio.play();
+            });
+        });
+    </script>
+
+        
+     
+        
+       
+
+          
+</div>
+
+<div id="emulatorDiv">
+  <button class="close-btn" onclick="document.getElementById('emulatorDiv').style.display = 'none';">×</button>
+  <h1 class="gtext">| Emulators |</h1>
+  <p color="white" style="text-align: center;"></p>
+
+  
+           <a href="windows11.html">
+     <img class="btn" src="windows11.png">
+          </a>
+        
+           <a href="emulatorjs.html">
+     <img class="btn" src="emulatorjs.png">
+          </a>
+
+           <a href="webretro.html">
+     <img class="btn" src="emulator.png">
+          </a>
+        
+
+
         
      
         
@@ -404,9 +551,9 @@
   }
 
   </style>
-  <p class="warn">If you get an error, refresh or add https:// to the URL</p>
+  <p class="warn"></p>
 
-  <iframe class="frame" src="/static/index.html"></iframe>
+  <iframe class="frame" src="/active/index.html"></iframe>
   <style>
     .frame{
       width:100%;
@@ -782,7 +929,7 @@
          <a href="knife.html">
           <img class="btn" src="knife.png" alt="knife hit">
          </a> 
-         <a href="/crazycattle3d/index.html">
+         <a href="https://t9lat22.github.io/crazycattle3d/">
           <img class="btn" src="sheep.png" alt="Crazy Cattle 3D">
          </a> 
          <a href="window.html">
@@ -812,6 +959,36 @@
          <a href="bullet.html">
           <img class="btn" src="bullet.png" alt="mr bullet">
          </a> 
+         <a href="/volleyball-random/">
+          <img class="btn" src="volleyball.png" alt="volleyball random">
+         </a> 
+           <a href="granny2.html">
+          <img class="btn" src="granny2.png" alt="Granny 2">
+         </a>
+         <a href="draw.html">
+          <img class="btn" src="draw.png" alt="draw climber">
+         </a>  
+          <a href="snowball.html">
+          <img class="btn" src="snow.png" alt="snowball.io">
+         </a>  
+          <a href="duel.html">
+          <img class="btn" src="duel.png" alt="stickman duel battle">
+         </a>  
+          <a href="pixel.html">
+          <img class="btn" src="pixel.png" alt="Pixel gun 3d">
+         </a>  
+            <a href="duck.html">
+          <img class="btn" src="duck.png" alt="duck life">
+         </a>  
+         <a href="riddle.html">
+          <img class="btn" src="riddle.png" alt="riddle school">
+         </a>  
+            <a href="riddle2.html">
+          <img class="btn" src="riddle2.png" alt="riddle school 2">
+         </a>  
+           <a href="riddle3.html">
+          <img class="btn" src="riddle3.png" alt="riddle school 3">
+         </a>  
 </div>
    
              
@@ -820,7 +997,7 @@
 
 <div class="tnav">
 
-  <a href="https://discord.gg/hWa6UXbjWh">
+  <a href="https://discord.gg/tknXENDkzY">
     <img class="timg" src="discord.png">
   </a>  
 
@@ -836,12 +1013,18 @@
     <img class="timg" src="fullscreen.png">
   </a>
 
-  <a onclick="apps()">
-    <img class="timg" src="apps1.png">
-  </a>
+
 
   <a onclick="collab()">
     <img class="timg" src="collab.png">
+  </a>
+
+    <a onclick="sound()">
+    <img class="timg" src="music.png">
+  </a>
+
+  <a onclick="emulator()">
+    <img class="timg" src="emulator.png">
   </a>
 
 
@@ -851,7 +1034,7 @@
 
 </div>
 
-<img src="logo5.png" class="logo">
+<img src="logo5.png" id="logo">
 
 
 <div id="settingsDiv">
@@ -862,6 +1045,10 @@
 <label class="label" for="background-select">Select Background:</label>
 <select id="background-select">
   <option value="bg4.png">Default</option>
+          <option value="vibes.gif">Synthwave sunset</option>
+
+        <option value="deadpool.gif">Deadpool</option>
+
   <option value="city.jpg">City</option>
   <option value="sunset.jpg">Sunset</option>
   <option value="mountains.jpg">Mountains</option>
@@ -883,11 +1070,8 @@
 
 
 </select>
-<a   onclick="opengame()"  class="round-btn">Hide url</a>
-<a   onclick="
-const text = document.getElementById('logo');
-text.textContent = text.textContent === ' ' ? 'T9' : ' ';
-"  class="round-btn">Toggle logo</a>
+<a   onclick="openGame()"  class="round-btn">Hide url</a>
+<a  id="toggleBTN" class="round-btn">Toggle logo</a>
 
 <style>
    .round-btn {
@@ -949,7 +1133,20 @@ text.textContent = text.textContent === ' ' ? 'T9' : ' ';
   });
 </script>
 
+<script>
+  function emulator(){
+    const div = document.getElementById('emulatorDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
 
+
+<script>
+  function sound(){
+    const div = document.getElementById('soundDiv');
+    div.style.display = div.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
 
 
 
@@ -1000,6 +1197,19 @@ text.textContent = text.textContent === ' ' ? 'T9' : ' ';
     }
   }
 </script>
+
+<script>
+  function openGame() {
+    var win = window.open ()
+    var url = "index.html"
+    var iframe = win.document.createElement('iframe')
+    iframe.style.width = "100%"
+    iframe.style.height = "100%"
+    iframe.style.border = "none"
+    iframe.src = url
+    win.document.body.appendChild(iframe)
+  }
+  </script>
 
 <script>
   document.getElementById('searchBar').addEventListener('input', function () {
@@ -1054,6 +1264,19 @@ if (selectedBackground) {
  });
 });
 
+</script>
+
+<script>
+  const btn = document.getElementById("toggleBTN");
+  const img = document.getElementById("logo");
+
+  btn.addEventListener("click", () => {
+    if (img.style.display === "none") {
+      img.style.display = "block"; 
+    } else {
+      img.style.display = "none";  
+    }
+  });
 </script>
 
 </head>
